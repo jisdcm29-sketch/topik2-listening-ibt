@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>TOPIK II 듣기 교사용 문제지 출력</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <style>
+    :root{
+      --blue:#1a73e8;
+      --blue-dark:#004aaf;
+      --bg:#eaf4ff;
+      --card:#ffffff;
+      --line:#cfe0f5;
+      --soft:#f6fbff;
+      --text:#082b55;
+      --muted:#61748d;
+      --danger:#dc2626;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Malgun Gothic", Arial, sans-serif;
+      font-size:16px;
+    }
+    .topbar{
+      background:var(--blue);
+      color:#fff;
+      padding:26px 32px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .topbar h1{
+      margin:0 0 8px;
+      font-size:30px;
+      letter-spacing:-1px;
+    }
+    .topbar p{
+      margin:0;
+      font-weight:700;
+      opacity:.95;
+    }
+    .back-btn{
+      border:2px solid rgba(255,255,255,.85);
+      color:white;
+      background:transparent;
+      border-radius:10px;
+      padding:12px 20px;
+      font-weight:900;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .app{
+      max-width:1260px;
+      margin:24px auto;
+      padding:0 18px;
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .panel{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:0 2px 10px rgba(24,70,130,.04);
+      margin-bottom:16px;
+    }
+    .panel h2{
+      margin:0 0 16px;
+      font-size:20px;
+      letter-spacing:-.5px;
+    }
+    .field{ margin-bottom:14px; }
+    .field label{
+      display:block;
+      margin-bottom:7px;
+      font-weight:900;
+      color:#0a3266;
+    }
+    input[type="number"], input[type="text"], select{
+      width:100%;
+      padding:11px 12px;
+      border:1px solid #b9d2f2;
+      border-radius:8px;
+      font:inherit;
+      background:#fff;
+    }
+    .hint{
+      margin-top:6px;
+      color:#5d7189;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .round-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 12px;
+      border:1px solid var(--line);
+      background:#f7fbff;
+      border-radius:10px;
+      padding:12px;
+      font-weight:900;
+    }
+    .round-choice{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid #b9d2f2;
+      border-radius:9px;
+      background:#fff;
+      padding:10px 12px;
+      color:#123b6f;
+      cursor:pointer;
+      user-select:none;
+    }
+    .round-choice.active{
+      border-color:#1a73e8;
+      background:#eaf4ff;
+      color:#004aaf;
+    }
+    .round-choice input{ accent-color:#1a73e8; }
+    .checkline{
+      display:block;
+      margin:7px 0;
+      font-weight:800;
+      color:#123b6f;
+    }
+    .btn{
+      width:100%;
+      border:1.5px solid #1a73e8;
+      background:#fff;
+      color:#0053c2;
+      border-radius:9px;
+      padding:12px 12px;
+      font-weight:900;
+      cursor:pointer;
+      margin:6px 0;
+      font-size:15px;
+    }
+    .btn.primary{ background:#1a73e8; color:#fff; }
+    .btn:hover{filter:brightness(.97)}
+    .status{
+      color:#0d4b94;
+      font-size:13px;
+      line-height:1.6;
+      word-break:keep-all;
+    }
+    .preview-shell{
+      min-height:760px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:24px;
+    }
+    .preview-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .preview-head h2{
+      margin:0;
+      font-size:20px;
+    }
+    .preview-head span{
+      color:#0d4b94;
+      font-weight:800;
+      font-size:15px;
+    }
+    .empty{
+      border:2px dashed #c5dcfb;
+      min-height:340px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#60748c;
+      text-align:center;
+      line-height:1.6;
+    }
+    .print-actions{
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      margin:0 0 12px;
+    }
+    .small-btn{
+      border:1px solid #1a73e8;
+      color:#0053c2;
+      background:#fff;
+      border-radius:8px;
+      padding:8px 12px;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    /* TOPIK I형 미리보기 본문 */
+    .paper{
+      color:#082b55;
+      line-height:1.48;
+    }
+    .paper-topline{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      margin:0 0 8px;
+    }
+    .paper h1{
+      margin:0;
+      font-size:30px;
+      color:#003f92;
+      letter-spacing:-1px;
+      font-weight:900;
+    }
+    .paper-summary{
+      color:#0d4b94;
+      font-weight:900;
+      font-size:15px;
+      white-space:nowrap;
+    }
+    .paper-meta{
+      font-size:13px;
+      color:#42617f;
+      font-weight:800;
+      margin:6px 0 10px;
+    }
+    .blue-rule{
+      height:4px;
+      background:#1a73e8;
+      border-radius:8px;
+      margin:8px 0 18px;
+    }
+    .question-card{
+      border:1px solid #cfe0f5;
+      border-radius:12px;
+      padding:16px 16px 18px;
+      margin:0 0 14px;
+      background:#fff;
+      break-inside:avoid;
+      page-break-inside:avoid;
+    }
+    .question-card.correct-inline{
+      border-color:#a8cdfc;
+    }
+    .q-card-head{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      margin:0 0 10px;
+    }
+    .q-title{
+      margin:0;
+      color:#061f43;
+      font-weight:900;
+      font-size:19px;
+      letter-spacing:-.4px;
+    }
+    .q-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      justify-content:flex-end;
+      min-width:210px;
+    }
+    .q-badge{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      background:#eef6ff;
+      color:#0d4b94;
+      font-size:12px;
+      font-weight:900;
+      padding:5px 9px;
+      white-space:nowrap;
+    }
+    .answer-inline{
+      color:#d71920;
+      font-weight:900;
+      margin-left:8px;
+      font-size:15px;
+    }
+    .q-instruction{
+      margin:0 0 10px;
+      font-weight:900;
+      color:#0a3266;
+      line-height:1.45;
+    }
+    .q-instruction-first{
+      border-left:4px solid var(--blue);
+      padding-left:8px;
+      margin-bottom:10px;
+    }
+    .example-box{
+      margin:8px 0 12px;
+      border:2px solid #1a73e8;
+      border-radius:10px;
+      background:#f7fbff;
+      padding:12px 14px;
+      font-weight:800;
+    }
+    .options{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:9px;
+    }
+    .option-row{
+      display:grid;
+      grid-template-columns:32px 1fr;
+      align-items:start;
+      gap:8px;
+      font-size:16px;
+      min-height:28px;
+      color:#111827;
+      font-weight:700;
+    }
+    .option-badge,
+    .visual-choice .badge{
+      width:26px;
+      height:26px;
+      border:2px solid #b9d7ff;
+      color:#1a73e8;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      background:#fff;
+      line-height:1;
+      font-size:14px;
+      flex:none;
+    }
+    .visual-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px 14px;
+      margin-top:10px;
+    }
+    .visual-choice{
+      border:1px solid #bcd4f5;
+      border-radius:10px;
+      padding:6px;
+      display:grid;
+      grid-template-columns:28px 1fr;
+      gap:6px;
+      align-items:start;
+      background:#fff;
+    }
+    .visual-choice img{
+      width:100%;
+      height:auto;
+      max-height:260px;
+      object-fit:contain;
+      object-position:center center;
+      display:block;
+      border:1px solid #777;
+      background:white;
+    }
+    .set-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      break-inside:avoid;
+      page-break-inside:avoid;
+      margin:0 0 14px;
+    }
+    .set-wrap .question-card{ margin-bottom:0; }
+    .answer-table{
+      border-collapse:collapse;
+      width:100%;
+      margin-top:12px;
+      font-size:16px;
+    }
+    .answer-table th,.answer-table td{
+      border:1px solid #cbd8ea;
+      padding:8px 10px;
+      text-align:center;
+    }
+    .answer-table th{ background:#eaf3ff; color:#0b376d; }
+    .answer-card{
+      border:1px solid #cfe0f5;
+      border-radius:12px;
+      padding:16px;
+      background:#fff;
+      margin-top:18px;
+    }
+    .answer-card h2{
+      margin:0 0 8px;
+      color:#003f92;
+      font-size:22px;
+    }
+
+
+
+    /* Step 34: 정답표 출력 안정화
+       - 문제지+정답표 출력 시 정답표는 새 페이지에서 시작
+       - 선택 문항 수에 맞게 정답표 열 수를 자동 조정
+       - 정답표가 페이지 중간에서 잘리지 않도록 보호 */
+    .answer-card.answer-new-page{
+      margin-top:28px;
+    }
+    .answer-card.answer-compact{
+      max-width:100%;
+    }
+    .answer-table th,
+    .answer-table td{
+      vertical-align:middle;
+    }
+    .answer-table .answer-question-cell{
+      white-space:nowrap;
+      font-size:13px;
+      letter-spacing:-.2px;
+      font-weight:800;
+      color:#0b376d;
+    }
+
+
+    /* Step 29: 이미지가 선택지 박스 안에서 잘리거나 겹쳐 보이지 않도록 고정 */
+    .visual-choice{
+      overflow:hidden;
+    }
+    .visual-choice img{
+      box-sizing:border-box;
+    }
+
+
+
+    /* Step 32: 21~50번 세트 문항 카드 미세 조정
+       - 우측 배지가 제목 영역을 지나치게 좁히지 않도록 절대 배치
+       - 긴 제목/선택지가 한국어 단어 단위로 자연스럽게 줄바꿈되도록 조정
+       - 세트 카드 내부 여백을 조금 줄여 PDF 페이지 안정성 개선 */
+    .q-title,
+    .option-row,
+    .q-instruction{
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    .set-wrap .question-card{
+      position:relative;
+      padding:14px 14px 15px;
+    }
+    .set-wrap .q-card-head{
+      display:block;
+      padding-right:145px;
+      min-height:42px;
+      margin-bottom:7px;
+    }
+    .set-wrap .q-title{
+      font-size:18px;
+      line-height:1.36;
+      letter-spacing:-.45px;
+      max-width:100%;
+    }
+    .set-wrap .q-badges{
+      position:absolute;
+      top:14px;
+      right:14px;
+      min-width:0;
+      max-width:135px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:4px;
+    }
+    .set-wrap .q-badge{
+      font-size:11px;
+      padding:4px 7px;
+      max-width:135px;
+      white-space:nowrap;
+    }
+    .set-wrap .q-instruction{
+      font-size:15px;
+      line-height:1.35;
+      margin-bottom:8px;
+    }
+    .set-wrap .options{
+      gap:8px;
+      margin-top:8px;
+    }
+    .set-wrap .option-row{
+      font-size:15.5px;
+      line-height:1.42;
+      min-height:26px;
+    }
+
+
+    /* Step 33: 21~50번 세트 문항 배지 축소·간결화
+       - 원문항/유형 배지가 제목을 밀거나 오른쪽에서 잘리지 않도록 축약 표시
+       - 화면과 PDF 모두에서 세트 카드 제목 영역을 조금 더 넓게 확보 */
+    .set-wrap .q-card-head{
+      padding-right:112px;
+      min-height:38px;
+    }
+    .set-wrap .q-badges{
+      max-width:104px;
+    }
+    .set-wrap .q-badge{
+      font-size:10px;
+      line-height:1.15;
+      padding:3px 6px;
+      max-width:104px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    @media print{
+      @page{size:A4 portrait; margin:12mm;}
+      body{background:#fff; font-size:12px;}
+      .topbar,.app>.left,.preview-head,.print-actions{display:none !important;}
+      .app{display:block; max-width:none; margin:0; padding:0;}
+      .preview-shell{border:0; padding:0; min-height:0;}
+      .paper h1{font-size:22px;}
+      .paper-summary,.paper-meta{font-size:10px;}
+      .blue-rule{height:3px; margin:6px 0 12px;}
+      .question-card{padding:10px 10px 12px; margin-bottom:9px; border-radius:8px;}
+      .q-title{font-size:13px;}
+      .q-card-head{margin-bottom:6px;}
+      .q-badges{min-width:150px; gap:4px;}
+      .q-badge{font-size:9px; padding:3px 6px;}
+      .q-instruction{font-size:11px; margin:5px 0 7px;}
+      .option-row{font-size:11px; grid-template-columns:24px 1fr; gap:4px; min-height:20px;}
+      .option-badge{width:19px;height:19px;font-size:10px;border-width:1.5px;}
+      .visual-grid{gap:6px 7px; max-width:100%;}
+      .visual-choice{padding:4px; grid-template-columns:20px 1fr; gap:4px; border-radius:7px; overflow:hidden;}
+      .visual-choice .badge{width:19px;height:19px;font-size:10px;border-width:1.5px;}
+      .visual-choice img{height:auto; max-height:140px; object-fit:contain; object-position:center center;}
+      .set-wrap{gap:8px; margin-bottom:9px;}
+      .set-wrap .question-card{position:relative; padding:8px 8px 9px;}
+      .set-wrap .q-card-head{display:block; padding-right:70px; min-height:27px; margin-bottom:4px;}
+      .set-wrap .q-title{font-size:12px; line-height:1.25; letter-spacing:-.25px; word-break:keep-all; overflow-wrap:break-word;}
+      .set-wrap .q-badges{position:absolute; top:8px; right:8px; min-width:0; max-width:64px; gap:2px;}
+      .set-wrap .q-badge{font-size:7.1px; line-height:1.1; padding:2px 3px; max-width:64px; overflow:hidden; text-overflow:ellipsis;}
+      .set-wrap .q-instruction{font-size:9.5px; line-height:1.25; margin:0 0 4px; word-break:keep-all;}
+      .set-wrap .options{gap:5px; margin-top:5px;}
+      .set-wrap .option-row{font-size:9.8px; line-height:1.28; grid-template-columns:22px 1fr; gap:3px; min-height:17px; word-break:keep-all; overflow-wrap:break-word;}
+      .answer-card{
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+      .answer-card.answer-new-page{
+        break-before:page;
+        page-break-before:always;
+        margin-top:0;
+      }
+      .answer-card h2{font-size:18px;}
+      .answer-table{font-size:11px;}
+      .answer-table th,.answer-table td{padding:6px 7px;}
+    }
+  </style>
+  <!-- step34 answer-key table page break and dynamic columns fix -->
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>TOPIK II 듣기 교사용 문제지 출력</h1>
+      <p>TOPIK II 듣기 문제은행 기준 · 학생용 문제지 · 교사용 정답표 · 선택 오디오 ZIP 다운로드</p>
+    </div>
+    <button class="back-btn" type="button" onclick="location.href='./index.html?v=step34answerkeyfix01&t='+Date.now()">시험 화면으로 돌아가기</button>
+  </header>
+
+  <main class="app">
+    <aside class="left">
+      <section class="panel">
+        <h2>출력 조건</h2>
+        <div class="field">
+          <label for="startNo">원본 시작 번호</label>
+          <input id="startNo" type="number" min="1" max="50" value="1">
+        </div>
+        <div class="field">
+          <label for="endNo">원본 끝 번호</label>
+          <input id="endNo" type="number" min="1" max="50" value="4">
+          <div class="hint">예: 1~4번 유형만 보려면 시작 1, 끝 4로 설정합니다. 긴 대화 세트는 일부 번호만 선택해도 세트 전체가 자동 포함됩니다.</div>
+        </div>
+        <div class="field">
+          <label for="limitNo">출력 문항 수</label>
+          <input id="limitNo" type="number" min="0" max="50" value="0">
+          <div class="hint">0이면 조건에 맞는 전체 문항을 출력합니다.</div>
+        </div>
+        <div class="field">
+          <label for="orderMode">출력 순서</label>
+          <select id="orderMode">
+            <option value="question">문항 번호순(회차 교차)</option>
+            <option value="round">회차별 묶음 번호순</option>
+            <option value="questionReverse">문항 번호 역순(회차 교차)</option>
+            <option value="roundReverse">회차별 묶음 역순</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>출제 회차</h2>
+        <div id="roundList" class="round-box">
+          <div class="hint">시험 목록을 불러오는 중입니다.</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>출력 옵션</h2>
+        <label class="checkline"><input id="showSource" type="checkbox" checked> 문항에 원본 회차·원본 번호 표시</label>
+        <label class="checkline"><input id="showAnswerInline" type="checkbox"> 문제 옆에 정답 표시</label>
+        <label class="checkline"><input id="appendAnswerKey" type="checkbox"> 마지막에 정답표 포함</label>
+        <div class="field" style="margin-top:12px;">
+          <label for="paperTitle">문제지 제목</label>
+          <input id="paperTitle" type="text" value="TOPIK II 듣기 교사용 문제지">
+        </div>
+      </section>
+
+      <section class="panel">
+        <button class="btn primary" id="previewBtn" type="button">문제지 미리보기 생성</button>
+        <button class="btn" id="studentPrintBtn" type="button">학생용 문제지 PDF로 인쇄 / 저장</button>
+        <button class="btn" id="teacherPrintBtn" type="button">문제지+정답표 PDF로 인쇄 / 저장</button>
+        <button class="btn" id="answerPrintBtn" type="button">교사용 정답표 PDF로 인쇄 / 저장</button>
+        <button class="btn" id="audioCsvBtn" type="button">오디오 매핑표 CSV 다운로드</button>
+        <button class="btn" id="audioListBtn" type="button">선택 오디오 ZIP 다운로드</button>
+        <button class="btn" id="resetBtn" type="button">초기화</button>
+      </section>
+
+      <section class="panel">
+        <h2>상태</h2>
+        <div id="status" class="status">문제은행 로드 중...</div>
+      </section>
+    </aside>
+
+    <section class="preview-shell">
+      <div id="preview" class="empty">왼쪽에서 조건을 정한 뒤 [문제지 미리보기 생성]을 누르세요.</div>
+    </section>
+  </main>
+
+<script>
+(function(){
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const MANIFEST_URL = "./data/exam-manifest.json";
+  const state = { exam:null, exams:[], flat:[], selected:[], manifest:null, examEntries:[], selectedExamUrls:[] };
+
+  function qs(name){ return new URLSearchParams(location.search).get(name); }
+  function escapeHtml(s){
+    return String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+  }
+  function normalizePath(path){
+    if(!path) return "";
+    if(path.startsWith("http://") || path.startsWith("https://") || path.startsWith("data:")) return path;
+    if(path.startsWith("./")) return path;
+    if(path.startsWith("/")) return "." + path;
+    return "./" + path.replace(/^listening-test\//, "");
+  }
+  function normalizeFileParam(){
+    const file = qs("file");
+    if(file){
+      if(file.startsWith("/")) return "." + file;
+      if(file.startsWith("./")) return file;
+      return "./" + file;
+    }
+    return "./data/exams/listening-103.json";
+  }
+  function comparablePath(path){
+    return normalizePath(path || "")
+      .replace(/^\.\//, "")
+      .replace(/^listening-test\//, "");
+  }
+  function entryLabel(entry){
+    return entry?.short_label || entry?.label || (entry?.source_round ? entry.source_round + "회" : "") || entry?.exam_id || "시험지";
+  }
+  function roundNumberFromEntry(entry){
+    return String(entry?.source_round || entryLabel(entry).replace(/[^\d]/g, "") || "").trim();
+  }
+  function selectedRoundNumbers(){
+    const selected = new Set((state.selectedExamUrls || []).map(comparablePath));
+    const nums = state.examEntries
+      .filter((entry) => selected.has(comparablePath(entry.test_file)))
+      .map(roundNumberFromEntry)
+      .filter(Boolean);
+    if(nums.length) return nums;
+    return (state.exams || []).map((exam) => String(exam.source_round || "")).filter(Boolean);
+  }
+  function selectedRoundLabel(){
+    const nums = Array.from(new Set(selectedRoundNumbers()));
+    if(nums.length === 0) return String(state.exam?.source_round || "103");
+    return nums.join("·");
+  }
+  function selectedRoundText(){
+    const label = selectedRoundLabel();
+    return label ? label + "회" : "선택 회차";
+  }
+  function selectedRoundTitleText(){
+    const nums = Array.from(new Set(selectedRoundNumbers()));
+    if(nums.length === 0) return "선택 회차";
+    return nums.map((num) => "제" + num + "회").join("·");
+  }
+  function answerQuestionLabel(item){
+    const round = item.source_round || "";
+    const no = getOriginalNo(item);
+    return (round ? round + "회 " : "") + no + "번";
+  }
+  function roundOrderIndex(item){
+    const round = String(item.source_round || "");
+    const nums = selectedRoundNumbers();
+    const idx = nums.indexOf(round);
+    return idx >= 0 ? idx : 999;
+  }
+  function compareByQuestionThenRound(a, b, direction = 1){
+    const noDiff = getOriginalNo(a) - getOriginalNo(b);
+    if(noDiff) return noDiff * direction;
+    const roundDiff = roundOrderIndex(a) - roundOrderIndex(b);
+    if(roundDiff) return roundDiff;
+    return String(a.source_round || "").localeCompare(String(b.source_round || ""));
+  }
+  function compareByRoundThenQuestion(a, b, direction = 1){
+    const roundDiff = roundOrderIndex(a) - roundOrderIndex(b);
+    if(roundDiff) return roundDiff * direction;
+    const noDiff = getOriginalNo(a) - getOriginalNo(b);
+    if(noDiff) return noDiff * direction;
+    return String(a.source_round || "").localeCompare(String(b.source_round || ""));
+  }
+  function sortSelectedItems(items){
+    const mode = $("orderMode").value || "question";
+    const copy = items.slice();
+
+    if(mode === "round"){
+      return copy.sort((a,b) => compareByRoundThenQuestion(a,b,1));
+    }
+    if(mode === "questionReverse"){
+      return copy.sort((a,b) => compareByQuestionThenRound(a,b,-1));
+    }
+    if(mode === "roundReverse"){
+      return copy.sort((a,b) => compareByRoundThenQuestion(a,b,-1));
+    }
+    // 기본값: 문항 번호순(회차 교차)
+    return copy.sort((a,b) => compareByQuestionThenRound(a,b,1));
+  }
+  function selectedRoundSlug(){
+    const slug = selectedRoundLabel().replace(/[^\d]+/g, "-").replace(/^-|-$/g, "");
+    return slug || "selected";
+  }
+  async function loadManifest(){
+    try{
+      state.manifest = await fetchJson(MANIFEST_URL);
+      state.examEntries = (state.manifest.exams || []).filter((entry) =>
+        entry &&
+        entry.enabled !== false &&
+        entry.student_visible !== false &&
+        entry.exam_type === "full" &&
+        entry.test_file
+      );
+    }catch(err){
+      state.manifest = null;
+      state.examEntries = [];
+    }
+  }
+  function getCheckedRoundUrls(){
+    return Array.from(document.querySelectorAll('input[name="teacherRound"]:checked'))
+      .map((input) => input.value)
+      .filter(Boolean);
+  }
+  function renderRoundList(){
+    const box = $("roundList");
+    if(!box) return;
+    box.innerHTML = "";
+
+    if(!state.examEntries.length){
+      const label = document.createElement("label");
+      label.className = "round-choice active";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.checked = true;
+      input.disabled = true;
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(" " + (state.exam?.source_round || "103") + "회"));
+      box.appendChild(label);
+      return;
+    }
+
+    const selected = new Set((state.selectedExamUrls || []).map(comparablePath));
+
+    const toolbar = document.createElement("div");
+    toolbar.style.gridColumn = "1 / -1";
+    toolbar.style.display = "grid";
+    toolbar.style.gridTemplateColumns = "1fr 1fr";
+    toolbar.style.gap = "8px";
+
+    const allBtn = document.createElement("button");
+    allBtn.type = "button";
+    allBtn.className = "btn";
+    allBtn.style.margin = "0";
+    allBtn.style.padding = "9px";
+    allBtn.textContent = "전체 선택";
+    allBtn.addEventListener("click", () => {
+      state.selectedExamUrls = state.examEntries.map((entry) => normalizePath(entry.test_file));
+      loadSelectedRoundExams();
+    });
+
+    const firstBtn = document.createElement("button");
+    firstBtn.type = "button";
+    firstBtn.className = "btn";
+    firstBtn.style.margin = "0";
+    firstBtn.style.padding = "9px";
+    firstBtn.textContent = "첫 회차만";
+    firstBtn.addEventListener("click", () => {
+      state.selectedExamUrls = [normalizePath(state.examEntries[0].test_file)];
+      loadSelectedRoundExams();
+    });
+
+    toolbar.appendChild(allBtn);
+    toolbar.appendChild(firstBtn);
+    box.appendChild(toolbar);
+
+    state.examEntries.forEach((entry) => {
+      const label = document.createElement("label");
+      const target = normalizePath(entry.test_file);
+      const isActive = selected.has(comparablePath(target));
+      label.className = "round-choice" + (isActive ? " active" : "");
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.name = "teacherRound";
+      input.value = target;
+      input.checked = isActive;
+      input.addEventListener("change", () => {
+        const checked = getCheckedRoundUrls();
+        if(checked.length === 0){
+          input.checked = true;
+          alert("최소 1개 회차는 선택해야 합니다.");
+          return;
+        }
+        state.selectedExamUrls = checked;
+        loadSelectedRoundExams();
+      });
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(" " + entryLabel(entry)));
+      box.appendChild(label);
+    });
+  }
+  async function fetchJson(url){
+    const res = await fetch(url, {cache:"no-store"});
+    if(!res.ok) throw new Error(url + " 로드 실패: " + res.status);
+    return res.json();
+  }
+  function flattenExam(exam){
+    const out = [];
+    (exam.items || []).forEach((entry) => {
+      if(entry && Array.isArray(entry.items)){
+        entry.items.forEach((it) => out.push({
+          ...it,
+          set_id: entry.set_id || it.set_id || "",
+          set_type: entry.set_type || "",
+          audio_url: it.audio_url || entry.audio_url || "",
+          source_audio_file: it.source_audio_file || entry.source_audio_file || "",
+          audio_group_id: entry.audio_group_id || it.audio_group_id || "",
+          audio_group_numbers: entry.audio_group_numbers || it.audio_group_numbers || [],
+          source_round: it.source_round || entry.source_round || exam.source_round || ""
+        }));
+      }else if(entry){
+        out.push({...entry, source_round: entry.source_round || exam.source_round || ""});
+      }
+    });
+    return out.sort((a,b)=>getOriginalNo(a)-getOriginalNo(b));
+  }
+  function getOriginalNo(item){ return Number(item.original_question_number || item.question_number || 0); }
+  function getOptions(item){
+    if(!Array.isArray(item.options)) return [];
+    return item.options.map((op, idx) => {
+      if(typeof op === "string") return {number:idx+1, text:op};
+      return { number:op.number || op.option_number || op.value || idx+1, text:op.text || op.label || op.content || String(op) };
+    });
+  }
+  function getImages(item){
+    const arr = [];
+    if(Array.isArray(item.image_options)){
+      item.image_options.forEach((im, idx) => {
+        if(typeof im === "string") arr.push({number:idx+1, src:normalizePath(im)});
+        else if(im) arr.push({number: im.option_number || im.number || im.value || idx+1, src: normalizePath(im.image_url || im.url || im.src || "")});
+      });
+    }
+    if(arr.length === 0 && item.image_url) arr.push({number:1, src:normalizePath(item.image_url)});
+    return arr.filter(x=>x.src);
+  }
+  function typeLabel(item){
+    return item.category || item.diagnostic_area || item.type || "듣기 문항";
+  }
+  function selectedItems(){
+    const start = Number($("startNo").value || 1);
+    const end = Number($("endNo").value || 50);
+    const low = Math.min(start,end);
+    const high = Math.max(start,end);
+    const initial = state.flat.filter(it => {
+      const no = getOriginalNo(it);
+      return no >= low && no <= high;
+    });
+    const setIds = new Set(initial.map(it => it.set_id).filter(Boolean));
+    let items = state.flat.filter(it => {
+      const no = getOriginalNo(it);
+      return (no >= low && no <= high) || (it.set_id && setIds.has(it.set_id));
+    });
+    items = sortSelectedItems(items);
+    const limit = Number($("limitNo").value || 0);
+    if(limit > 0) items = items.slice(0, limit);
+    state.selected = items;
+    return items;
+  }
+  function groupForRender(items){
+    const groups = [];
+    const used = new Set();
+    items.forEach(it => {
+      const sid = it.set_id || "";
+      if(sid && !used.has("set:"+sid)){
+        const setItems = sortSelectedItems(items.filter(x => x.set_id === sid));
+        groups.push({type:"set", id:sid, items:setItems});
+        used.add("set:"+sid);
+      }else if(!sid){
+        groups.push({type:"single", item:it});
+      }
+    });
+    return groups;
+  }
+  function uniqueAudioRows(items){
+    const rows = [];
+    const seen = new Set();
+    items.forEach(it => {
+      const audio = it.audio_url || "";
+      if(!audio || seen.has(audio)) return;
+      seen.add(audio);
+      const nums = items
+        .filter(x => x.audio_url === audio)
+        .map(x => answerQuestionLabel(x))
+        .join(", ");
+      const round = it.source_round || "";
+      rows.push({
+        question_numbers:nums,
+        audio_url:audio,
+        source_audio_file:it.source_audio_file || "",
+        basename:String(audio).split("/").pop(),
+        round:round
+      });
+    });
+    return rows;
+  }
+  function compactTypeLabel(item){
+    const label = typeLabel(item);
+    if(/들은\s*내용|내용과\s*같은/.test(label)) return "내용 일치";
+    if(/중심\s*생각/.test(label)) return "중심 생각";
+    if(/태도|말하는\s*방식/.test(label)) return "태도 방식";
+    if(/행동|의도/.test(label)) return "행동·의도";
+    if(/인물|신분|역할/.test(label)) return "인물·역할";
+    if(/주제|내용|이유/.test(label)) return "주제·이유";
+    return label.replace(/\s*고르기\s*$/,"").replace(/\s*파악하기\s*$/,"");
+  }
+
+  function badges(item){
+    const bits = [];
+    const qno = getOriginalNo(item);
+    const isSetRange = qno >= 21;
+    const round = item.source_round || state.exam.source_round || "103";
+    if($("showSource").checked){
+      bits.push(isSetRange ? (round + "회 " + qno + "번") : (round + "회 원문항 " + qno + "번"));
+    }
+    bits.push(isSetRange ? compactTypeLabel(item) : typeLabel(item));
+    return '<div class="q-badges">' + bits.map(b => '<span class="q-badge">' + escapeHtml(b) + '</span>').join("") + '</div>';
+  }
+
+  function getInstructionText(item){
+    const question = item.question || item.instruction || "문항";
+    const instruction = item.instruction && item.instruction !== question ? item.instruction : "";
+    return String(instruction || "").trim();
+  }
+
+  function instructionKey(item){
+    return getInstructionText(item).replace(/\s+/g, " ").trim();
+  }
+
+  function renderItem(item, includeAnswer, showInstruction){
+    const qno = getOriginalNo(item);
+    const question = item.question || item.instruction || "문항";
+    const instruction = getInstructionText(item);
+    const images = getImages(item);
+    const options = getOptions(item);
+    const answer = includeAnswer ? '<span class="answer-inline">정답: ' + escapeHtml(item.correct_answer || "") + '</span>' : "";
+    let out = '<article class="question-card' + (includeAnswer ? ' correct-inline' : '') + '">';
+
+    // TOPIK I형 출력 순서:
+    // 유형 묶음 지시문([4~8]..., [9~12]...)은 문항 질문보다 먼저 1회만 표시한다.
+    if(showInstruction && instruction) out += '<p class="q-instruction q-instruction-first">' + escapeHtml(instruction) + '</p>';
+
+    out += '<div class="q-card-head"><h3 class="q-title">' + qno + '. ' + escapeHtml(question) + answer + '</h3>' + badges(item) + '</div>';
+    if(images.length){
+      out += '<div class="visual-grid">';
+      images.forEach(im => {
+        out += '<div class="visual-choice"><span class="badge">' + escapeHtml(im.number) + '</span><img src="' + im.src + '" alt="선택지 ' + escapeHtml(im.number) + '"></div>';
+      });
+      out += '</div>';
+    }else if(options.length){
+      out += '<ul class="options">';
+      options.forEach(op => out += '<li class="option-row"><span class="option-badge">' + escapeHtml(op.number) + '</span><span>' + escapeHtml(op.text) + '</span></li>');
+      out += '</ul>';
+    }
+    out += '</article>';
+    return out;
+  }
+  function renderAnswerTable(items, options = {}){
+    const sorted = sortSelectedItems(items);
+    const pageClass = options.newPage ? " answer-new-page" : "";
+    const pairCount = Math.max(1, Math.min(5, Math.ceil(sorted.length / 10)));
+    const rowCount = Math.max(1, Math.ceil(sorted.length / pairCount));
+    let out = '<section class="answer-card answer-compact' + pageClass + '"><h2>교사용 정답표</h2>';
+    out += '<table class="answer-table answer-cols-' + pairCount + '"><thead><tr>';
+    for(let i=0;i<pairCount;i++) out += '<th>문제</th><th>정답</th>';
+    out += '</tr></thead><tbody>';
+    for(let row=0; row<rowCount; row++){
+      out += '<tr>';
+      for(let col=0; col<pairCount; col++){
+        const it = sorted[row + col*rowCount];
+        out += it
+          ? '<td class="answer-question-cell">' + escapeHtml(answerQuestionLabel(it)) + '</td><td><b>' + escapeHtml(it.correct_answer || "") + '</b></td>'
+          : '<td></td><td></td>';
+      }
+      out += '</tr>';
+    }
+    out += '</tbody></table></section>';
+    return out;
+  }
+    function renderPaper(mode){
+    const items = selectedItems();
+    const audios = uniqueAudioRows(items);
+    const includeInline = mode === "teacher-inline" || $("showAnswerInline").checked;
+    const appendKey = mode === "teacher-key" || $("appendAnswerKey").checked;
+    const title = $("paperTitle").value || "TOPIK II 듣기 교사용 문제지";
+    const rounds = selectedRoundText();
+    const now = new Date();
+
+    let out = '<div class="paper">';
+    out += '<div class="paper-topline"><h1>' + escapeHtml(title) + '</h1><div class="paper-summary">' + items.length + '문항 / 오디오 ' + audios.length + '개 / ' + escapeHtml(rounds) + '</div></div>';
+    out += '<div class="paper-meta">학생용 문제지 · 문항 수 ' + items.length + ' · 오디오 ' + audios.length + '개 · 회차 ' + escapeHtml(rounds) + ' · 생성 ' + now.toLocaleDateString() + '</div>';
+    out += '<div class="blue-rule"></div>';
+
+    const printedInstructions = new Set();
+    function shouldPrintInstruction(item){
+      const key = instructionKey(item);
+      if(!key) return false;
+      if(printedInstructions.has(key)) return false;
+      printedInstructions.add(key);
+      return true;
+    }
+
+    groupForRender(items).forEach(group => {
+      if(group.type === "set"){
+        out += '<div class="set-wrap">';
+        group.items.forEach(it => out += renderItem(it, includeInline, shouldPrintInstruction(it)));
+        out += '</div>';
+      }else{
+        out += renderItem(group.item, includeInline, shouldPrintInstruction(group.item));
+      }
+    });
+    if(appendKey) out += renderAnswerTable(items, {newPage:true});
+    out += '</div>';
+    $("preview").className = "";
+    $("preview").innerHTML = out;
+  }
+  function renderAnswerOnly(){
+    const items = selectedItems();
+    let out = '<div class="paper">';
+    out += '<div class="paper-topline"><h1>' + escapeHtml(selectedRoundTitleText()) + ' TOPIK II 듣기 교사용 정답표</h1><div class="paper-summary">' + items.length + '문항</div></div>';
+    out += '<div class="blue-rule"></div>' + renderAnswerTable(items) + '</div>';
+    $("preview").className = "";
+    $("preview").innerHTML = out;
+  }
+  function printCurrent(){ setTimeout(()=>window.print(), 100); }
+  function downloadText(filename, text, type="text/plain"){
+    const blob = new Blob([text], {type:type+";charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 300);
+  }
+  function downloadAudioCsv(){
+    const rows = [["question_numbers","audio_file","source_audio_file","audio_url"]];
+    uniqueAudioRows(selectedItems()).forEach(row => {
+      const audioFile = row.basename || String(row.audio_url || "").split("/").pop();
+      rows.push([row.question_numbers, audioFile, row.source_audio_file, row.audio_url]);
+    });
+    const csv = rows.map(row => row.map(v => '"' + String(v ?? "").replace(/"/g,'""') + '"').join(",")).join("\r\n");
+    const round = selectedRoundSlug();
+    downloadText("topik2-" + round + "-selected-audio-mapping.csv", csv, "text/csv");
+  }
+  function crc32(bytes){
+    if(!window.__topik2CrcTable){
+      const table = [];
+      for(let n=0; n<256; n++){
+        let c = n;
+        for(let k=0; k<8; k++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+        table[n] = c >>> 0;
+      }
+      window.__topik2CrcTable = table;
+    }
+    let crc = 0 ^ -1;
+    const table = window.__topik2CrcTable;
+    for(let i=0; i<bytes.length; i++) crc = (crc >>> 8) ^ table[(crc ^ bytes[i]) & 0xff];
+    return (crc ^ -1) >>> 0;
+  }
+  function dosDateTime(date){
+    return { time:(date.getHours()<<11)|(date.getMinutes()<<5)|Math.floor(date.getSeconds()/2), date:((Math.max(1980,date.getFullYear())-1980)<<9)|((date.getMonth()+1)<<5)|date.getDate() };
+  }
+  function u16(v){ const a=new Uint8Array(2); new DataView(a.buffer).setUint16(0,v,true); return a; }
+  function u32(v){ const a=new Uint8Array(4); new DataView(a.buffer).setUint32(0,v>>>0,true); return a; }
+  function concatBytes(chunks){ const size=chunks.reduce((s,c)=>s+c.length,0); const out=new Uint8Array(size); let o=0; chunks.forEach(c=>{out.set(c,o); o+=c.length;}); return out; }
+  function makeZip(entries){
+    const enc = new TextEncoder();
+    const now = dosDateTime(new Date());
+    const chunks = [], central = [];
+    let offset = 0;
+    entries.forEach(entry => {
+      const nameBytes = enc.encode(entry.name.replace(/\\/g, "/"));
+      const data = entry.data instanceof Uint8Array ? entry.data : new Uint8Array(entry.data);
+      const crc = crc32(data);
+      const local = concatBytes([u32(0x04034b50),u16(20),u16(0x0800),u16(0),u16(now.time),u16(now.date),u32(crc),u32(data.length),u32(data.length),u16(nameBytes.length),u16(0),nameBytes,data]);
+      chunks.push(local);
+      central.push(concatBytes([u32(0x02014b50),u16(20),u16(20),u16(0x0800),u16(0),u16(now.time),u16(now.date),u32(crc),u32(data.length),u32(data.length),u16(nameBytes.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset),nameBytes]));
+      offset += local.length;
+    });
+    const centralOffset = offset;
+    const centralBytes = concatBytes(central);
+    chunks.push(centralBytes);
+    chunks.push(concatBytes([u32(0x06054b50),u16(0),u16(0),u16(entries.length),u16(entries.length),u32(centralBytes.length),u32(centralOffset),u16(0)]));
+    return new Blob([concatBytes(chunks)], {type:"application/zip"});
+  }
+  function downloadBlob(filename, blob){
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 500);
+  }
+  async function downloadAudioZip(){
+    const items = selectedItems();
+    const rows = uniqueAudioRows(items);
+    if(rows.length === 0){ alert("선택된 문항에 오디오 파일 정보가 없습니다."); return; }
+    $("status").innerHTML = "선택 오디오 ZIP 생성 중...<br>선택 오디오: " + rows.length + "개";
+    const enc = new TextEncoder();
+    const round = selectedRoundSlug();
+    const entries = [];
+    const csvRows = [["question_numbers","audio_file","source_audio_file","audio_url"]];
+    const failed = [];
+    for(const row of rows){
+      const url = normalizePath(row.audio_url);
+      const safeName = row.basename || ("audio-" + rows.indexOf(row) + ".mp3");
+      csvRows.push([row.question_numbers, safeName, row.source_audio_file, row.audio_url]);
+      try{
+        const res = await fetch(url, {cache:"no-store"});
+        if(!res.ok) throw new Error("HTTP " + res.status);
+        const zipNameMatch = comparablePath(row.audio_url).match(/audio\/[^\/]+\/[^\/]+$/);
+        const zipName = zipNameMatch ? zipNameMatch[0] : ("audio/" + round + "/" + safeName);
+        entries.push({ name:zipName, data:new Uint8Array(await res.arrayBuffer()) });
+      }catch(err){
+        failed.push(row.question_numbers + "번: " + row.audio_url + " (" + err.message + ")");
+      }
+    }
+    const csv = csvRows.map(r => r.map(v => '"' + String(v ?? "").replace(/"/g,'""') + '"').join(",")).join("\r\n");
+    entries.push({name:"audio-mapping.csv", data:enc.encode(csv)});
+    entries.push({name:"README.txt", data:enc.encode("TOPIK II 듣기 선택 오디오 ZIP\r\n회차: " + selectedRoundText() + "\r\n선택 문항: " + items.map(x => (x.source_round || "") + "회 " + getOriginalNo(x) + "번").join(", ") + "\r\n오디오 파일 수: " + rows.length + "\r\n생성 시각: " + new Date().toLocaleString() + "\r\n")});
+    downloadBlob("topik2-" + round + "-selected-audio.zip", makeZip(entries));
+    $("status").innerHTML = "선택 오디오 ZIP 생성 완료<br>선택 문항: " + items.length + "문항<br>오디오 파일: " + rows.length + "개" + (failed.length ? "<br><span style='color:#dc2626'>다운로드 실패: " + failed.length + "개</span>" : "");
+  }
+  function reset(){
+    $("startNo").value = 1; $("endNo").value = 4; $("limitNo").value = 0; $("orderMode").value = "question";
+    $("showSource").checked = true; $("showAnswerInline").checked = false; $("appendAnswerKey").checked = false;
+    $("paperTitle").value = "TOPIK II 듣기 교사용 문제지";
+    $("preview").className = "empty";
+    $("preview").innerHTML = "왼쪽에서 조건을 정한 뒤 [문제지 미리보기 생성]을 누르세요.";
+  }
+  async function loadSelectedRoundExams(){
+    try{
+      let urls = (state.selectedExamUrls || []).filter(Boolean);
+      if(urls.length === 0){
+        urls = state.examEntries.length
+          ? state.examEntries.map((entry) => normalizePath(entry.test_file))
+          : [normalizeFileParam()];
+        state.selectedExamUrls = urls;
+      }
+
+      const exams = [];
+      const errors = [];
+      for(const url of urls){
+        try{
+          const exam = await fetchJson(normalizePath(url));
+          exams.push(exam);
+        }catch(err){
+          errors.push(url + " (" + err.message + ")");
+        }
+      }
+      if(!exams.length) throw new Error(errors.join("<br>") || "선택한 회차를 불러오지 못했습니다.");
+
+      state.exams = exams;
+      state.flat = exams.flatMap((exam) => flattenExam(exam));
+      state.selected = [];
+      state.exam = {
+        source_round: selectedRoundLabel(),
+        title: selectedRoundText() + " TOPIK II 듣기 문제지"
+      };
+
+      $("preview").className = "empty";
+      $("preview").innerHTML = "왼쪽에서 조건을 정한 뒤 [문제지 미리보기 생성]을 누르세요.";
+      $("status").innerHTML =
+        "문제은행 로드 완료<br>" +
+        "선택 회차: " + escapeHtml(selectedRoundText()) + "<br>" +
+        "총 문항: " + state.flat.length + "문항<br>" +
+        "이미지 문항: " + state.flat.filter(x => getImages(x).length).length + "문항<br>" +
+        "세트 문항: " + state.flat.filter(x => x.set_id).length + "문항" +
+        (errors.length ? "<br><span style='color:#dc2626'>일부 회차 로드 실패: " + errors.length + "개</span>" : "");
+
+      $("paperTitle").value = selectedRoundTitleText() + " TOPIK II 듣기 문제지";
+      renderRoundList();
+    }catch(err){
+      $("status").innerHTML = '<span style="color:#dc2626">로드 실패: ' + escapeHtml(err.message) + '</span>';
+      renderRoundList();
+    }
+  }
+
+  async function init(){
+    await loadManifest();
+    const initialUrl = normalizeFileParam();
+    const hasFileParam = Boolean(qs("file"));
+    const matched = state.examEntries.find((entry) => comparablePath(entry.test_file) === comparablePath(initialUrl));
+
+    if(hasFileParam && matched){
+      state.selectedExamUrls = [normalizePath(matched.test_file)];
+    }else if(state.examEntries.length){
+      state.selectedExamUrls = state.examEntries.map((entry) => normalizePath(entry.test_file));
+    }else{
+      state.selectedExamUrls = [initialUrl];
+    }
+
+    await loadSelectedRoundExams();
+  }
+  $("previewBtn").addEventListener("click", () => renderPaper("preview"));
+  $("studentPrintBtn").addEventListener("click", () => { $("showAnswerInline").checked = false; $("appendAnswerKey").checked = false; renderPaper("student"); printCurrent(); });
+  $("teacherPrintBtn").addEventListener("click", () => { renderPaper("teacher-key"); printCurrent(); });
+  $("answerPrintBtn").addEventListener("click", () => { renderAnswerOnly(); printCurrent(); });
+  $("audioCsvBtn").addEventListener("click", downloadAudioCsv);
+  $("audioListBtn").addEventListener("click", downloadAudioZip);
+  $("resetBtn").addEventListener("click", reset);
+  const topPrintBtn = $("topPrintBtn");
+  if (topPrintBtn) topPrintBtn.addEventListener("click", printCurrent);
+  init();
+})();
+</script>
+</body>
+</html>

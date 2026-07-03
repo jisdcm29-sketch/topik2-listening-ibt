@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>TOPIK II 듣기 저장값 초기화</title>
+</head>
+<body>
+  <h1>TOPIK II 듣기 저장값 초기화</h1>
+  <button id="clearBtn" type="button">초기화 실행</button>
+  <pre id="log">대기 중</pre>
+
+  <script>
+    document.getElementById("clearBtn").addEventListener("click", function () {
+      const keys = Object.keys(localStorage).filter(function (key) {
+        return key.startsWith("topik2_") || key.includes("topik2");
+      });
+      keys.forEach(function (key) {
+        localStorage.removeItem(key);
+      });
+      document.getElementById("log").textContent =
+        "삭제된 키:\n" + (keys.length ? keys.join("\n") : "없음");
+    });
+  </script>
+</body>
+</html>

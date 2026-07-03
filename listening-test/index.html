@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>TOPIK II 듣기 PBT형 IBT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --blue: #1a73e8;
+      --blue-dark: #0b57d0;
+      --navy: #073763;
+      --border: #b7d5ff;
+      --pale: #eaf6ff;
+      --paper: #ffffff;
+      --line: #dbeafe;
+      --yellow: #f3c600;
+      --text: #0f172a;
+      --muted: #64748b;
+      --danger: #ef5d73;
+      --green: #159947;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .top-bar {
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      padding: 24px 16px;
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .login-wrap {
+      width: 560px;
+      max-width: calc(100% - 28px);
+      margin: 24px auto 60px;
+    }
+
+    .login-title {
+      text-align: center;
+      color: #0758bf;
+      font-size: 32px;
+      font-weight: 900;
+      margin: 10px 0 4px;
+    }
+
+    .login-sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 12px 0 7px;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      border: 1px solid #c7d8f7;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    .auth-row {
+      display: grid;
+      grid-template-columns: 1fr 128px;
+      gap: 8px;
+      align-items: end;
+    }
+
+    .status-line {
+      margin: 8px 0 26px;
+      color: #0f3d7a;
+      font-size: 14px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #f8fbff;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .panel-title {
+      font-weight: 900;
+      margin: 0 0 10px;
+    }
+
+    .seg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .seg-btn, .round-btn, .outline-btn {
+      border: 2px solid #7bb7ff;
+      background: #fff;
+      color: #0b57d0;
+      border-radius: 8px;
+      min-height: 42px;
+      padding: 9px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .seg-btn.active, .round-btn.active {
+      border-color: var(--blue);
+      background: #e8f3ff;
+      box-shadow: inset 0 0 0 1px #1a73e8;
+    }
+
+    .round-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .selected-line {
+      text-align: center;
+      color: var(--green);
+      font-weight: 900;
+      margin-top: 8px;
+      min-height: 20px;
+    }
+
+    .teacher-panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin: 8px 0 16px;
+      text-align: center;
+    }
+
+    .primary-btn {
+      width: 100%;
+      background: var(--blue);
+      border: 0;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 18px;
+      padding: 14px 16px;
+      min-height: 54px;
+      cursor: pointer;
+    }
+
+    .primary-btn:disabled {
+      background: #a6cdf9;
+      cursor: not-allowed;
+    }
+
+    .note-box {
+      margin-top: 14px;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      padding: 12px;
+      border-radius: 8px;
+      line-height: 1.65;
+    }
+
+    /* TOPIK I형 시험 화면 */
+    .exam-shell {
+      display: none;
+      min-height: 100vh;
+      background: #dff0ff;
+      padding-bottom: 82px;
+    }
+
+    .exam-top {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: 64px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 230px 1fr 230px;
+      align-items: center;
+      padding: 0 22px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    .student-mini {
+      font-size: 12px;
+      line-height: 1.25;
+      opacity: 0.95;
+    }
+
+    .student-mini strong {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .exam-top-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .remain-box {
+      justify-self: end;
+      background: #fff;
+      color: #0b57d0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 900;
+      min-width: 174px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .test-frame {
+      width: min(1360px, calc(100% - 54px));
+      margin: 6px auto 14px;
+      background: #fff;
+      border: 3px solid var(--yellow);
+      border-radius: 7px;
+      padding: 12px 30px 10px;
+    }
+
+    .section-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .section-title {
+      color: #083d79;
+      font-size: 34px;
+      line-height: 1;
+      margin: 0 0 4px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .group-instruction {
+      color: #092f5f;
+      font-size: 17px;
+      font-weight: 900;
+      line-height: 1.25;
+      min-height: 22px;
+    }
+
+    .language-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .language-buttons button {
+      border: 2px solid #0866db;
+      color: #0b57d0;
+      background: #fff;
+      border-radius: 10px;
+      font-weight: 900;
+      padding: 8px 16px;
+    }
+
+    .language-buttons button.active {
+      background: #1473e6;
+      color: #fff;
+    }
+
+    .timer-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0 6px;
+    }
+
+    .mini-timers {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .mini-timer {
+      min-width: 78px;
+      border: 2px solid #c7d8f7;
+      border-radius: 9px;
+      background: #fff;
+      text-align: center;
+      padding: 4px 7px;
+      font-weight: 900;
+      color: #001f44;
+    }
+
+    .mini-timer .label {
+      display: block;
+      font-size: 11px;
+      color: #4b5563;
+      margin-bottom: 1px;
+    }
+
+    .mini-timer.active {
+      border-color: #18a738;
+      color: #07921e;
+      background: #fbfffb;
+    }
+
+    .question-counter {
+      justify-self: end;
+      border: 3px solid #0866ff;
+      border-radius: 11px;
+      color: #0658d9;
+      padding: 6px 12px;
+      font-size: 22px;
+      font-weight: 900;
+      min-width: 92px;
+      text-align: center;
+      background: #fff;
+      line-height: 1.1;
+    }
+
+    .paper-area {
+      border: 1px solid #d7e3f7;
+      padding: 12px 14px 12px;
+      background: #fff;
+      min-height: 320px;
+    }
+
+    .paper-area.visual-area {
+      padding: 6px 8px 6px;
+    }
+
+    .single-paper {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      border: 1px solid #dbe6f5;
+      padding: 24px 26px;
+      min-height: 295px;
+      background: #fff;
+    }
+
+    /* 1~10 검수 기준: 1~3번 그림/그래프 문항은 TOPIK I 그림 문항 화면처럼 크게 표시 */
+    .single-paper.visual-paper {
+      width: min(1110px, 100%);
+      padding: 8px 10px 8px;
+      border: 0;
+      min-height: auto;
+    }
+
+    .set-paper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .set-paper .single-paper {
+      width: auto;
+      margin: 0;
+    }
+
+    .question-title {
+      margin: 0 0 9px;
+      color: #092f5f;
+      font-size: 23px;
+      line-height: 1.35;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .source-q {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .answer-list.two-column {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 22px;
+      row-gap: 14px;
+    }
+
+    .answer-option {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      align-items: start;
+      gap: 10px;
+      cursor: pointer;
+      padding: 3px 4px;
+      border-radius: 8px;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 800;
+      color: #001f44;
+    }
+
+    .answer-option:hover {
+      background: #f2f8ff;
+    }
+
+    .answer-option input,
+    .image-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option-circle {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #c9defa;
+      border-radius: 50%;
+      color: #0866db;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 900;
+      background: #fff;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .answer-option.selected .option-circle,
+    .image-option.selected .option-circle {
+      background: #138a2e;
+      border-color: #138a2e;
+      color: #fff;
+    }
+
+    .answer-option.selected {
+      color: #0b5a20;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 18px;
+    }
+
+    .visual-paper .image-grid {
+      width: min(1050px, 100%);
+      margin: 0 auto;
+      gap: 6px 12px;
+    }
+
+    .image-option {
+      position: relative;
+      display: block;
+      cursor: pointer;
+      border: 1px solid #dbe6f5;
+      border-radius: 8px;
+      padding: 6px;
+      background: #fff;
+      min-height: 170px;
+    }
+
+    .visual-paper .image-option {
+      min-height: auto;
+      padding: 2px;
+      border-color: #d6e5fb;
+      box-shadow: none;
+    }
+
+    .image-option:hover {
+      border-color: #7bb7ff;
+      background: #f8fbff;
+    }
+
+    .image-option.selected {
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 1px #dbeafe inset;
+    }
+
+    .image-option .option-circle {
+      position: absolute;
+      left: 9px;
+      top: 9px;
+      z-index: 2;
+      background: #fff;
+    }
+
+    .image-option.selected .option-circle {
+      background: #138a2e;
+    }
+
+    .image-option img {
+      display: block;
+      width: 100%;
+      height: 170px;
+      object-fit: contain;
+      border: 0;
+      background: #fff;
+    }
+
+    .visual-paper .image-option img {
+      height: clamp(205px, calc((100vh - 315px) / 2), 260px);
+      object-fit: contain;
+    }
+
+    @media (min-width: 1500px) {
+      .visual-paper .image-option img {
+        height: clamp(220px, calc((100vh - 315px) / 2), 276px);
+      }
+    }
+
+    @media (max-height: 760px) {
+      .visual-paper .image-option img {
+        height: clamp(190px, calc((100vh - 300px) / 2), 235px);
+      }
+    }
+
+    .nav-row {
+      display: none;
+    }
+
+    .nav-btn {
+      border: 1px solid #9db9e4;
+      color: #00366d;
+      background: #fff;
+      border-radius: 999px;
+      font-weight: 900;
+      padding: 12px 14px;
+      cursor: pointer;
+      min-height: 44px;
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .bottom-audio {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      min-height: 76px;
+      background: #d8ecff;
+      border-top: 1px solid #b8d6f5;
+      display: grid;
+      grid-template-columns: 1fr min(1360px, calc(100% - 54px)) 1fr;
+      align-items: center;
+      padding: 8px 0;
+    }
+
+    .bottom-layout {
+      grid-column: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 128px minmax(420px, 1fr) 128px 98px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .audio-inner {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 118px 94px 1fr 46px 150px;
+      gap: 12px;
+      align-items: center;
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 18px;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    }
+
+    .audio-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      background: #b9cdfd;
+      color: #fff;
+      font-weight: 900;
+      padding: 9px 18px;
+      white-space: nowrap;
+    }
+
+    .audio-status.playing {
+      background: #1a73e8;
+    }
+
+    .audio-time {
+      font-weight: 900;
+      color: #001f44;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .audio-progress {
+      width: 100%;
+      height: 9px;
+      accent-color: #1a73e8;
+    }
+
+    .volume-range {
+      width: 100%;
+      accent-color: #1a73e8;
+    }
+
+    .volume-label {
+      color: #0f3d7a;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+.bottom-submit {
+      width: 98px;
+      height: 48px;
+      border: 0;
+      border-radius: 13px;
+      background: var(--danger);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(239, 93, 115, 0.24);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .bottom-submit.visible {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .result-box {
+      border: 1px solid #bbf7d0;
+      background: #f0fdf4;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 920px) {
+      .top-bar { font-size: 24px; padding: 18px 12px; }
+      .auth-row, .seg-grid { grid-template-columns: 1fr; }
+      .exam-top {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 8px;
+        padding: 12px;
+        text-align: center;
+      }
+      .remain-box {
+        justify-self: center;
+      }
+      .test-frame {
+        width: calc(100% - 20px);
+        padding: 18px 14px;
+      }
+      .section-row, .timer-row, .set-paper {
+        grid-template-columns: 1fr;
+      }
+      .question-counter {
+        justify-self: center;
+      }
+      .answer-list.two-column,
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+      .single-paper.visual-paper {
+        width: 100%;
+        padding: 18px 14px;
+      }
+      .visual-paper .image-grid {
+        width: 100%;
+      }
+      .visual-paper .image-option img {
+        height: 220px;
+      }
+      .bottom-audio {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+      .bottom-layout {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+      }
+      .audio-inner {
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+        width: 100%;
+      }
+      .bottom-submit {
+        width: 100%;
+      }
+    }
+
+    /* Step 10: 1~10 검수 반영 - 노란 시험 박스 높이 고정, 문항 글자 확대 */
+    .test-frame {
+      min-height: calc(100vh - 64px - 76px - 20px);
+      margin: 6px auto 6px;
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+
+    .paper-area {
+      flex: 1 1 auto;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 14px 14px 12px;
+    }
+
+    .single-paper {
+      min-height: calc(100vh - 64px - 76px - 250px);
+      padding: 30px 34px;
+    }
+
+    .single-paper:not(.visual-paper) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .set-paper {
+      flex: 1 1 auto;
+      min-height: calc(100vh - 64px - 76px - 250px);
+      align-items: stretch;
+    }
+
+    .set-paper .single-paper {
+      min-height: calc(100vh - 64px - 76px - 250px);
+      padding: 26px 28px;
+    }
+
+    .question-title {
+      font-size: 26px;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .answer-list {
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .answer-option {
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      padding: 6px 6px;
+      font-size: 21px;
+      line-height: 1.55;
+    }
+
+    .option-circle {
+      width: 32px;
+      height: 32px;
+      font-size: 17px;
+    }
+
+    .set-paper .question-title {
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .set-paper .answer-option {
+      font-size: 19px;
+      line-height: 1.48;
+      gap: 12px;
+    }
+
+    .paper-area.visual-area {
+      min-height: 0;
+      padding: 6px 8px 6px;
+    }
+
+    .visual-paper {
+      min-height: 0;
+      padding: 6px 10px 6px;
+    }
+
+    .visual-paper .question-title {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .visual-paper .image-grid {
+      gap: 6px 12px;
+    }
+
+    @media (max-height: 760px) {
+      .test-frame {
+        min-height: calc(100vh - 64px - 76px - 12px);
+      }
+      .paper-area {
+        min-height: 390px;
+      }
+      .single-paper,
+      .set-paper,
+      .set-paper .single-paper {
+        min-height: calc(100vh - 64px - 76px - 230px);
+      }
+      .question-title {
+        font-size: 24px;
+        margin-bottom: 14px;
+      }
+      .answer-option {
+        font-size: 20px;
+        line-height: 1.45;
+      }
+    }
+
+
+    /* Step 11: 시간 표시 규칙 조정
+       - 대기 2초, 듣기 음원 남은 시간, 풀이 5~15초
+       - 상단 남은 시간 박스와 글자를 1.5배 수준으로 확대 */
+    .exam-top {
+      grid-template-columns: 230px 1fr 320px;
+    }
+
+    .remain-box {
+      min-width: 260px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .remain-box span {
+      display: inline-block;
+      font-size: 26px;
+      font-weight: 900;
+      margin-left: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .mini-timer {
+      min-width: 84px;
+      padding: 5px 8px;
+      line-height: 1.15;
+    }
+
+    .mini-timer .label {
+      font-size: 12px;
+    }
+
+    @media (max-width: 920px) {
+      .exam-top {
+        grid-template-columns: 1fr;
+      }
+
+      .remain-box {
+        min-width: 220px;
+        font-size: 20px;
+      }
+
+      .remain-box span {
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="loginTopBar" class="top-bar">TOPIK II 듣기 PBT형 IBT</div>
+
+  <section id="loginScreen" class="login-wrap">
+    <h1 class="login-title">응시자 로그인</h1>
+    <p class="login-sub">인증 후 이름과 전화번호를 입력하세요.</p>
+
+    <label for="authPassword">인증 비밀번호</label>
+    <div class="auth-row">
+      <input id="authPassword" type="password" placeholder="인증 비밀번호 입력">
+      <button id="authBtn" class="seg-btn" type="button">인증 확인</button>
+    </div>
+    <div id="authStatus" class="status-line">인증 전입니다.</div>
+
+    <div class="panel">
+      <div class="panel-title">시험 유형 선택</div>
+      <div class="seg-grid">
+        <button id="fullModeBtn" class="seg-btn active" type="button" data-exam-type="full">50문항 실전시험</button>
+        <button id="levelModeBtn" class="seg-btn" type="button" data-exam-type="level-test">레벨테스트</button>
+      </div>
+
+      <div class="panel-title">출제 방식 선택</div>
+      <div class="seg-grid">
+        <button id="fixedModeBtn" class="seg-btn active" type="button" data-generation-mode="fixed">회차별 시험지</button>
+        <button id="randomModeBtn" class="seg-btn" type="button" data-generation-mode="random">랜덤 시험지</button>
+      </div>
+
+      <div class="panel-title">세부 시험지 선택</div>
+      <div id="roundList" class="round-list"></div>
+      <div id="selectedExamText" class="selected-line"></div>
+    </div>
+
+    <div class="teacher-panel">
+      <div class="panel-title">교사용 문제지 출력</div>
+      <button id="teacherPrintBtn" class="outline-btn" type="button">듣기 교사용 문제지 출력 열기</button>
+    </div>
+
+    <label for="studentName">응시자 이름</label>
+    <input id="studentName" type="text" placeholder="예: 홍길동">
+
+    <label for="studentPhone">전화번호</label>
+    <input id="studentPhone" type="text" placeholder="예: 01012345678">
+
+    <button id="startBtn" class="primary-btn" type="button" disabled>시험 시작</button>
+</section>
+
+  <section id="examScreen" class="exam-shell">
+    <header class="exam-top">
+      <div class="student-mini">
+        수험정보
+        <strong id="studentTopName">-</strong>
+      </div>
+      <div id="testTopTitle" class="exam-top-title">TOPIK II 듣기 PBT형 IBT</div>
+      <div class="remain-box">남은 시간 <span id="remainTime">00:00:00</span></div>
+    </header>
+
+    <main class="test-frame">
+      <div class="section-row">
+        <div>
+          <h1 class="section-title">[듣기]</h1>
+          <div id="groupInstruction" class="group-instruction"></div>
+        </div>
+        <div class="language-buttons">
+          <button class="active" type="button">한국어</button>
+          <button type="button">English</button>
+        </div>
+      </div>
+
+      <div class="timer-row">
+        <div class="mini-timers">
+          <div id="waitBox" class="mini-timer">
+            <span class="label">대기</span>
+            <span id="waitTime">00:00:00</span>
+          </div>
+          <div id="listenBox" class="mini-timer active">
+            <span class="label">듣기</span>
+            <span id="listenTime">00:00:00</span>
+          </div>
+          <div id="solveBox" class="mini-timer">
+            <span class="label">풀이</span>
+            <span id="solveTime">00:00:00</span>
+          </div>
+        </div>
+        <div id="questionCounter" class="question-counter">1 / 50</div>
+      </div>
+
+      <div id="questionArea" class="paper-area"></div>
+
+      <div id="resultArea"></div>
+    </main>
+    <footer class="bottom-audio">
+      <div class="bottom-layout">
+        <button id="prevBtn" class="nav-btn" type="button">이전 문항</button>
+        <div class="audio-inner">
+          <span id="audioStatusLabel" class="audio-status">자동 재생</span>
+          <div id="audioTime" class="audio-time">0:00 / 0:00</div>
+          <progress id="audioProgress" class="audio-progress" max="1000" value="0" aria-label="오디오 진행률"></progress>
+          <div class="volume-label">볼륨</div>
+          <input id="volumeRange" class="volume-range" type="range" min="0" max="1" step="0.01" value="1" aria-label="볼륨">
+        </div>
+        <button id="nextBtn" class="nav-btn" type="button">다음 문항</button>
+        <button id="submitBtnBottom" class="bottom-submit" type="button">제출</button>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./audio-controller.js"></script>
+  <script src="./result-builder.js"></script>
+  <script src="./listening-test.js"></script>
+</body>
+</html>
