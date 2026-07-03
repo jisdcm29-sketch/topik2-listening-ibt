@@ -1,0 +1,39 @@
+{
+  "template_id": "topik2-listening-exam-template",
+  "level": "TOPIK II",
+  "section": "listening",
+  "total_questions": 50,
+  "slots": [
+    {
+      "range": "1-3",
+      "type": "visual_graph_choice",
+      "unit": "single"
+    },
+    {
+      "range": "4-8",
+      "type": "following_response",
+      "unit": "single"
+    },
+    {
+      "range": "9-12",
+      "type": "next_action",
+      "unit": "single"
+    },
+    {
+      "range": "13-16",
+      "type": "same_content_single",
+      "unit": "single"
+    },
+    {
+      "range": "17-20",
+      "type": "main_thought_single",
+      "unit": "single"
+    },
+    {
+      "range": "21-50",
+      "type": "two_question_sets",
+      "unit": "set",
+      "set_size": 2
+    }
+  ]
+}

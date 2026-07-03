@@ -1,0 +1,119 @@
+{
+  "project": "TOPIK II Listening PBT-style IBT Simulation",
+  "official_ibt_clone": false,
+  "section": "listening",
+  "total_questions": 50,
+  "score_basis": 100,
+  "description": "TOPIK II PBT 듣기 문제를 화면 기반으로 푸는 연습용 구조입니다.",
+  "exams": [
+    {
+      "exam_id": "listening-103",
+      "source_round": "103",
+      "exam_type": "full",
+      "label": "103회",
+      "short_label": "103회",
+      "test_file": "./data/exams/listening-103.json",
+      "answer_key_file": "./data/answer-keys/answer-key-103.json",
+      "enabled": true,
+      "student_visible": true
+    },
+    {
+      "exam_id": "listening-102",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회",
+      "short_label": "102회",
+      "test_file": "./data/exams/listening-102.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102.json",
+      "enabled": true,
+      "student_visible": true
+    },
+    {
+      "exam_id": "listening-102-step01-10",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회 1~10번 검수",
+      "short_label": "102회 1~10번 검수",
+      "test_file": "./data/exams/listening-102-step01-10.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-step01-10.json",
+      "enabled": true,
+      "student_visible": false,
+      "ui_visible": false,
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+    },
+    {
+      "exam_id": "listening-102-step11-20",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회 11~20번 검수",
+      "short_label": "102회 11~20번 검수",
+      "test_file": "./data/exams/listening-102-step11-20.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-step11-20.json",
+      "enabled": true,
+      "student_visible": false,
+      "ui_visible": false,
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+    },
+    {
+      "exam_id": "listening-102-step21-30",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회 21~30번 검수",
+      "short_label": "102회 21~30번 검수",
+      "test_file": "./data/exams/listening-102-step21-30.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-step21-30.json",
+      "enabled": true,
+      "student_visible": false,
+      "ui_visible": false,
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+    },
+    {
+      "exam_id": "listening-102-step31-40",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회 31~40번 검수",
+      "short_label": "102회 31~40번 검수",
+      "test_file": "./data/exams/listening-102-step31-40.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-step31-40.json",
+      "enabled": true,
+      "student_visible": false,
+      "ui_visible": false,
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+    },
+    {
+      "exam_id": "listening-102-step41-50",
+      "source_round": "102",
+      "exam_type": "full",
+      "label": "102회 41~50번 검수",
+      "short_label": "102회 41~50번 검수",
+      "test_file": "./data/exams/listening-102-step41-50.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-step41-50.json",
+      "enabled": true,
+      "student_visible": false,
+      "ui_visible": false,
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+    },
+    {
+      "exam_id": "level-test-102",
+      "source_round": "102",
+      "exam_type": "level-test",
+      "label": "102회 레벨테스트 30문항",
+      "short_label": "102회",
+      "test_file": "./data/exams/level-test-102.json",
+      "answer_key_file": "./data/answer-keys/answer-key-102-level-test.json",
+      "enabled": true,
+      "student_visible": true
+    },
+    {
+      "exam_id": "level-test-103",
+      "source_round": "103",
+      "exam_type": "level-test",
+      "label": "103회 레벨테스트 30문항",
+      "short_label": "103회",
+      "test_file": "./data/exams/level-test-103.json",
+      "answer_key_file": "./data/answer-keys/answer-key-103-level-test.json",
+      "enabled": true,
+      "student_visible": true
+    }
+  ]
+}
