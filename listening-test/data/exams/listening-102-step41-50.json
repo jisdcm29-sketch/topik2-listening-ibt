@@ -1,0 +1,508 @@
+{
+  "exam_id": "listening-102-step41-50",
+  "source_round": "102",
+  "title": "제102회 TOPIK II 듣기 41~50번 검수용",
+  "level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "draft",
+  "test_scope": "102회 듣기 41~50번 검수용",
+  "total_questions": 10,
+  "total_possible_points": 20,
+  "time_limit_minutes": null,
+  "audio_mode": "manual",
+  "guide_audio": "./audio/102/102_GUIDE.mp3",
+  "source_guide_audio_file": "01 트랙 1.m4a",
+  "source_pdf": "102회 듣기 쓰기.pdf",
+  "items": [
+    {
+      "set_id": "T2_102_SET_041_042",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        41,
+        42
+      ],
+      "audio_url": "./audio/102/102_L041.mp3",
+      "source_audio_file": "42 트랙 42.m4a + 43 트랙 43.m4a",
+      "audio_group_id": "102_L041_GROUP",
+      "audio_group_numbers": [
+        41,
+        42
+      ],
+      "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L041",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 41,
+          "original_question_number": 41,
+          "type": "lecture_main_content_set",
+          "category": "강연 중심 내용 고르기",
+          "diagnostic_area": "lecture_main_content_set",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "이 강연의 중심 내용으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L041.mp3",
+          "source_audio_file": "42 트랙 42.m4a + 43 트랙 43.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "석농화원을 복원하려는 움직임이 활발하다."
+            },
+            {
+              "number": 2,
+              "text": "석농화원은 회화사 연구에 중요한 자료이다."
+            },
+            {
+              "number": 3,
+              "text": "석농화원의 우수성을 밝히려는 노력이 필요하다."
+            },
+            {
+              "number": 4,
+              "text": "석농화원에 실린 작품들이 새롭게 해석되고 있다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 41번",
+          "set_id": "T2_102_SET_041_042"
+        },
+        {
+          "id": "T2_102_L042",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 42,
+          "original_question_number": 42,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L041.mp3",
+          "source_audio_file": "42 트랙 42.m4a + 43 트랙 43.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 책은 조선 시대 이전부터 유통되었다."
+            },
+            {
+              "number": 2,
+              "text": "이 책은 원본의 모습을 그대로 유지하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 책에는 그림과 그림에 대한 비평이 실려 있다."
+            },
+            {
+              "number": 4,
+              "text": "이 책은 김광국이 직접 그린 그림으로 제작되었다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 42번",
+          "set_id": "T2_102_SET_041_042"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_043_044",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        43,
+        44
+      ],
+      "audio_url": "./audio/102/102_L043.mp3",
+      "source_audio_file": "44 트랙 44.m4a + 45 트랙 45.m4a",
+      "audio_group_id": "102_L043_GROUP",
+      "audio_group_numbers": [
+        43,
+        44
+      ],
+      "instruction": "[43~44] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L043",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 43,
+          "original_question_number": 43,
+          "type": "topic_set",
+          "category": "내용 주제 고르기",
+          "diagnostic_area": "topic_set",
+          "instruction": "[43~44] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "무엇에 대한 내용인지 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L043.mp3",
+          "source_audio_file": "44 트랙 44.m4a + 45 트랙 45.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "반구대 암각화를 보존한 방식"
+            },
+            {
+              "number": 2,
+              "text": "반구대 암각화에 표현된 내용"
+            },
+            {
+              "number": 3,
+              "text": "반구대 암각화를 제작한 연대"
+            },
+            {
+              "number": 4,
+              "text": "반구대 암각화가 발견된 과정"
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 43번",
+          "set_id": "T2_102_SET_043_044"
+        },
+        {
+          "id": "T2_102_L044",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 44,
+          "original_question_number": 44,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[43~44] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "반구대 암각화에 대한 설명으로 맞는 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L043.mp3",
+          "source_audio_file": "44 트랙 44.m4a + 45 트랙 45.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "문자로 된 설명이 새겨져 있다."
+            },
+            {
+              "number": 2,
+              "text": "그림에 다양한 색이 칠해져 있다."
+            },
+            {
+              "number": 3,
+              "text": "강가의 암벽에서 확인할 수 있다."
+            },
+            {
+              "number": 4,
+              "text": "유사한 암각화가 많이 발견되었다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 44번",
+          "set_id": "T2_102_SET_043_044"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_045_046",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        45,
+        46
+      ],
+      "audio_url": "./audio/102/102_L045.mp3",
+      "source_audio_file": "46 트랙 46.m4a + 47 트랙 47.m4a",
+      "audio_group_id": "102_L045_GROUP",
+      "audio_group_numbers": [
+        45,
+        46
+      ],
+      "instruction": "[45~46] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L045",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 45,
+          "original_question_number": 45,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[45~46] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L045.mp3",
+          "source_audio_file": "46 트랙 46.m4a + 47 트랙 47.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 기술은 우주 자원 탐사에 사용되고 있다."
+            },
+            {
+              "number": 2,
+              "text": "이 기술은 굴착 속도를 높이는 데 사용된다."
+            },
+            {
+              "number": 3,
+              "text": "이 기술은 인공지능으로 지진계의 자료를 종합한다."
+            },
+            {
+              "number": 4,
+              "text": "이 기술은 땅속 깊은 곳에 설치된 지진계를 활용한다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 45번",
+          "set_id": "T2_102_SET_045_046"
+        },
+        {
+          "id": "T2_102_L046",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 46,
+          "original_question_number": 46,
+          "type": "speaker_method_set",
+          "category": "말하는 방식 고르기",
+          "diagnostic_area": "speaker_method_set",
+          "instruction": "[45~46] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "여자가 말하는 방식으로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L045.mp3",
+          "source_audio_file": "46 트랙 46.m4a + 47 트랙 47.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "신기술의 보급 전략을 요약하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "신기술의 여러 유형을 분류하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "신기술이 적용된 예시를 나열하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "신기술의 원리와 장점을 설명하고 있다."
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 46번",
+          "set_id": "T2_102_SET_045_046"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_047_048",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        47,
+        48
+      ],
+      "audio_url": "./audio/102/102_L047.mp3",
+      "source_audio_file": "48 트랙 48.m4a + 49 트랙 49.m4a",
+      "audio_group_id": "102_L047_GROUP",
+      "audio_group_numbers": [
+        47,
+        48
+      ],
+      "instruction": "[47~48] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L047",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 47,
+          "original_question_number": 47,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[47~48] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L047.mp3",
+          "source_audio_file": "48 트랙 48.m4a + 49 트랙 49.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "개인 통관 번호는 국내 물품의 해외 발송 시에 필요하다."
+            },
+            {
+              "number": 2,
+              "text": "예전에는 사용자에 의한 개인 통관 번호 해지가 가능했다."
+            },
+            {
+              "number": 3,
+              "text": "개인 통관 번호가 불법 수입에 악용되는 사례가 증가했다."
+            },
+            {
+              "number": 4,
+              "text": "앞으로는 개인 통관 번호의 유효 기간이 폐지될 예정이다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 47번",
+          "set_id": "T2_102_SET_047_048"
+        },
+        {
+          "id": "T2_102_L048",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 48,
+          "original_question_number": 48,
+          "type": "male_attitude_set",
+          "category": "남자의 태도 고르기",
+          "diagnostic_area": "male_attitude_set",
+          "instruction": "[47~48] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 태도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L047.mp3",
+          "source_audio_file": "48 트랙 48.m4a + 49 트랙 49.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "제도 개편에 대한 국민의 협조를 당부하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "제도 개편에 따른 결과에 대해서 낙관하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "제도 개편을 위한 정부의 노력을 촉구하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "제도 개편이 미칠 영향에 대해서 비판하고 있다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 48번",
+          "set_id": "T2_102_SET_047_048"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_049_050",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        49,
+        50
+      ],
+      "audio_url": "./audio/102/102_L049.mp3",
+      "source_audio_file": "50 트랙 50.m4a + 51 트랙 51.m4a(first 35s)",
+      "audio_group_id": "102_L049_GROUP",
+      "audio_group_numbers": [
+        49,
+        50
+      ],
+      "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L049",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 49,
+          "original_question_number": 49,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L049.mp3",
+          "source_audio_file": "50 트랙 50.m4a + 51 트랙 51.m4a(first 35s)",
+          "options": [
+            {
+              "number": 1,
+              "text": "원형 감옥의 감시대 안은 수용실에서 잘 보이지 않는다."
+            },
+            {
+              "number": 2,
+              "text": "원형 감옥의 개념을 적용한 교도소가 실재하지 않는다."
+            },
+            {
+              "number": 3,
+              "text": "원형 감옥의 수용실은 여러 감시대들로 둘러싸여 있다."
+            },
+            {
+              "number": 4,
+              "text": "원형 감옥에서는 많은 죄수를 하나의 수용실에 가둔다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 49번",
+          "set_id": "T2_102_SET_049_050",
+          "audio_trim_policy": {
+            "source_file": "51 트랙 51.m4a",
+            "use_first_seconds": 35,
+            "reason": "51번 트랙 35초 이후 종료 안내 방송 제외"
+          }
+        },
+        {
+          "id": "T2_102_L050",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 50,
+          "original_question_number": 50,
+          "type": "speaker_method_set",
+          "category": "말하는 방식 고르기",
+          "diagnostic_area": "speaker_method_set",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 방식으로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L049.mp3",
+          "source_audio_file": "50 트랙 50.m4a + 51 트랙 51.m4a(first 35s)",
+          "options": [
+            {
+              "number": 1,
+              "text": "사상에 대한 이해를 돕기 위해 사례를 분석하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "사상에 새롭게 등장한 핵심 개념을 정의하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "사상에 대한 전문가의 의견을 인용하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "사상이 가진 문제의 원인을 유추하고 있다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 50번",
+          "set_id": "T2_102_SET_049_050",
+          "audio_trim_policy": {
+            "source_file": "51 트랙 51.m4a",
+            "use_first_seconds": 35,
+            "reason": "51번 트랙 35초 이후 종료 안내 방송 제외"
+          }
+        }
+      ],
+      "audio_trim_policy": {
+        "source_file": "51 트랙 51.m4a",
+        "use_first_seconds": 35,
+        "reason": "51번 트랙 35초 이후 종료 안내 방송 제외"
+      }
+    }
+  ]
+}

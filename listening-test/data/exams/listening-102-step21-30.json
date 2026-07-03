@@ -1,0 +1,493 @@
+{
+  "exam_id": "listening-102-step21-30",
+  "source_round": "102",
+  "title": "제102회 TOPIK II 듣기 21~30번 검수용",
+  "level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "draft",
+  "test_scope": "102회 듣기 21~30번 검수용",
+  "total_questions": 10,
+  "total_possible_points": 20,
+  "time_limit_minutes": null,
+  "audio_mode": "manual",
+  "guide_audio": "./audio/102/102_GUIDE.mp3",
+  "source_guide_audio_file": "01 트랙 1.m4a",
+  "source_pdf": "102회 듣기 쓰기.pdf",
+  "items": [
+    {
+      "set_id": "T2_102_SET_021_022",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        21,
+        22
+      ],
+      "audio_url": "./audio/102/102_L021.mp3",
+      "source_audio_file": "22 트랙 22.m4a + 23 트랙 23.m4a",
+      "audio_group_id": "102_L021_GROUP",
+      "audio_group_numbers": [
+        21,
+        22
+      ],
+      "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L021",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 21,
+          "original_question_number": 21,
+          "type": "main_thought_set",
+          "category": "중심 생각 고르기",
+          "diagnostic_area": "main_thought_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L021.mp3",
+          "source_audio_file": "22 트랙 22.m4a + 23 트랙 23.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "해외 판매를 위한 새로운 전략이 필요하다."
+            },
+            {
+              "number": 2,
+              "text": "제품의 이미지는 시대에 따라 달라져야 한다."
+            },
+            {
+              "number": 3,
+              "text": "소비자 설문을 통해 광고 모델을 정해야 한다."
+            },
+            {
+              "number": 4,
+              "text": "현재 광고 모델을 그대로 유지하는 것이 좋다."
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 21번",
+          "set_id": "T2_102_SET_021_022"
+        },
+        {
+          "id": "T2_102_L022",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 22,
+          "original_question_number": 22,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L021.mp3",
+          "source_audio_file": "22 트랙 22.m4a + 23 트랙 23.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 회사는 새 커피의 출시를 앞두고 있다."
+            },
+            {
+              "number": 2,
+              "text": "이 회사의 커피는 해외에서 많이 팔리고 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 회사의 커피를 신뢰하지 않는 소비자가 많다."
+            },
+            {
+              "number": 4,
+              "text": "이 회사의 커피 모델은 드라마에 나온 적이 없다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 22번",
+          "set_id": "T2_102_SET_021_022"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_023_024",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        23,
+        24
+      ],
+      "audio_url": "./audio/102/102_L023.mp3",
+      "source_audio_file": "24 트랙 24.m4a + 25 트랙 25.m4a",
+      "audio_group_id": "102_L023_GROUP",
+      "audio_group_numbers": [
+        23,
+        24
+      ],
+      "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L023",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 23,
+          "original_question_number": 23,
+          "type": "speaker_action_intention",
+          "category": "행동/상황 파악하기",
+          "diagnostic_area": "speaker_action_intention",
+          "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 무엇을 하고 있는지 고르십시오.",
+          "audio_url": "./audio/102/102_L023.mp3",
+          "source_audio_file": "24 트랙 24.m4a + 25 트랙 25.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "체육대회 용품의 대여 일정을 변경하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "대여한 체육대회 용품의 반납 장소를 확인하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "대여 가능한 체육대회 용품의 종류를 알아보고 있다."
+            },
+            {
+              "number": 4,
+              "text": "체육대회 용품 대여의 자격과 기간을 문의하고 있다."
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 23번",
+          "set_id": "T2_102_SET_023_024"
+        },
+        {
+          "id": "T2_102_L024",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 24,
+          "original_question_number": 24,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L023.mp3",
+          "source_audio_file": "24 트랙 24.m4a + 25 트랙 25.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "대여한 용품은 이용 당일에 반납해야 한다."
+            },
+            {
+              "number": 2,
+              "text": "남자는 오늘 체육대회 용품을 받으러 갈 예정이다."
+            },
+            {
+              "number": 3,
+              "text": "체육대회 용품을 대여하려면 전화로 예약해야 한다."
+            },
+            {
+              "number": 4,
+              "text": "인주 시민이 아니어도 체육대회 용품 대여가 가능하다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 24번",
+          "set_id": "T2_102_SET_023_024"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_025_026",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        25,
+        26
+      ],
+      "audio_url": "./audio/102/102_L025.mp3",
+      "source_audio_file": "26 트랙 26.m4a + 27 트랙 27.m4a",
+      "audio_group_id": "102_L025_GROUP",
+      "audio_group_numbers": [
+        25,
+        26
+      ],
+      "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L025",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 25,
+          "original_question_number": 25,
+          "type": "main_thought_set",
+          "category": "중심 생각 고르기",
+          "diagnostic_area": "main_thought_set",
+          "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L025.mp3",
+          "source_audio_file": "26 트랙 26.m4a + 27 트랙 27.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "합창단을 체계적으로 관리할 필요가 있다."
+            },
+            {
+              "number": 2,
+              "text": "합창은 노인들의 삶에 긍정적인 영향을 준다."
+            },
+            {
+              "number": 3,
+              "text": "합창은 오랜 기간 함께 연습하는 것이 중요하다."
+            },
+            {
+              "number": 4,
+              "text": "합창 단원의 연령대를 다양하게 구성하는 것이 좋다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 25번",
+          "set_id": "T2_102_SET_025_026"
+        },
+        {
+          "id": "T2_102_L026",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 26,
+          "original_question_number": 26,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L025.mp3",
+          "source_audio_file": "26 트랙 26.m4a + 27 트랙 27.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 합창단의 자격은 나이와 상관없다."
+            },
+            {
+              "number": 2,
+              "text": "이 합창단은 정기적으로 노래 연습을 한다."
+            },
+            {
+              "number": 3,
+              "text": "이 합창단은 이번에 첫 번째 공연을 마쳤다."
+            },
+            {
+              "number": 4,
+              "text": "이 합창단 공연에 대한 반응이 좋지 않았다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 26번",
+          "set_id": "T2_102_SET_025_026"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_027_028",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        27,
+        28
+      ],
+      "audio_url": "./audio/102/102_L027.mp3",
+      "source_audio_file": "28 트랙 28.m4a + 29 트랙 29.m4a",
+      "audio_group_id": "102_L027_GROUP",
+      "audio_group_numbers": [
+        27,
+        28
+      ],
+      "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L027",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 27,
+          "original_question_number": 27,
+          "type": "speaker_intention_set",
+          "category": "말하는 의도 고르기",
+          "diagnostic_area": "speaker_intention_set",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 의도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L027.mp3",
+          "source_audio_file": "28 트랙 28.m4a + 29 트랙 29.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "서비스 이용의 불편 사항을 말하려고"
+            },
+            {
+              "number": 2,
+              "text": "서비스를 이용한 경험을 공유하려고"
+            },
+            {
+              "number": 3,
+              "text": "서비스 이용 신청을 부탁하려고"
+            },
+            {
+              "number": 4,
+              "text": "서비스 이용 시간을 알리려고"
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 27번",
+          "set_id": "T2_102_SET_027_028"
+        },
+        {
+          "id": "T2_102_L028",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 28,
+          "original_question_number": 28,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L027.mp3",
+          "source_audio_file": "28 트랙 28.m4a + 29 트랙 29.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "남자는 최근 세무사를 만나서 상담을 받았다."
+            },
+            {
+              "number": 2,
+              "text": "이 서비스는 비용을 내야 이용할 수 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 서비스는 이용 대상에 제한이 없다."
+            },
+            {
+              "number": 4,
+              "text": "여자는 창업을 해 본 적이 없다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 28번",
+          "set_id": "T2_102_SET_027_028"
+        }
+      ]
+    },
+    {
+      "set_id": "T2_102_SET_029_030",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "set_type": "two_question_set",
+      "target_slots": [
+        29,
+        30
+      ],
+      "audio_url": "./audio/102/102_L029.mp3",
+      "source_audio_file": "30 트랙 30.m4a + 31 트랙 31.m4a",
+      "audio_group_id": "102_L029_GROUP",
+      "audio_group_numbers": [
+        29,
+        30
+      ],
+      "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_102_L029",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 29,
+          "original_question_number": 29,
+          "type": "speaker_identity",
+          "category": "인물 신분/역할 파악하기",
+          "diagnostic_area": "speaker_identity",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 누구인지 고르십시오.",
+          "audio_url": "./audio/102/102_L029.mp3",
+          "source_audio_file": "30 트랙 30.m4a + 31 트랙 31.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "정전 신고를 처리하는 사람"
+            },
+            {
+              "number": 2,
+              "text": "지역 발전소를 운영하는 사람"
+            },
+            {
+              "number": 3,
+              "text": "전기 공급량을 관리하는 사람"
+            },
+            {
+              "number": 4,
+              "text": "전기 시설 안전을 점검하는 사람"
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 29번",
+          "set_id": "T2_102_SET_029_030"
+        },
+        {
+          "id": "T2_102_L030",
+          "source_round": "102",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 30,
+          "original_question_number": 30,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/102/102_L029.mp3",
+          "source_audio_file": "30 트랙 30.m4a + 31 트랙 31.m4a",
+          "options": [
+            {
+              "number": 1,
+              "text": "남자는 주로 혼자서 이 일을 한다."
+            },
+            {
+              "number": 2,
+              "text": "남자의 일은 야간에 할 수 없는 일이다."
+            },
+            {
+              "number": 3,
+              "text": "남자의 일에는 기상 자료 분석이 포함된다."
+            },
+            {
+              "number": 4,
+              "text": "남자는 전기 관련 시설을 찾아다니며 일한다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "102회 TOPIK II 듣기 30번",
+          "set_id": "T2_102_SET_029_030"
+        }
+      ]
+    }
+  ]
+}

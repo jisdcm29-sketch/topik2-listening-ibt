@@ -1,0 +1,60 @@
+{
+  "exam_id": "answer-key-102-step01-10",
+  "source_round": "102",
+  "level": "TOPIK II",
+  "section": "listening",
+  "score_basis": 20,
+  "total_questions": 10,
+  "answers": [
+    {
+      "question_number": 1,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 4,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 5,
+      "answer": 4,
+      "points": 2
+    },
+    {
+      "question_number": 6,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 7,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 8,
+      "answer": 4,
+      "points": 2
+    },
+    {
+      "question_number": 9,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 10,
+      "answer": 3,
+      "points": 2
+    }
+  ]
+}

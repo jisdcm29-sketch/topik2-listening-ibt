@@ -1,0 +1,12 @@
+﻿{
+  "exam_id": "listening-XXX",
+  "source_round": "XXX",
+  "title": "TOPIK II 듣기 XXX회",
+  "level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "full",
+  "total_questions": 50,
+  "time_limit_minutes": null,
+  "audio_mode": "manual",
+  "items": []
+}

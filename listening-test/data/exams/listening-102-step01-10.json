@@ -1,0 +1,442 @@
+{
+  "exam_id": "listening-102-step01-10",
+  "source_round": "102",
+  "title": "제102회 TOPIK II 듣기 1~10번 검수용",
+  "level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "draft",
+  "test_scope": "102회 듣기 1~10번 검수용",
+  "total_questions": 10,
+  "total_possible_points": 20,
+  "time_limit_minutes": null,
+  "audio_mode": "manual",
+  "guide_audio": "./audio/102/102_GUIDE.mp3",
+  "source_guide_audio_file": "01 트랙 1.m4a",
+  "source_pdf": "102회 듣기 쓰기.pdf",
+  "items": [
+    {
+      "id": "T2_102_L001",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 1,
+      "original_question_number": 1,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/102/102_L001.mp3",
+      "source_audio_file": "02 트랙 2.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 1번",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/102/102_L001_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/102/102_L001_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/102/102_L001_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/102/102_L001_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_102_L002",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 2,
+      "original_question_number": 2,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/102/102_L002.mp3",
+      "source_audio_file": "03 트랙 3.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 2번",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/102/102_L002_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/102/102_L002_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/102/102_L002_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/102/102_L002_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_102_L003",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 3,
+      "original_question_number": 3,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그래프를 고르십시오.",
+      "audio_url": "./audio/102/102_L003.mp3",
+      "source_audio_file": "04 트랙 4.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 3번",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/102/102_L003_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/102/102_L003_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/102/102_L003_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/102/102_L003_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_102_L004",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 4,
+      "original_question_number": 4,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L004.mp3",
+      "source_audio_file": "05 트랙 5.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "같이 들어가 보자."
+        },
+        {
+          "number": 2,
+          "text": "카메라를 찾고 있어."
+        },
+        {
+          "number": 3,
+          "text": "벌써 만난 것 같아."
+        },
+        {
+          "number": 4,
+          "text": "차를 마시기로 했어."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 4번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L005",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 5,
+      "original_question_number": 5,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L005.mp3",
+      "source_audio_file": "06 트랙 6.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "신발장에서 꺼내 줄게."
+        },
+        {
+          "number": 2,
+          "text": "이게 네 운동화였구나."
+        },
+        {
+          "number": 3,
+          "text": "하얀색 신발이면 좋겠어."
+        },
+        {
+          "number": 4,
+          "text": "아까 찾을 때는 없었는데."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 5번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L006",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 6,
+      "original_question_number": 6,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L006.mp3",
+      "source_audio_file": "07 트랙 7.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "좋은 곳을 구했다니 다행이에요."
+        },
+        {
+          "number": 2,
+          "text": "그럼 사무실에 한번 가 보세요."
+        },
+        {
+          "number": 3,
+          "text": "아르바이트 경험이 다양해요."
+        },
+        {
+          "number": 4,
+          "text": "그럼 관심이 없는 거네요."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 6번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L007",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 7,
+      "original_question_number": 7,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L007.mp3",
+      "source_audio_file": "08 트랙 8.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "곧 개봉할 예정이래."
+        },
+        {
+          "number": 2,
+          "text": "올해는 작품상을 받을 거야."
+        },
+        {
+          "number": 3,
+          "text": "영화감독이 되려고 준비한대."
+        },
+        {
+          "number": 4,
+          "text": "요즘 영화는 소재가 다 비슷해."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 7번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L008",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 8,
+      "original_question_number": 8,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L008.mp3",
+      "source_audio_file": "09 트랙 9.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "네. 재발급 신청서를 작성하시면 돼요."
+        },
+        {
+          "number": 2,
+          "text": "네. 언제 받으셨는지 확인해 볼게요."
+        },
+        {
+          "number": 3,
+          "text": "네. 카드를 신청하시는 분이 많네요."
+        },
+        {
+          "number": 4,
+          "text": "네. 받으실 주소를 말씀해 주세요."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 8번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L009",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 9,
+      "original_question_number": 9,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L009.mp3",
+      "source_audio_file": "10 트랙 10.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "물을 마신다."
+        },
+        {
+          "number": 2,
+          "text": "의자에 앉는다."
+        },
+        {
+          "number": 3,
+          "text": "놀이기구를 탄다."
+        },
+        {
+          "number": 4,
+          "text": "음료수를 사러 간다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 9번",
+      "set_id": ""
+    },
+    {
+      "id": "T2_102_L010",
+      "source_round": "102",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 10,
+      "original_question_number": 10,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/102/102_L010.mp3",
+      "source_audio_file": "11 트랙 11.m4a",
+      "options": [
+        {
+          "number": 1,
+          "text": "창고에 간다."
+        },
+        {
+          "number": 2,
+          "text": "티셔츠를 입어 본다."
+        },
+        {
+          "number": 3,
+          "text": "다른 옷을 구경한다."
+        },
+        {
+          "number": 4,
+          "text": "직원에게 영수증을 받는다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "102회 TOPIK II 듣기 10번",
+      "set_id": ""
+    }
+  ]
+}
