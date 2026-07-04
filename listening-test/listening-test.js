@@ -556,17 +556,31 @@
     toggleBtn.className = "round-btn active";
     toggleBtn.style.display = "flex";
     toggleBtn.style.alignItems = "center";
-    toggleBtn.style.justifyContent = "space-between";
+    // STEP09-97: 회차 선택 드롭다운의 선택 회차 문구를 버튼 중앙에 고정한다.
+    // 기존 space-between 배치는 오른쪽 화살표 때문에 "97회"가 왼쪽으로 치우쳐 보였다.
+    toggleBtn.style.justifyContent = "center";
     toggleBtn.style.gap = "12px";
+    toggleBtn.style.position = "relative";
+    toggleBtn.style.paddingLeft = "42px";
+    toggleBtn.style.paddingRight = "42px";
     toggleBtn.setAttribute("aria-expanded", state.roundListExpanded ? "true" : "false");
 
     const selectedText = document.createElement("span");
     selectedText.textContent = getLabel(state.selectedExamEntry);
+    selectedText.style.display = "block";
+    selectedText.style.flex = "1 1 auto";
+    selectedText.style.textAlign = "center";
+    selectedText.style.pointerEvents = "none";
 
     const arrowText = document.createElement("span");
     arrowText.textContent = state.roundListExpanded ? "▲" : "▼";
     arrowText.style.fontSize = "14px";
     arrowText.style.flex = "0 0 auto";
+    arrowText.style.position = "absolute";
+    arrowText.style.right = "16px";
+    arrowText.style.top = "50%";
+    arrowText.style.transform = "translateY(-50%)";
+    arrowText.style.pointerEvents = "none";
 
     toggleBtn.appendChild(selectedText);
     toggleBtn.appendChild(arrowText);
