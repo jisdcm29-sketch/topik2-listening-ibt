@@ -270,10 +270,14 @@
   function buildWrongReviewExamFromResult(result) {
     const allItems = (Array.isArray(result.items) ? result.items : [])
       .map((item) => cloneJson(item))
-      .sort((a, b) => Number(a.original_question_number || a.question_number || 0) - Number(b.original_question_number || b.question_number || 0));
+      .sort((a, b) => Number(a.question_number || a.original_question_number || 0) - Number(b.question_number || b.original_question_number || 0));
 
     const progress = getWrongReviewProgress(result);
     const resolvedKeys = new Set(progress.resolvedKeys || []);
+
+    // STEP12: 오답 다시 풀기 총 문항 수는 현재 남은 실제 오답·미응답 문항 수와 일치시킨다.
+    // 이전 로직은 후반부 세트에서 한 문항만 틀려도 정답 처리된 짝 문항까지 포함했기 때문에
+    // 진단 보고서 버튼 수와 실제 풀이 화면 총 문항 수가 서로 달라질 수 있었다.
     const wrongItems = allItems
       .filter((item) => !item.is_correct)
       .filter((item) => {
@@ -282,37 +286,14 @@
         }
         return true;
       });
-    const selectedKeys = new Set();
 
-    const setMap = new Map();
-    allItems.forEach((item) => {
-      const setId = item.set_id || "";
-      if (!setId) return;
-      if (!setMap.has(setId)) setMap.set(setId, []);
-      setMap.get(setId).push(item);
-    });
-
-    wrongItems.forEach((item) => {
-      const originalNumber = Number(item.original_question_number || item.question_number || 0);
-      const setId = item.set_id || "";
-
-      // TOPIK II 후반부는 하나의 오디오로 두 문항을 푸는 세트이므로,
-      // 세트 안 한 문항이라도 오답이면 같은 세트 전체를 다시 풀게 한다.
-      if (setId && originalNumber >= 21 && setMap.has(setId)) {
-        setMap.get(setId).forEach((member) => selectedKeys.add(itemStorageKey(member)));
-      } else {
-        selectedKeys.add(itemStorageKey(item));
-      }
-    });
-
-    const selected = allItems.filter((item) => selectedKeys.has(itemStorageKey(item)));
-    if (!selected.length) return null;
+    if (!wrongItems.length) return null;
 
     const entries = [];
     let display = 1;
     const consumed = new Set();
 
-    selected.forEach((item) => {
+    wrongItems.forEach((item) => {
       const key = itemStorageKey(item);
       if (consumed.has(key)) return;
 
@@ -320,9 +301,9 @@
       const setId = item.set_id || "";
 
       if (setId && originalNumber >= 21) {
-        const members = selected
+        const members = wrongItems
           .filter((candidate) => candidate.set_id === setId)
-          .sort((a, b) => Number(a.original_question_number || a.question_number || 0) - Number(b.original_question_number || b.question_number || 0));
+          .sort((a, b) => Number(a.question_number || a.original_question_number || 0) - Number(b.question_number || b.original_question_number || 0));
 
         const start = display;
         const normalizedMembers = members.map((member) => {
@@ -344,7 +325,9 @@
           source_audio_file: item.source_audio_file || "",
           audio_group_id: `WRONG_REVIEW_AUDIO_${String(start).padStart(3, "0")}`,
           audio_group_numbers: [start, end],
-          instruction: `[오답 세트 ${start}~${end}] 다음을 듣고 물음에 답하십시오.`,
+          instruction: members.length > 1
+            ? `[오답 세트 ${start}~${end}] 다음을 듣고 물음에 답하십시오.`
+            : `[오답 ${start}] 다음을 듣고 물음에 답하십시오.`,
           items: normalizedMembers
         });
       } else {

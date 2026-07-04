@@ -23,6 +23,61 @@
     return normalized;
   }
 
+
+  function splitRoundTokens(value) {
+    if (Array.isArray(value)) {
+      return value.flatMap((entry) => splitRoundTokens(entry));
+    }
+    return String(value || "")
+      .split(/[,\s·]+/g)
+      .map((token) => token.trim())
+      .filter(Boolean);
+  }
+
+  function sortRoundTokens(rounds) {
+    return Array.from(new Set((rounds || []).map((round) => String(round).trim()).filter(Boolean)))
+      .sort((a, b) => {
+        const na = Number(a);
+        const nb = Number(b);
+        if (Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+        return a.localeCompare(b, "ko");
+      });
+  }
+
+  function collectResultRounds(exam, resultItems) {
+    const rounds = [];
+
+    splitRoundTokens(exam.bank_rounds).forEach((round) => rounds.push(round));
+    splitRoundTokens(exam.generated_exam_round).forEach((round) => rounds.push(round));
+    splitRoundTokens(exam.source_round).forEach((round) => rounds.push(round));
+
+    (resultItems || []).forEach((item) => {
+      splitRoundTokens(item.source_round).forEach((round) => rounds.push(round));
+    });
+
+    return sortRoundTokens(rounds);
+  }
+
+  function isRandomExam(exam) {
+    return (
+      exam.generated_exam_mode === "random" ||
+      exam.exam_type === "random" ||
+      String(exam.exam_id || "").includes("random-bank") ||
+      String(exam.title || "").includes("문제은행 랜덤")
+    );
+  }
+
+  function buildResultTestScope(exam, resultItems) {
+    if (!isRandomExam(exam)) {
+      return exam.test_scope || exam.exam_type || "full";
+    }
+
+    const rounds = collectResultRounds(exam, resultItems);
+    const roundLabel = rounds.length ? `${rounds.join("·")}회 ` : "";
+    const questionLabel = exam.exam_type === "level-test" ? "레벨테스트" : `${resultItems.length}문항`;
+    return `${roundLabel}문제은행 기반 랜덤 ${questionLabel}`;
+  }
+
   function buildResult(payload) {
     const exam = payload.exam || {};
     const items = normalizeQuestionItems(exam.items || []);
@@ -75,12 +130,14 @@
     });
 
     const answeredCount = resultItems.filter((item) => item.student_answer).length;
+    const resultRounds = collectResultRounds(exam, resultItems);
+    const generatedExamRound = resultRounds.join(",");
 
     const result = {
       test_level: "TOPIK II",
       section: "listening",
       test_name: exam.title || exam.exam_id || "TOPIK II Listening",
-      test_scope: exam.test_scope || exam.exam_type || "full",
+      test_scope: buildResultTestScope(exam, resultItems),
       student_name: payload.studentName || "",
       student_phone: payload.studentPhone || "",
       started_at: payload.startedAt || new Date().toISOString(),
@@ -95,7 +152,7 @@
       earned_points: earnedPoints,
       section_score_100: totalPossiblePoints > 0 ? Math.round((earnedPoints / totalPossiblePoints) * 1000) / 10 : 0,
       generated_exam_mode: exam.generated_exam_mode || exam.exam_type || "fixed",
-      generated_exam_round: exam.source_round || "",
+      generated_exam_round: generatedExamRound || exam.generated_exam_round || exam.source_round || "",
       generated_exam_label: exam.title || "",
       audio_mode: exam.audio_mode || "manual",
       items: resultItems
