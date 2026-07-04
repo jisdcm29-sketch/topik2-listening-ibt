@@ -1077,10 +1077,36 @@
       }
 
       function getReviewVisibleItems(result) {
-        // STEP12: 오답 다시 풀기 문항 수는 "현재 남은 실제 오답·미응답 문항 수"와 일치시킨다.
-        // 세트 문항의 짝 문항은 오디오 공유를 위해 화면 구성상 참고할 수 있지만,
-        // 버튼 숫자와 오답 다시 풀기 총 문항 수에는 정답 처리된 짝 문항을 포함하지 않는다.
-        return getUnresolvedWrongItems(result);
+        const all = normalizeItems(result);
+        const unresolved = getUnresolvedWrongItems(result);
+        const unresolvedKeys = new Set();
+        unresolved.forEach((item) => candidateReviewKeys(item).forEach((key) => unresolvedKeys.add(key)));
+        const selectedKeys = new Set();
+
+        const setMap = new Map();
+        all.forEach((item) => {
+          const setId = item.set_id || "";
+          if (!setId) return;
+          if (!setMap.has(setId)) setMap.set(setId, []);
+          setMap.get(setId).push(item);
+        });
+
+        unresolved.forEach((item) => {
+          const setId = item.set_id || "";
+          const originalNumber = Number(item.original_question_number || item.question_number || 0);
+          if (setId && originalNumber >= 21 && setMap.has(setId)) {
+            setMap.get(setId).forEach((member) => candidateReviewKeys(member).forEach((key) => selectedKeys.add(key)));
+          } else {
+            candidateReviewKeys(item).forEach((key) => selectedKeys.add(key));
+          }
+        });
+
+        return all.filter((item) => {
+          for (const key of candidateReviewKeys(item)) {
+            if (selectedKeys.has(key) || unresolvedKeys.has(key)) return true;
+          }
+          return false;
+        });
       }
 
       function renderReport(result) {
@@ -1106,14 +1132,14 @@
 
         const wrongReviewBtn = document.getElementById("wrongReviewBtn");
         if (wrongReviewBtn) {
-          const wrongReviewCount = unresolvedWrongItems.length;
-          wrongReviewBtn.textContent = wrongReviewCount > 0
-            ? `오답 다시 풀기 (${wrongReviewCount}문항)`
+          const visibleReviewCount = getReviewVisibleItems(result).length;
+          wrongReviewBtn.textContent = visibleReviewCount > 0
+            ? `오답 다시 풀기 (${visibleReviewCount}문항)`
             : "오답 다시 풀기";
-          wrongReviewBtn.disabled = wrongReviewCount === 0;
-          wrongReviewBtn.classList.toggle("disabled", wrongReviewCount === 0);
-          wrongReviewBtn.title = wrongReviewCount > 0
-            ? `현재 남은 실제 오답·미응답 ${wrongReviewCount}문항`
+          wrongReviewBtn.disabled = unresolvedWrongNums.length === 0;
+          wrongReviewBtn.classList.toggle("disabled", unresolvedWrongNums.length === 0);
+          wrongReviewBtn.title = visibleReviewCount !== unresolvedWrongNums.length
+            ? `남은 오답·미응답 ${unresolvedWrongNums.length}개 + 세트 동반 문항 포함 ${visibleReviewCount}문항`
             : "";
         }
 
@@ -1293,8 +1319,7 @@
       document.getElementById("printBtn").addEventListener("click", () => window.print());
 
       function buildWrongReviewItemsForStorage(result) {
-        // STEP12: listening-test의 오답 다시 풀기 총 문항 수와 진단 보고서 버튼 수를 동일하게 맞춘다.
-        return getUnresolvedWrongItems(result);
+        return getReviewVisibleItems(result);
       }
 
       document.getElementById("wrongReviewBtn").addEventListener("click", () => {
@@ -1318,7 +1343,7 @@
         sessionStorage.setItem("topik2_wrong_review_items", JSON.stringify(reviewItems));
         localStorage.setItem("topik2_wrong_review_started_at", new Date().toISOString());
 
-        const url = "../listening-test/index.html?mode=wrong-review&v=step12_wrong_review_exact_count";
+        const url = "../listening-test/index.html?mode=wrong-review&v=step18wrongreviewcount01";
         window.open(url, "_blank");
       });
 
