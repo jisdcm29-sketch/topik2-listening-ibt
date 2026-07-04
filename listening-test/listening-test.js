@@ -417,6 +417,65 @@
     return 60;
   }
 
+
+  function splitRoundTokens(value) {
+    if (Array.isArray(value)) {
+      return value.flatMap((entry) => splitRoundTokens(entry));
+    }
+    return String(value || "")
+      .split(/[,\s·]+/g)
+      .map((token) => token.trim())
+      .filter(Boolean);
+  }
+
+  function sortRoundTokens(rounds) {
+    return Array.from(new Set((rounds || []).map((round) => String(round).trim()).filter(Boolean)))
+      .sort((a, b) => {
+        const na = Number(a);
+        const nb = Number(b);
+        if (Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+        return a.localeCompare(b, "ko");
+      });
+  }
+
+  function getBankRoundList(bank) {
+    const source = bank || state.bank || {};
+    const rounds = [];
+
+    splitRoundTokens(source.bank_rounds || source.source_rounds || source.rounds).forEach((round) => rounds.push(round));
+
+    (source.single_items || []).forEach((item) => {
+      splitRoundTokens(item?.source_round || item?.source_rounds || item?.round).forEach((round) => rounds.push(round));
+    });
+
+    (source.set_items || []).forEach((entry) => {
+      splitRoundTokens(entry?.source_round || entry?.source_rounds || entry?.round).forEach((round) => rounds.push(round));
+      (entry?.items || []).forEach((item) => {
+        splitRoundTokens(item?.source_round || item?.source_rounds || item?.round).forEach((round) => rounds.push(round));
+      });
+    });
+
+    return sortRoundTokens(rounds);
+  }
+
+  function getBankSourceLabel(bank) {
+    const rounds = getBankRoundList(bank);
+    return rounds.length ? `${rounds.join("·")}회 문제은행` : "문제은행";
+  }
+
+  function getBankSourceRoundCsv(bank) {
+    return getBankRoundList(bank).join(",");
+  }
+
+  function getBankGuideAudio(bank) {
+    const rounds = getBankRoundList(bank);
+    if (rounds.length) {
+      return `./audio/${rounds[0]}/${rounds[0]}_GUIDE.mp3`;
+    }
+    return "./audio/103/103_GUIDE.mp3";
+  }
+
+
   function getVisibleExams() {
     if (!state.manifest || !Array.isArray(state.manifest.exams)) return [];
     return state.manifest.exams.filter((entry) =>
@@ -455,14 +514,15 @@
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "round-btn active";
+        const bankSourceLabel = getBankSourceLabel();
         btn.textContent = state.examType === "level-test"
-          ? "102·103회 문제은행 기반 랜덤 레벨테스트"
-          : "102·103회 문제은행 기반 랜덤 50문항";
+          ? `${bankSourceLabel} 기반 랜덤 레벨테스트`
+          : `${bankSourceLabel} 기반 랜덤 50문항`;
         btn.addEventListener("click", () => {
-          $("selectedExamText").textContent = "102·103회 문제은행 선택됨";
+          $("selectedExamText").textContent = `${bankSourceLabel} 선택됨`;
         });
         list.appendChild(btn);
-        $("selectedExamText").textContent = "102·103회 문제은행 선택됨";
+        $("selectedExamText").textContent = `${bankSourceLabel} 선택됨`;
       }
       updateStartButton();
       return;
@@ -969,18 +1029,19 @@
     const totalQuestions = display - 1;
     return {
       exam_id: state.examType === "level-test" ? "random-bank-level-test" : "random-bank",
-      source_round: "102,103",
+      source_round: getBankSourceRoundCsv(bank),
+      bank_rounds: getBankRoundList(bank),
       title: state.examType === "level-test" ? "TOPIK II 듣기 문제은행 랜덤 레벨테스트" : "TOPIK II 듣기 문제은행 랜덤 50문항",
       level: "TOPIK II",
       section: "listening",
       exam_type: state.examType === "level-test" ? "level-test" : "random",
       generated_exam_mode: "random",
-      test_scope: `102·103회 문제은행 기반 랜덤 ${totalQuestions}문항`,
+      test_scope: `${getBankSourceLabel(bank)} 기반 랜덤 ${totalQuestions}문항`,
       total_questions: totalQuestions,
       total_possible_points: totalQuestions * 2,
       time_limit_minutes: state.examType === "level-test" ? 30 : 60,
       audio_mode: "manual",
-      guide_audio: "./audio/103/103_GUIDE.mp3",
+      guide_audio: getBankGuideAudio(bank),
       items: randomItems
     };
   }

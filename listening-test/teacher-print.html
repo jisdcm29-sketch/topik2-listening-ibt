@@ -559,7 +559,7 @@
       .answer-table th,.answer-table td{padding:6px 7px;}
     }
   </style>
-  <!-- step34 answer-key table page break and dynamic columns fix -->
+  <!-- step35 teacher print round sorting and sequential display-number fix -->
 </head>
 <body>
   <header class="topbar">
@@ -567,7 +567,7 @@
       <h1>TOPIK II 듣기 교사용 문제지 출력</h1>
       <p>TOPIK II 듣기 문제은행 기준 · 학생용 문제지 · 교사용 정답표 · 선택 오디오 ZIP 다운로드</p>
     </div>
-    <button class="back-btn" type="button" onclick="location.href='./index.html?v=step34answerkeyfix01&t='+Date.now()">시험 화면으로 돌아가기</button>
+    <button class="back-btn" type="button" onclick="location.href='./index.html?v=step35teacherprintnumberfix01&t='+Date.now()">시험 화면으로 돌아가기</button>
   </header>
 
   <main class="app">
@@ -676,14 +676,23 @@
   function roundNumberFromEntry(entry){
     return String(entry?.source_round || entryLabel(entry).replace(/[^\d]/g, "") || "").trim();
   }
+  function sortRoundValues(values){
+    return Array.from(new Set((values || []).map((value) => String(value || "").trim()).filter(Boolean)))
+      .sort((a, b) => {
+        const na = Number(a);
+        const nb = Number(b);
+        if(Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+        return a.localeCompare(b, "ko");
+      });
+  }
   function selectedRoundNumbers(){
     const selected = new Set((state.selectedExamUrls || []).map(comparablePath));
     const nums = state.examEntries
       .filter((entry) => selected.has(comparablePath(entry.test_file)))
       .map(roundNumberFromEntry)
       .filter(Boolean);
-    if(nums.length) return nums;
-    return (state.exams || []).map((exam) => String(exam.source_round || "")).filter(Boolean);
+    if(nums.length) return sortRoundValues(nums);
+    return sortRoundValues((state.exams || []).map((exam) => String(exam.source_round || "")).filter(Boolean));
   }
   function selectedRoundLabel(){
     const nums = Array.from(new Set(selectedRoundNumbers()));
@@ -753,7 +762,12 @@
         entry.student_visible !== false &&
         entry.exam_type === "full" &&
         entry.test_file
-      );
+      ).sort((a, b) => {
+        const na = Number(roundNumberFromEntry(a));
+        const nb = Number(roundNumberFromEntry(b));
+        if(Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+        return entryLabel(a).localeCompare(entryLabel(b), "ko");
+      });
     }catch(err){
       state.manifest = null;
       state.examEntries = [];
@@ -980,10 +994,69 @@
     return getInstructionText(item).replace(/\s+/g, " ").trim();
   }
 
-  function renderItem(item, includeAnswer, showInstruction){
-    const qno = getOriginalNo(item);
-    const question = item.question || item.instruction || "문항";
+  // Step 12: 문제은행 출력에서는 원문항 번호가 아니라 출력용 번호를 다시 매긴다.
+  // 유형 지시문도 원문항 범위([4~8] 등)를 그대로 쓰면 출력용 번호와 어긋나므로
+  // 실제 출력되는 문항 번호 범위로 자동 보정한다.
+  function makePrintRange(numbers){
+    const nums = Array.from(new Set((numbers || [])
+      .map((value) => Number(value))
+      .filter((value) => Number.isFinite(value) && value > 0)))
+      .sort((a, b) => a - b);
+    if(nums.length === 0) return "";
+    if(nums.length === 1) return String(nums[0]);
+    return String(nums[0]) + "~" + String(nums[nums.length - 1]);
+  }
+
+  function buildPrintNumberMap(groups){
+    const map = new Map();
+    let printNo = 1;
+    (groups || []).forEach((group) => {
+      if(group.type === "set"){
+        (group.items || []).forEach((item) => {
+          map.set(item, printNo++);
+        });
+      }else if(group.item){
+        map.set(group.item, printNo++);
+      }
+    });
+    return map;
+  }
+
+  function buildInstructionRangeMap(groups, printNumberMap){
+    const map = new Map();
+    (groups || []).forEach((group) => {
+      const items = group.type === "set" ? (group.items || []) : [group.item].filter(Boolean);
+      items.forEach((item) => {
+        const key = instructionKey(item);
+        if(!key) return;
+        if(!map.has(key)) map.set(key, []);
+        map.get(key).push(printNumberMap.get(item) || getOriginalNo(item));
+      });
+    });
+    return map;
+  }
+
+  function formatInstructionForPrint(item, instructionRangeMap){
     const instruction = getInstructionText(item);
+    if(!instruction) return "";
+    const key = instructionKey(item);
+    const range = makePrintRange(instructionRangeMap.get(key) || []);
+    if(!range) return instruction;
+
+    const prefix = "[" + range + "] ";
+    // 예: [4~8] 다음을 듣고... → [13~16] 다음을 듣고...
+    // 예: ※ [21~22] 다음을 듣고... → ※ [25~26] 다음을 듣고...
+    if(/^\s*※?\s*[\[［][^\]］]+[\]］]\s*/.test(instruction)){
+      return instruction.replace(/^(\s*※?\s*)[\[［][^\]］]+[\]］]\s*/, "$1" + prefix);
+    }
+    return prefix + instruction;
+  }
+
+  function renderItem(item, includeAnswer, showInstruction, displayNo, instructionRangeMap){
+    const qno = getOriginalNo(item);
+    const printNo = Number(displayNo || qno);
+    const question = item.question || item.instruction || "문항";
+    const instruction = formatInstructionForPrint(item, instructionRangeMap || new Map());
     const images = getImages(item);
     const options = getOptions(item);
     const answer = includeAnswer ? '<span class="answer-inline">정답: ' + escapeHtml(item.correct_answer || "") + '</span>' : "";
@@ -993,7 +1066,7 @@
     // 유형 묶음 지시문([4~8]..., [9~12]...)은 문항 질문보다 먼저 1회만 표시한다.
     if(showInstruction && instruction) out += '<p class="q-instruction q-instruction-first">' + escapeHtml(instruction) + '</p>';
 
-    out += '<div class="q-card-head"><h3 class="q-title">' + qno + '. ' + escapeHtml(question) + answer + '</h3>' + badges(item) + '</div>';
+    out += '<div class="q-card-head"><h3 class="q-title">' + printNo + '. ' + escapeHtml(question) + answer + '</h3>' + badges(item) + '</div>';
     if(images.length){
       out += '<div class="visual-grid">';
       images.forEach(im => {
@@ -1010,23 +1083,30 @@
   }
   function renderAnswerTable(items, options = {}){
     const sorted = sortSelectedItems(items);
+    const numbered = sorted.map((item, index) => ({ item, printNo:index + 1 }));
     const pageClass = options.newPage ? " answer-new-page" : "";
-    const pairCount = Math.max(1, Math.min(5, Math.ceil(sorted.length / 10)));
-    const rowCount = Math.max(1, Math.ceil(sorted.length / pairCount));
+
+    // 출력용 번호와 원문항 출처를 함께 보여 주기 위해 3열 묶음으로 구성한다.
+    // 50문항 정답표도 A4에서 잘리지 않도록 한 줄에 최대 3묶음까지만 배치한다.
+    const pairCount = Math.max(1, Math.min(3, Math.ceil(numbered.length / 12)));
+    const rowCount = Math.max(1, Math.ceil(numbered.length / pairCount));
+
     let out = '<section class="answer-card answer-compact' + pageClass + '"><h2>교사용 정답표</h2>';
     out += '<table class="answer-table answer-cols-' + pairCount + '"><thead><tr>';
-    for(let i=0;i<pairCount;i++) out += '<th>문제</th><th>정답</th>';
+    for(let i=0;i<pairCount;i++) out += '<th>출력</th><th>원문항</th><th>정답</th>';
     out += '</tr></thead><tbody>';
+
     for(let row=0; row<rowCount; row++){
       out += '<tr>';
       for(let col=0; col<pairCount; col++){
-        const it = sorted[row + col*rowCount];
-        out += it
-          ? '<td class="answer-question-cell">' + escapeHtml(answerQuestionLabel(it)) + '</td><td><b>' + escapeHtml(it.correct_answer || "") + '</b></td>'
-          : '<td></td><td></td>';
+        const pair = numbered[row + col*rowCount];
+        out += pair
+          ? '<td class="answer-question-cell">' + escapeHtml(pair.printNo + "번") + '</td><td class="answer-question-cell">' + escapeHtml(answerQuestionLabel(pair.item)) + '</td><td><b>' + escapeHtml(pair.item.correct_answer || "") + '</b></td>'
+          : '<td></td><td></td><td></td>';
       }
       out += '</tr>';
     }
+
     out += '</tbody></table></section>';
     return out;
   }
@@ -1038,10 +1118,11 @@
     const title = $("paperTitle").value || "TOPIK II 듣기 교사용 문제지";
     const rounds = selectedRoundText();
     const now = new Date();
+    const paperKind = mode === "student" ? "학생용 문제지" : (appendKey ? "문제지+정답표" : "교사용 문제지");
 
     let out = '<div class="paper">';
     out += '<div class="paper-topline"><h1>' + escapeHtml(title) + '</h1><div class="paper-summary">' + items.length + '문항 / 오디오 ' + audios.length + '개 / ' + escapeHtml(rounds) + '</div></div>';
-    out += '<div class="paper-meta">학생용 문제지 · 문항 수 ' + items.length + ' · 오디오 ' + audios.length + '개 · 회차 ' + escapeHtml(rounds) + ' · 생성 ' + now.toLocaleDateString() + '</div>';
+    out += '<div class="paper-meta">' + escapeHtml(paperKind) + ' · 문항 수 ' + items.length + ' · 오디오 ' + audios.length + '개 · 회차 ' + escapeHtml(rounds) + ' · 생성 ' + now.toLocaleDateString() + '</div>';
     out += '<div class="blue-rule"></div>';
 
     const printedInstructions = new Set();
@@ -1053,13 +1134,17 @@
       return true;
     }
 
-    groupForRender(items).forEach(group => {
+    const groups = groupForRender(items);
+    const printNumberMap = buildPrintNumberMap(groups);
+    const instructionRangeMap = buildInstructionRangeMap(groups, printNumberMap);
+
+    groups.forEach(group => {
       if(group.type === "set"){
         out += '<div class="set-wrap">';
-        group.items.forEach(it => out += renderItem(it, includeInline, shouldPrintInstruction(it)));
+        group.items.forEach(it => out += renderItem(it, includeInline, shouldPrintInstruction(it), printNumberMap.get(it), instructionRangeMap));
         out += '</div>';
       }else{
-        out += renderItem(group.item, includeInline, shouldPrintInstruction(group.item));
+        out += renderItem(group.item, includeInline, shouldPrintInstruction(group.item), printNumberMap.get(group.item), instructionRangeMap);
       }
     });
     if(appendKey) out += renderAnswerTable(items, {newPage:true});
