@@ -146,12 +146,75 @@
     return `<h2>오답 문항</h2><div class="wrong-grid">${wrongHtml}</div><h2>미응답 문항</h2>${unansweredHtml}`;
   }
 
+
+  function splitRoundTokens(value) {
+    if (Array.isArray(value)) {
+      return value.flatMap((entry) => splitRoundTokens(entry));
+    }
+    return String(value || "")
+      .split(/[,\s·]+/g)
+      .map((token) => token.trim())
+      .filter(Boolean);
+  }
+
+  function sortRoundTokens(rounds) {
+    return Array.from(new Set((rounds || []).map((round) => String(round).trim()).filter(Boolean)))
+      .sort((a, b) => {
+        const na = Number(a);
+        const nb = Number(b);
+        if (Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
+        return a.localeCompare(b, "ko");
+      });
+  }
+
+  function collectRoundsFromResult(result) {
+    const rounds = [];
+
+    splitRoundTokens(result?.bank_rounds).forEach((round) => rounds.push(round));
+    splitRoundTokens(result?.generated_exam_round).forEach((round) => rounds.push(round));
+    splitRoundTokens(result?.source_round).forEach((round) => rounds.push(round));
+
+    (result?.items || []).forEach((item) => {
+      splitRoundTokens(item?.source_round).forEach((round) => rounds.push(round));
+    });
+
+    return sortRoundTokens(rounds);
+  }
+
+  function isRandomBankResult(result) {
+    return (
+      result?.generated_exam_mode === "random" ||
+      String(result?.test_name || "").includes("문제은행 랜덤") ||
+      String(result?.test_scope || "").includes("문제은행 기반 랜덤")
+    );
+  }
+
+  function normalizeRandomBankResult(result) {
+    if (!isRandomBankResult(result)) return result;
+
+    const rounds = collectRoundsFromResult(result);
+    if (!rounds.length) return result;
+
+    const normalized = { ...result };
+    normalized.generated_exam_round = rounds.join(",");
+
+    const questionLabel = String(normalized.test_name || "").includes("레벨테스트") ||
+      String(normalized.test_scope || "").includes("레벨테스트")
+      ? "레벨테스트"
+      : `${normalized.total_questions || (normalized.items || []).length}문항`;
+
+    normalized.test_scope = `${rounds.join("·")}회 문제은행 기반 랜덤 ${questionLabel}`;
+    return normalized;
+  }
+
   function render(result) {
     if (!result || !Array.isArray(result.items)) {
       reportEl.innerHTML = '<div class="empty">올바른 TOPIK II 듣기 result.json 형식이 아닙니다.</div>';
       loadPanel.style.display = "block";
       return;
     }
+
+    result = normalizeRandomBankResult(result);
 
     const score = Number(result.section_score_100 ?? result.earned_points ?? 0);
     const band = getScoreBand(score);

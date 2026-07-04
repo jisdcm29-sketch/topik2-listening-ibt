@@ -1,40 +1,51 @@
-// STEP67: 현재 시험 결과 기준 오답 다시 풀기 카운트/해결 표시 보정
+// STEP12: 현재 진단 결과 기준 오답 다시 풀기 카운트 보정
 // 목적:
-// 1) 이전 시험의 오답풀이 진행 상태가 새 진단 보고서에 섞이지 않도록 합니다.
-// 2) "오답 다시 풀기 (N문항)" 숫자를 현재 result의 오답+미응답 기준으로 다시 계산합니다.
-// 3) 새 시험 결과에서 남아 보이는 "오답풀이 해결" 배지를 제거합니다.
+// 1) 진단 보고서의 "오답 다시 풀기 (N문항)" 숫자와 listening-test 오답 다시 풀기 화면 총 문항 수를 일치시킵니다.
+// 2) N은 세트 동반 문항 수가 아니라 현재 결과의 실제 남은 오답·미응답 문항 수입니다.
+// 3) 현재 화면의 window.__TOPIK2_LAST_DIAGNOSIS_RESULT__를 최우선으로 사용해 이전 결과가 섞이지 않게 합니다.
 (function () {
   "use strict";
 
   const RESULT_KEYS = [
     "topik2_listening_last_result",
-    "topik2ListeningLastResult",
     "topik2_listening_result",
-    "topik2ListeningResult",
-    "lastListeningResult",
-    "topik_listening_result"
+    "topik2_listening_last_result_json",
+    "topik2_last_result_json",
+    "topik2ListeningLastResult",
+    "topik2_result",
+    "lastResult"
   ];
 
   function safeJsonParse(raw) {
     if (!raw) return null;
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.items)) return parsed;
+      if (parsed && parsed.result && Array.isArray(parsed.result.items)) return parsed.result;
+      if (parsed && parsed.data && Array.isArray(parsed.data.items)) return parsed.data;
+      return null;
     } catch (_) {
       return null;
     }
   }
 
   function getStoredResult() {
-    for (const key of RESULT_KEYS) {
-      const parsed = safeJsonParse(localStorage.getItem(key));
-      if (parsed && Array.isArray(parsed.items)) return parsed;
+    if (window.__TOPIK2_LAST_DIAGNOSIS_RESULT__ && Array.isArray(window.__TOPIK2_LAST_DIAGNOSIS_RESULT__.items)) {
+      return window.__TOPIK2_LAST_DIAGNOSIS_RESULT__;
     }
 
-    for (let i = 0; i < localStorage.length; i += 1) {
-      const key = localStorage.key(i);
-      if (!key || !/topik|listening|result/i.test(key)) continue;
-      const parsed = safeJsonParse(localStorage.getItem(key));
-      if (parsed && Array.isArray(parsed.items)) return parsed;
+    for (const storage of [localStorage, sessionStorage]) {
+      for (const key of RESULT_KEYS) {
+        const parsed = safeJsonParse(storage.getItem(key));
+        if (parsed) return parsed;
+      }
+
+      for (let i = 0; i < storage.length; i += 1) {
+        const key = storage.key(i);
+        if (!key || !/topik|listening|result/i.test(key)) continue;
+        const parsed = safeJsonParse(storage.getItem(key));
+        if (parsed) return parsed;
+      }
     }
 
     return null;
@@ -52,112 +63,113 @@
     return String(item.student_answer).trim() === String(item.correct_answer).trim();
   }
 
-  function getReviewItems(result) {
-    if (!result || !Array.isArray(result.items)) return [];
-    return result.items
-      .filter((item) => !isCorrect(item))
-      .sort((a, b) => Number(a.question_number || 0) - Number(b.question_number || 0));
+  function normalizeItems(result) {
+    const raw = Array.isArray(result?.items) ? result.items : [];
+    const out = [];
+    raw.forEach((entry) => {
+      if (entry && Array.isArray(entry.items)) {
+        entry.items.forEach((item) => {
+          out.push({
+            ...item,
+            set_id: item.set_id || entry.set_id || "",
+            audio_url: item.audio_url || entry.audio_url || "",
+            source_round: item.source_round || entry.source_round || result.generated_exam_round || ""
+          });
+        });
+      } else if (entry) {
+        out.push(entry);
+      }
+    });
+    return out.sort((a, b) => Number(a.question_number || 0) - Number(b.question_number || 0));
   }
 
-  function makeSignature(result) {
-    if (!result) return "no-result";
+  function originalReviewKey(item) {
+    const round = String(item?.source_round || item?.review_source_round || item?.generated_exam_round || item?.round || "103");
+    const originalNumber = Number(item?.original_question_number || item?.review_source_question_number || item?.question_number || 0);
+    return `${round}|${originalNumber}`;
+  }
+
+  function sourceResultId(result) {
+    if (!result) return "";
     return [
-      result.test_name || "",
-      result.generated_exam_round || "",
-      result.generated_exam_label || "",
-      result.started_at || "",
       result.submitted_at || "",
+      result.started_at || "",
+      result.test_name || result.generated_exam_label || "",
+      result.generated_exam_round || result.source_round || "",
+      result.student_name || "",
+      result.student_phone || "",
       result.total_questions || "",
-      result.correct_count || "",
-      result.unanswered_count || ""
-    ].join("|").replace(/[^\w가-힣|.-]/g, "_");
+      result.earned_points || "",
+      result.correct_count || ""
+    ].join("|") || "topik2-current-diagnosis";
   }
 
-  function setText(el, text) {
-    if (!el || el.textContent === text) return;
-    el.textContent = text;
+  function getProgress(result) {
+    try {
+      const raw = localStorage.getItem("topik2_wrong_review_progress") || sessionStorage.getItem("topik2_wrong_review_progress");
+      const parsed = raw ? JSON.parse(raw) : {};
+      const currentSourceId = sourceResultId(result);
+      if (parsed.sourceId && currentSourceId && parsed.sourceId !== currentSourceId) {
+        return { sourceId: currentSourceId, resolvedKeys: [], attempts: [] };
+      }
+      return {
+        sourceId: parsed.sourceId || currentSourceId,
+        resolvedKeys: Array.isArray(parsed.resolvedKeys) ? parsed.resolvedKeys.map(String) : [],
+        attempts: Array.isArray(parsed.attempts) ? parsed.attempts : []
+      };
+    } catch (_) {
+      return { sourceId: sourceResultId(result), resolvedKeys: [], attempts: [] };
+    }
+  }
+
+  function getUnresolvedWrongItems(result) {
+    const resolved = new Set(getProgress(result).resolvedKeys || []);
+    return normalizeItems(result).filter((item) => {
+      if (isCorrect(item)) return false;
+      return !resolved.has(originalReviewKey(item));
+    });
   }
 
   function updateWrongReviewButtons(count) {
-    const wanted = `오답 다시 풀기 (${count}문항)`;
+    const wanted = count > 0 ? `오답 다시 풀기 (${count}문항)` : "오답 다시 풀기";
 
     document.querySelectorAll("button, a, [role='button']").forEach((el) => {
       const text = (el.textContent || "").replace(/\s+/g, " ").trim();
       if (!text.includes("오답 다시 풀기")) return;
 
-      setText(el, wanted);
+      if (el.textContent !== wanted) el.textContent = wanted;
+      el.disabled = count === 0;
       el.setAttribute("data-current-wrong-review-count", String(count));
-      el.setAttribute("data-step67-current-result-fixed", "true");
-    });
-  }
-
-  function removeStaleSolvedBadges() {
-    const keywords = ["오답풀이 해결", "오답 풀이 해결", "해결"];
-
-    document.querySelectorAll("span, em, strong, b, small, label, div").forEach((el) => {
-      const text = (el.textContent || "").replace(/\s+/g, " ").trim();
-      if (!text) return;
-
-      const isSolvedBadge = keywords.some((word) => text === word || text.includes("오답풀이 해결"));
-      if (!isSolvedBadge) return;
-
-      // 카드 전체가 아니라 배지 자체만 제거합니다.
-      const cls = String(el.className || "");
-      if (
-        text.length <= 20 ||
-        /badge|tag|pill|chip|status|solved|review/i.test(cls)
-      ) {
-        el.remove();
-      }
+      el.setAttribute("data-step12-exact-count-fixed", "true");
+      el.title = count > 0 ? `현재 남은 실제 오답·미응답 ${count}문항` : "";
     });
   }
 
   function storeCurrentReviewState(result, reviewItems) {
     if (!result) return;
+    const sourceId = sourceResultId(result);
+    const progress = getProgress(result);
+    progress.sourceId = sourceId;
+    progress.resolvedKeys = Array.isArray(progress.resolvedKeys) ? progress.resolvedKeys : [];
+    progress.attempts = Array.isArray(progress.attempts) ? progress.attempts : [];
 
-    const signature = makeSignature(result);
-    const reviewNumbers = reviewItems.map((item) => Number(item.question_number));
-    const payload = {
-      signature,
-      generated_exam_round: result.generated_exam_round || "",
-      test_name: result.test_name || "",
-      started_at: result.started_at || "",
-      submitted_at: result.submitted_at || "",
-      total_questions: result.total_questions || reviewItems.length,
-      review_count: reviewItems.length,
-      question_numbers: reviewNumbers,
-      items: reviewItems
-    };
-
-    localStorage.setItem("topik2_wrong_review_current_signature", signature);
-    localStorage.setItem("topik2_wrong_review_current_items", JSON.stringify(payload));
-
-    // 이전 generic progress가 새 결과에 섞이지 않도록 현재 결과 기준으로 초기화합니다.
-    const progressKey = `topik2_wrong_review_progress_${signature}`;
-    if (!localStorage.getItem(progressKey)) {
-      localStorage.setItem(progressKey, JSON.stringify({ signature, solved_numbers: [] }));
-    }
-
-    // 이전 시험용 해결 표시가 현재 화면에 섞이는 것을 막기 위해 legacy progress 키는 비웁니다.
-    [
-      "topik2_wrong_review_progress",
-      "topik2_wrong_review_solved",
-      "wrongReviewProgress",
-      "wrongReviewSolved"
-    ].forEach((key) => {
-      if (localStorage.getItem(key)) {
-        localStorage.setItem(key, JSON.stringify({ signature, solved_numbers: [] }));
-      }
-    });
+    localStorage.setItem("topik2_wrong_review_source_id", sourceId);
+    sessionStorage.setItem("topik2_wrong_review_source_id", sourceId);
+    localStorage.setItem("topik2_wrong_review_progress", JSON.stringify(progress, null, 2));
+    sessionStorage.setItem("topik2_wrong_review_progress", JSON.stringify(progress, null, 2));
+    localStorage.setItem("topik2_wrong_review_source_result", JSON.stringify(result));
+    sessionStorage.setItem("topik2_wrong_review_source_result", JSON.stringify(result));
+    localStorage.setItem("topik2_wrong_review_items", JSON.stringify(reviewItems));
+    sessionStorage.setItem("topik2_wrong_review_items", JSON.stringify(reviewItems));
   }
 
   function attachButtonHandler(result, reviewItems) {
     document.querySelectorAll("button, a, [role='button']").forEach((el) => {
       const text = (el.textContent || "").replace(/\s+/g, " ").trim();
       if (!text.includes("오답 다시 풀기")) return;
-      if (el.getAttribute("data-step67-click-attached") === "true") return;
+      if (el.getAttribute("data-step12-click-attached") === "true") return;
 
-      el.setAttribute("data-step67-click-attached", "true");
+      el.setAttribute("data-step12-click-attached", "true");
       el.addEventListener("click", () => {
         storeCurrentReviewState(result, reviewItems);
       }, true);
@@ -167,11 +179,9 @@
   function fixOnce() {
     const result = getStoredResult();
     if (!result || !Array.isArray(result.items)) return;
-
-    const reviewItems = getReviewItems(result);
-    storeCurrentReviewState(result, reviewItems);
+    const reviewItems = getUnresolvedWrongItems(result);
     updateWrongReviewButtons(reviewItems.length);
-    removeStaleSolvedBadges();
+    storeCurrentReviewState(result, reviewItems);
     attachButtonHandler(result, reviewItems);
   }
 
