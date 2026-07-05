@@ -976,6 +976,203 @@
     return copy;
   }
 
+  function getBankItemOriginalNumber(item) {
+    return Number(item?.original_question_number || item?.question_number || 0);
+  }
+
+  function getBankSetTargetSlots(entry) {
+    const raw = entry?.target_slots || entry?.audio_group_numbers || [];
+    return Array.isArray(raw) ? raw.map((num) => Number(num)).filter(Boolean) : [];
+  }
+
+  function sameNumberArray(a, b) {
+    return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((value, index) => Number(value) === Number(b[index]));
+  }
+
+  function getBankEntryKey(entry) {
+    const slots = getBankSetTargetSlots(entry).join("_");
+    return [
+      entry?.id || "",
+      entry?.source_round || "",
+      slots,
+      entry?.audio_url || ""
+    ].join("|");
+  }
+
+  function getBankDiagnostics(entry) {
+    const values = [];
+    if (entry?.diagnostic_area) values.push(entry.diagnostic_area);
+    if (entry?.type) values.push(entry.type);
+    (entry?.items || []).forEach((item) => {
+      if (item?.diagnostic_area) values.push(item.diagnostic_area);
+      if (item?.type) values.push(item.type);
+    });
+    return new Set(values.filter(Boolean));
+  }
+
+  function bankEntryHasDiagnostic(entry, diagnostic) {
+    return getBankDiagnostics(entry).has(diagnostic);
+  }
+
+  function bankEntryHasDiagnosticArea(entry, diagnostic) {
+    if (entry?.diagnostic_area === diagnostic) return true;
+    return (entry?.items || []).some((item) => item?.diagnostic_area === diagnostic);
+  }
+
+  function pickOneBankEntry(candidates, message, usedKeys = null) {
+    const available = shuffle(candidates).filter((entry) => {
+      if (!usedKeys) return true;
+      return !usedKeys.has(getBankEntryKey(entry));
+    });
+    if (!available.length) throw new Error(message);
+    const selected = available[0];
+    if (usedKeys) usedKeys.add(getBankEntryKey(selected));
+    return cloneJson(selected);
+  }
+
+  function selectRandomSingleSlotsFromBank(singles) {
+    const slotTypes = {
+      1: "visual_graph_choice",
+      2: "visual_graph_choice",
+      3: "visual_graph_choice",
+      4: "following_response",
+      5: "following_response",
+      6: "following_response",
+      7: "following_response",
+      8: "following_response",
+      9: "next_action",
+      10: "next_action",
+      11: "next_action",
+      12: "next_action",
+      13: "same_content_single",
+      14: "same_content_single",
+      15: "same_content_single",
+      16: "same_content_single",
+      17: "main_thought_single",
+      18: "main_thought_single",
+      19: "main_thought_single",
+      20: "main_thought_single"
+    };
+
+    return Array.from({ length: 20 }, (_, index) => index + 1).map((slotNo) => {
+      const requiredType = slotTypes[slotNo];
+      const exactCandidates = singles.filter((item) =>
+        getBankItemOriginalNumber(item) === slotNo &&
+        (!requiredType || item.type === requiredType)
+      );
+
+      const fallbackCandidates = singles.filter((item) =>
+        getBankItemOriginalNumber(item) === slotNo ||
+        (requiredType && item.type === requiredType)
+      );
+
+      return pickOneBankEntry(
+        exactCandidates.length ? exactCandidates : fallbackCandidates,
+        `${slotNo}번 슬롯 후보가 부족합니다.`
+      );
+    });
+  }
+
+  function selectRandomFullSetsFromBank(sets) {
+    const setSlotPairs = [
+      [21, 22],
+      [23, 24],
+      [25, 26],
+      [27, 28],
+      [29, 30],
+      [31, 32],
+      [33, 34],
+      [35, 36],
+      [37, 38],
+      [39, 40],
+      [41, 42],
+      [43, 44],
+      [45, 46],
+      [47, 48],
+      [49, 50]
+    ];
+
+    return setSlotPairs.map((pair) => {
+      const candidates = sets.filter((entry) => sameNumberArray(getBankSetTargetSlots(entry), pair));
+      return pickOneBankEntry(candidates, `${pair[0]}~${pair[1]}번 세트 후보가 부족합니다.`);
+    });
+  }
+
+  function selectRandomLevelTestSetsFromBank(sets) {
+    const levelSetSlots = [
+      {
+        display_slots: [21, 22],
+        source_slots: [21, 22],
+        required_diagnostic: "main_thought_set",
+        label: "중심 생각(세트)"
+      },
+      {
+        display_slots: [23, 24],
+        source_slots: [23, 24],
+        required_diagnostic: "speaker_action_intention",
+        label: "행동·의도 파악"
+      },
+      {
+        display_slots: [25, 26],
+        source_slots: [29, 30],
+        required_diagnostic: "speaker_identity",
+        label: "화자 신분 파악"
+      },
+      {
+        display_slots: [27, 28],
+        source_slots: [41, 42],
+        required_diagnostic: "topic_content",
+        label: "주제·내용 파악"
+      },
+      {
+        display_slots: [29, 30],
+        source_slots: [49, 50],
+        required_diagnostic: "attitude_method",
+        label: "태도·말하는 방식"
+      }
+    ];
+
+    const usedKeys = new Set();
+
+    return levelSetSlots.map((slot) => {
+      const exactCandidates = sets.filter((entry) =>
+        sameNumberArray(getBankSetTargetSlots(entry), slot.source_slots) &&
+        bankEntryHasDiagnosticArea(entry, slot.required_diagnostic)
+      );
+
+      const fallbackCandidates = sets.filter((entry) =>
+        bankEntryHasDiagnosticArea(entry, slot.required_diagnostic)
+      );
+
+      const looseCandidates = sets.filter((entry) =>
+        sameNumberArray(getBankSetTargetSlots(entry), slot.source_slots) &&
+        bankEntryHasDiagnostic(entry, slot.required_diagnostic)
+      );
+
+      const looseFallbackCandidates = sets.filter((entry) =>
+        bankEntryHasDiagnostic(entry, slot.required_diagnostic)
+      );
+
+      const selected = pickOneBankEntry(
+        exactCandidates.length
+          ? exactCandidates
+          : (fallbackCandidates.length
+            ? fallbackCandidates
+            : (looseCandidates.length ? looseCandidates : looseFallbackCandidates)),
+        `${slot.label} 세트 후보가 부족합니다.`,
+        usedKeys
+      );
+
+      selected.random_level_test_source_slots = slot.source_slots.slice();
+      selected.random_level_test_display_slots = slot.display_slots.slice();
+      selected.random_level_test_required_diagnostic = slot.required_diagnostic;
+      return selected;
+    });
+  }
+
   function generateRandomExamFromBank() {
     const bank = state.bank;
     if (!bank) throw new Error("문제은행을 불러오지 못했습니다.");
@@ -983,48 +1180,27 @@
     const singles = bank.single_items || [];
     const sets = bank.set_items || [];
 
-    const singleSlots = [
-      { range: [1, 3], type: "visual_graph_choice" },
-      { range: [4, 8], type: "following_response" },
-      { range: [9, 12], type: "next_action" },
-      { range: [13, 16], type: "same_content_single" },
-      { range: [17, 20], type: "main_thought_single" }
-    ];
-
-    const selectedSingles = [];
-
-    singleSlots.forEach((slot) => {
-      const needed = slot.range[1] - slot.range[0] + 1;
-      const candidates = shuffle(singles.filter((item) => item.type === slot.type));
-      if (candidates.length < needed) {
-        throw new Error(`${slot.type} 후보가 부족합니다.`);
-      }
-      candidates.slice(0, needed).forEach((item) => selectedSingles.push(cloneJson(item)));
-    });
-
-    const setNeeded = state.examType === "level-test" ? 5 : 15;
-    const selectedSets = shuffle(sets).slice(0, setNeeded).map((entry) => cloneJson(entry));
-    if (selectedSets.length < setNeeded) {
-      throw new Error("세트 문항 후보가 부족합니다.");
-    }
+    const selectedSingles = selectRandomSingleSlotsFromBank(singles);
+    const selectedSets = state.examType === "level-test"
+      ? selectRandomLevelTestSetsFromBank(sets)
+      : selectRandomFullSetsFromBank(sets);
 
     const randomItems = [];
     let display = 1;
-    const singleLimit = state.examType === "level-test" ? 20 : 20;
 
-    selectedSingles.slice(0, singleLimit).forEach((item) => {
+    selectedSingles.forEach((item) => {
       item.original_question_number = item.original_question_number || item.question_number;
       item.question_number = display;
-      item.id = `RANDOM_BANK_L${String(display).padStart(3, "0")}_SRC_${String(item.original_question_number).padStart(3, "0")}`;
+      item.id = `RANDOM_BANK_L${String(display).padStart(3, "0")}_SRC_${String(item.source_round || "")}_${String(item.original_question_number).padStart(3, "0")}`;
       randomItems.push(item);
       display += 1;
     });
 
     selectedSets.forEach((entry) => {
-      const originalNumbers = (entry.audio_group_numbers || entry.target_slots || []).slice();
+      const originalNumbers = getBankSetTargetSlots(entry);
       const setStart = display;
       const setEnd = display + 1;
-      entry.set_id = `RANDOM_BANK_SET_${String(setStart).padStart(3, "0")}_${String(setEnd).padStart(3, "0")}_SRC_${originalNumbers.join("_")}`;
+      entry.set_id = `RANDOM_BANK_SET_${String(setStart).padStart(3, "0")}_${String(setEnd).padStart(3, "0")}_SRC_${String(entry.source_round || "")}_${originalNumbers.join("_")}`;
       entry.target_slots = [setStart, setEnd];
       entry.original_target_slots = originalNumbers;
       entry.audio_group_numbers = [setStart, setEnd];
@@ -1032,7 +1208,7 @@
       entry.items = (entry.items || []).map((item, idx) => {
         item.original_question_number = item.original_question_number || item.question_number;
         item.question_number = display + idx;
-        item.id = `RANDOM_BANK_L${String(display + idx).padStart(3, "0")}_SRC_${String(item.original_question_number).padStart(3, "0")}`;
+        item.id = `RANDOM_BANK_L${String(display + idx).padStart(3, "0")}_SRC_${String(item.source_round || entry.source_round || "")}_${String(item.original_question_number).padStart(3, "0")}`;
         item.set_id = entry.set_id;
         item.audio_url = item.audio_url || entry.audio_url;
         return item;
@@ -1051,6 +1227,9 @@
       section: "listening",
       exam_type: state.examType === "level-test" ? "level-test" : "random",
       generated_exam_mode: "random",
+      random_generation_rule: state.examType === "level-test"
+        ? "1~20번은 원번호 슬롯별 선택, 21~30번은 대표 세트 유형 고정 선택"
+        : "1~20번은 원번호 슬롯별 선택, 21~50번은 원번호 세트 슬롯별 선택",
       test_scope: `${getBankSourceLabel(bank)} 기반 랜덤 ${totalQuestions}문항`,
       total_questions: totalQuestions,
       total_possible_points: totalQuestions * 2,

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>TOPIK II 듣기 교사용 문제지 출력</title>
+  <title>TOPIK II 듣기 문제지 출력</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
@@ -564,7 +564,7 @@
 <body>
   <header class="topbar">
     <div>
-      <h1>TOPIK II 듣기 교사용 문제지 출력</h1>
+      <h1>TOPIK II 듣기 문제지 출력</h1>
       <p>TOPIK II 듣기 문제은행 기준 · 학생용 문제지 · 교사용 정답표 · 선택 오디오 ZIP 다운로드</p>
     </div>
     <button class="back-btn" type="button" onclick="location.href='./index.html?v=step34answerkeyfix01&t='+Date.now()">시험 화면으로 돌아가기</button>
@@ -613,7 +613,7 @@
         <label class="checkline"><input id="appendAnswerKey" type="checkbox"> 마지막에 정답표 포함</label>
         <div class="field" style="margin-top:12px;">
           <label for="paperTitle">문제지 제목</label>
-          <input id="paperTitle" type="text" value="TOPIK II 듣기 교사용 문제지">
+          <input id="paperTitle" type="text" value="TOPIK II 듣기 문제지">
         </div>
       </section>
 
@@ -1030,18 +1030,36 @@
     out += '</tbody></table></section>';
     return out;
   }
-    function renderPaper(mode){
+    function getPaperTitleForMode(mode){
+    if(mode === "student"){
+      return selectedRoundTitleText() + " TOPIK II 듣기 학생용 문제지";
+    }
+    if(mode === "teacher-key"){
+      return selectedRoundTitleText() + " TOPIK II 듣기 문제지+정답표";
+    }
+    return $("paperTitle").value || (selectedRoundTitleText() + " TOPIK II 듣기 문제지");
+  }
+
+  function getPaperMetaLabelForMode(mode){
+    if(mode === "student") return "학생용 문제지";
+    if(mode === "teacher-key") return "문제지+정답표";
+    if(mode === "teacher-inline") return "교사용 문제지";
+    return "문제지 미리보기";
+  }
+
+  function renderPaper(mode){
     const items = selectedItems();
     const audios = uniqueAudioRows(items);
     const includeInline = mode === "teacher-inline" || $("showAnswerInline").checked;
     const appendKey = mode === "teacher-key" || $("appendAnswerKey").checked;
-    const title = $("paperTitle").value || "TOPIK II 듣기 교사용 문제지";
+    const title = getPaperTitleForMode(mode);
+    const metaLabel = getPaperMetaLabelForMode(mode);
     const rounds = selectedRoundText();
     const now = new Date();
 
     let out = '<div class="paper">';
     out += '<div class="paper-topline"><h1>' + escapeHtml(title) + '</h1><div class="paper-summary">' + items.length + '문항 / 오디오 ' + audios.length + '개 / ' + escapeHtml(rounds) + '</div></div>';
-    out += '<div class="paper-meta">학생용 문제지 · 문항 수 ' + items.length + ' · 오디오 ' + audios.length + '개 · 회차 ' + escapeHtml(rounds) + ' · 생성 ' + now.toLocaleDateString() + '</div>';
+    out += '<div class="paper-meta">' + escapeHtml(metaLabel) + ' · 문항 수 ' + items.length + ' · 오디오 ' + audios.length + '개 · 회차 ' + escapeHtml(rounds) + ' · 생성 ' + now.toLocaleDateString() + '</div>';
     out += '<div class="blue-rule"></div>';
 
     const printedInstructions = new Set();
@@ -1179,7 +1197,7 @@
   function reset(){
     $("startNo").value = 1; $("endNo").value = 4; $("limitNo").value = 0; $("orderMode").value = "question";
     $("showSource").checked = true; $("showAnswerInline").checked = false; $("appendAnswerKey").checked = false;
-    $("paperTitle").value = "TOPIK II 듣기 교사용 문제지";
+    $("paperTitle").value = "TOPIK II 듣기 문제지";
     $("preview").className = "empty";
     $("preview").innerHTML = "왼쪽에서 조건을 정한 뒤 [문제지 미리보기 생성]을 누르세요.";
   }
