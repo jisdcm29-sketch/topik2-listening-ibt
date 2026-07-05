@@ -1,39 +1,468 @@
 {
-  "template_id": "topik2-listening-exam-template",
+  "template_id": "topik2-listening-random-template",
+  "version": "topik94_step10_random_level_template_fix",
   "level": "TOPIK II",
   "section": "listening",
-  "total_questions": 50,
-  "slots": [
-    {
-      "range": "1-3",
-      "type": "visual_graph_choice",
-      "unit": "single"
-    },
-    {
-      "range": "4-8",
-      "type": "following_response",
-      "unit": "single"
-    },
-    {
-      "range": "9-12",
-      "type": "next_action",
-      "unit": "single"
-    },
-    {
-      "range": "13-16",
-      "type": "same_content_single",
-      "unit": "single"
-    },
-    {
-      "range": "17-20",
-      "type": "main_thought_single",
-      "unit": "single"
-    },
-    {
-      "range": "21-50",
-      "type": "two_question_sets",
-      "unit": "set",
-      "set_size": 2
-    }
+  "purpose": "문제은행 랜덤 50문항과 랜덤 레벨테스트의 슬롯 선택 기준을 명시한다.",
+  "random_full_50": {
+    "total_questions": 50,
+    "single_slots": [
+      {
+        "display_question": 1,
+        "source_original_question": 1,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 2,
+        "source_original_question": 2,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 3,
+        "source_original_question": 3,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 4,
+        "source_original_question": 4,
+        "type": "following_response"
+      },
+      {
+        "display_question": 5,
+        "source_original_question": 5,
+        "type": "following_response"
+      },
+      {
+        "display_question": 6,
+        "source_original_question": 6,
+        "type": "following_response"
+      },
+      {
+        "display_question": 7,
+        "source_original_question": 7,
+        "type": "following_response"
+      },
+      {
+        "display_question": 8,
+        "source_original_question": 8,
+        "type": "following_response"
+      },
+      {
+        "display_question": 9,
+        "source_original_question": 9,
+        "type": "next_action"
+      },
+      {
+        "display_question": 10,
+        "source_original_question": 10,
+        "type": "next_action"
+      },
+      {
+        "display_question": 11,
+        "source_original_question": 11,
+        "type": "next_action"
+      },
+      {
+        "display_question": 12,
+        "source_original_question": 12,
+        "type": "next_action"
+      },
+      {
+        "display_question": 13,
+        "source_original_question": 13,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 14,
+        "source_original_question": 14,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 15,
+        "source_original_question": 15,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 16,
+        "source_original_question": 16,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 17,
+        "source_original_question": 17,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 18,
+        "source_original_question": 18,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 19,
+        "source_original_question": 19,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 20,
+        "source_original_question": 20,
+        "type": "main_thought_single"
+      }
+    ],
+    "set_slots": [
+      {
+        "display_range": [
+          21,
+          22
+        ],
+        "source_target_slots": [
+          21,
+          22
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          23,
+          24
+        ],
+        "source_target_slots": [
+          23,
+          24
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          25,
+          26
+        ],
+        "source_target_slots": [
+          25,
+          26
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          27,
+          28
+        ],
+        "source_target_slots": [
+          27,
+          28
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          29,
+          30
+        ],
+        "source_target_slots": [
+          29,
+          30
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          31,
+          32
+        ],
+        "source_target_slots": [
+          31,
+          32
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          33,
+          34
+        ],
+        "source_target_slots": [
+          33,
+          34
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          35,
+          36
+        ],
+        "source_target_slots": [
+          35,
+          36
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          37,
+          38
+        ],
+        "source_target_slots": [
+          37,
+          38
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          39,
+          40
+        ],
+        "source_target_slots": [
+          39,
+          40
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          41,
+          42
+        ],
+        "source_target_slots": [
+          41,
+          42
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          43,
+          44
+        ],
+        "source_target_slots": [
+          43,
+          44
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          45,
+          46
+        ],
+        "source_target_slots": [
+          45,
+          46
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          47,
+          48
+        ],
+        "source_target_slots": [
+          47,
+          48
+        ],
+        "selection_unit": "two_question_set"
+      },
+      {
+        "display_range": [
+          49,
+          50
+        ],
+        "source_target_slots": [
+          49,
+          50
+        ],
+        "selection_unit": "two_question_set"
+      }
+    ],
+    "rule": "1~20번은 원문항 번호 슬롯별로 1문항씩 선택하고, 21~50번은 원문항 세트 슬롯별로 1세트씩 선택한다."
+  },
+  "random_level_test_30": {
+    "total_questions": 30,
+    "single_slots": [
+      {
+        "display_question": 1,
+        "source_original_question": 1,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 2,
+        "source_original_question": 2,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 3,
+        "source_original_question": 3,
+        "type": "visual_graph_choice"
+      },
+      {
+        "display_question": 4,
+        "source_original_question": 4,
+        "type": "following_response"
+      },
+      {
+        "display_question": 5,
+        "source_original_question": 5,
+        "type": "following_response"
+      },
+      {
+        "display_question": 6,
+        "source_original_question": 6,
+        "type": "following_response"
+      },
+      {
+        "display_question": 7,
+        "source_original_question": 7,
+        "type": "following_response"
+      },
+      {
+        "display_question": 8,
+        "source_original_question": 8,
+        "type": "following_response"
+      },
+      {
+        "display_question": 9,
+        "source_original_question": 9,
+        "type": "next_action"
+      },
+      {
+        "display_question": 10,
+        "source_original_question": 10,
+        "type": "next_action"
+      },
+      {
+        "display_question": 11,
+        "source_original_question": 11,
+        "type": "next_action"
+      },
+      {
+        "display_question": 12,
+        "source_original_question": 12,
+        "type": "next_action"
+      },
+      {
+        "display_question": 13,
+        "source_original_question": 13,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 14,
+        "source_original_question": 14,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 15,
+        "source_original_question": 15,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 16,
+        "source_original_question": 16,
+        "type": "same_content_single"
+      },
+      {
+        "display_question": 17,
+        "source_original_question": 17,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 18,
+        "source_original_question": 18,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 19,
+        "source_original_question": 19,
+        "type": "main_thought_single"
+      },
+      {
+        "display_question": 20,
+        "source_original_question": 20,
+        "type": "main_thought_single"
+      }
+    ],
+    "set_slots": [
+      {
+        "display_range": [
+          21,
+          22
+        ],
+        "source_target_slots": [
+          21,
+          22
+        ],
+        "required_diagnostic": [
+          "main_thought_set",
+          "same_content_set"
+        ],
+        "representative_type": "중심 생각(세트) + 들은 내용 일치(세트)"
+      },
+      {
+        "display_range": [
+          23,
+          24
+        ],
+        "source_target_slots": [
+          23,
+          24
+        ],
+        "required_diagnostic": [
+          "speaker_action_intention",
+          "same_content_set"
+        ],
+        "representative_type": "행동·의도 파악 + 들은 내용 일치(세트)"
+      },
+      {
+        "display_range": [
+          25,
+          26
+        ],
+        "source_target_slots": [
+          29,
+          30
+        ],
+        "required_diagnostic": [
+          "speaker_identity",
+          "same_content_set"
+        ],
+        "representative_type": "화자 신분 파악 + 들은 내용 일치(세트)"
+      },
+      {
+        "display_range": [
+          27,
+          28
+        ],
+        "source_target_slots": [
+          41,
+          42
+        ],
+        "required_diagnostic": [
+          "topic_content",
+          "same_content_set"
+        ],
+        "representative_type": "주제·내용 파악 + 들은 내용 일치(세트)"
+      },
+      {
+        "display_range": [
+          29,
+          30
+        ],
+        "source_target_slots": [
+          49,
+          50
+        ],
+        "required_diagnostic": [
+          "attitude_method",
+          "same_content_set"
+        ],
+        "representative_type": "태도·말하는 방식 + 들은 내용 일치(세트)"
+      }
+    ],
+    "rule": "1~20번 단일 문항은 원문항 번호 슬롯을 유지하고, 21~30번 세트 문항은 대표 유형이 빠지지 않도록 고정 슬롯에서 세트 단위로 선택한다."
+  },
+  "notes": [
+    "TOPIK II PBT 듣기 문제를 화면 기반으로 푸는 PBT형 IBT 시뮬레이션용 템플릿이다.",
+    "21~50번 후반부는 항상 2문항 세트 단위로 선택하며 하나의 audio_url을 공유한다.",
+    "랜덤 레벨테스트는 원본 1~25번 단순 절단형이 아니라 대표 유형을 포함하도록 구성한다."
   ]
 }
