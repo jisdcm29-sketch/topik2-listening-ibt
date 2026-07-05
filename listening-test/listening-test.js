@@ -911,9 +911,10 @@
       ...((screen && screen.questions) || []).map((q) => Number(q.question_number) || 0)
     );
 
-    // 50문항 실전시험에서는 50번이 포함된 마지막 화면에서만 제출 버튼을 보여 준다.
-    // 레벨테스트처럼 총 문항 수가 다른 경우에는 해당 시험의 마지막 화면에서만 보여 준다.
-    const isFinalScreen = total === 50 ? maxQn >= 50 : maxQn >= total;
+    // 고정 회차, 레벨테스트, 10문항 단위 검수용 시험 모두
+    // 실제 화면 배열의 마지막 화면에서만 제출 버튼을 보여 준다.
+    // 문항 번호가 11~20, 21~30처럼 시작하는 검수용 JSON에서도 조기 제출 버튼이 뜨지 않게 한다.
+    const isFinalScreen = state.currentScreenIndex >= state.screens.length - 1;
 
     button.classList.toggle("visible", isFinalScreen);
     button.disabled = !isFinalScreen;
