@@ -1,0 +1,1605 @@
+{
+  "exam_id": "level-test-94",
+  "source_round": "94",
+  "title": "제94회 TOPIK II 듣기 레벨테스트",
+  "level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "level-test",
+  "test_scope": "제94회 TOPIK II 듣기 레벨테스트 30문항",
+  "total_questions": 30,
+  "total_possible_points": 60,
+  "time_limit_minutes": 30,
+  "audio_mode": "sequential",
+  "guide_audio": "./audio/94/94_GUIDE.mp3",
+  "source_guide_audio_file": "01 트랙 1.wma",
+  "source_pdf": "94회 듣기쓰기.pdf",
+  "level_test_policy": {
+    "type": "representative_30_questions",
+    "not_simple_cut": true,
+    "single_slots": "original 1-20",
+    "set_slots": [
+      "21-22",
+      "27-28",
+      "29-30",
+      "41-42",
+      "49-50"
+    ],
+    "set_integrity": "two-question sets are selected together and shown on one screen"
+  },
+  "items": [
+    {
+      "id": "T2_94_LEVEL_L001_SRC_001",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 1,
+      "original_question_number": 1,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/94/94_L001.mp3",
+      "source_audio_file": "02 트랙 2.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 1번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 2,
+        "review_status": "student_booklet_visual_review"
+      },
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/94/94_L001_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/94/94_L001_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/94/94_L001_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/94/94_L001_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_94_LEVEL_L002_SRC_002",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 2,
+      "original_question_number": 2,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/94/94_L002.mp3",
+      "source_audio_file": "03 트랙 3.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 2번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 2,
+        "review_status": "student_booklet_visual_review"
+      },
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/94/94_L002_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/94/94_L002_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/94/94_L002_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/94/94_L002_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_94_LEVEL_L003_SRC_003",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 3,
+      "original_question_number": 3,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그래프를 고르십시오.",
+      "audio_url": "./audio/94/94_L003.mp3",
+      "source_audio_file": "04 트랙 4.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 3번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 3,
+        "review_status": "student_booklet_visual_review"
+      },
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/94/94_L003_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/94/94_L003_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/94/94_L003_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/94/94_L003_04.png"
+        }
+      ]
+    },
+    {
+      "id": "T2_94_LEVEL_L004_SRC_004",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 4,
+      "original_question_number": 4,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L004.mp3",
+      "source_audio_file": "05 트랙 5.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "집중하니까 잘되잖아."
+        },
+        {
+          "number": 2,
+          "text": "벌써 다 준비한 거야?"
+        },
+        {
+          "number": 3,
+          "text": "우리 잠깐 쉬었다 할까?"
+        },
+        {
+          "number": 4,
+          "text": "발표가 잘 끝나서 다행이다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 4번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 3,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L005_SRC_005",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 5,
+      "original_question_number": 5,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L005.mp3",
+      "source_audio_file": "06 트랙 6.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "봉사 활동을 갈래요."
+        },
+        {
+          "number": 2,
+          "text": "고향에 다녀올까 해요."
+        },
+        {
+          "number": 3,
+          "text": "휴가가 끝나서 아쉬워요."
+        },
+        {
+          "number": 4,
+          "text": "아직 계획을 안 세웠군요."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 5번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 3,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L006_SRC_006",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 6,
+      "original_question_number": 6,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L006.mp3",
+      "source_audio_file": "07 트랙 7.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "지금 환기 좀 할까요?"
+        },
+        {
+          "number": 2,
+          "text": "이제 창문 닫아도 되지요?"
+        },
+        {
+          "number": 3,
+          "text": "그렇게 많이 춥지는 않은데요."
+        },
+        {
+          "number": 4,
+          "text": "집에 일찍 들어올 걸 그랬네요."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 6번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L007_SRC_007",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 7,
+      "original_question_number": 7,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L007.mp3",
+      "source_audio_file": "08 트랙 8.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "같이 오니까 좋네."
+        },
+        {
+          "number": 2,
+          "text": "식당에 못 갈 뻔했어."
+        },
+        {
+          "number": 3,
+          "text": "먹어 보니 맛있더라."
+        },
+        {
+          "number": 4,
+          "text": "예약이 되는지 알아볼게."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 7번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L008_SRC_008",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 8,
+      "original_question_number": 8,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L008.mp3",
+      "source_audio_file": "09 트랙 9.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "그럼 오후는 괜찮으세요?"
+        },
+        {
+          "number": 2,
+          "text": "그럼 그때 방문하겠습니다."
+        },
+        {
+          "number": 3,
+          "text": "인터넷은 문제가 없으신가요?"
+        },
+        {
+          "number": 4,
+          "text": "요청하신 대로 설치하겠습니다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 8번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L009_SRC_009",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 9,
+      "original_question_number": 9,
+      "type": "next_action",
+      "category": "이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L009.mp3",
+      "source_audio_file": "10 트랙 10.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "지원서를 쓴다."
+        },
+        {
+          "number": 2,
+          "text": "서류를 제출한다."
+        },
+        {
+          "number": 3,
+          "text": "면접시험을 본다."
+        },
+        {
+          "number": 4,
+          "text": "홈페이지를 확인한다."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 9번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L010_SRC_010",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 10,
+      "original_question_number": 10,
+      "type": "next_action",
+      "category": "이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L010.mp3",
+      "source_audio_file": "11 트랙 11.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "창고에 다녀온다."
+        },
+        {
+          "number": 2,
+          "text": "매장에서 기다린다."
+        },
+        {
+          "number": 3,
+          "text": "운동화를 신어 본다."
+        },
+        {
+          "number": 4,
+          "text": "운동화 사이즈를 고른다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 10번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L011_SRC_011",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 11,
+      "original_question_number": 11,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L011.mp3",
+      "source_audio_file": "12 트랙 12.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "밖으로 나간다."
+        },
+        {
+          "number": 2,
+          "text": "주차장으로 간다."
+        },
+        {
+          "number": 3,
+          "text": "따뜻한 옷을 챙긴다."
+        },
+        {
+          "number": 4,
+          "text": "일기 예보를 찾아본다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 11번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L012_SRC_012",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 12,
+      "original_question_number": 12,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L012.mp3",
+      "source_audio_file": "13 트랙 13.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "명단을 출력한다."
+        },
+        {
+          "number": 2,
+          "text": "체험단을 선정한다."
+        },
+        {
+          "number": 3,
+          "text": "신제품을 평가한다."
+        },
+        {
+          "number": 4,
+          "text": "신제품을 준비한다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 12번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 4,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L013_SRC_013",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 13,
+      "original_question_number": 13,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L013.mp3",
+      "source_audio_file": "14 트랙 14.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "여자는 지난주에 장미 축제에 갔다."
+        },
+        {
+          "number": 2,
+          "text": "여자는 축제에서 꽃차를 만들어 왔다."
+        },
+        {
+          "number": 3,
+          "text": "남자는 여자에게 장미꽃차를 선물했다."
+        },
+        {
+          "number": 4,
+          "text": "남자는 장미꽃차를 자주 마시는 편이다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 13번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 5,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L014_SRC_014",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 14,
+      "original_question_number": 14,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L014.mp3",
+      "source_audio_file": "15 트랙 15.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "휴게실은 1층에 있다."
+        },
+        {
+          "number": 2,
+          "text": "오늘부터 방학이 시작된다."
+        },
+        {
+          "number": 3,
+          "text": "휴게실 공사를 진행할 예정이다."
+        },
+        {
+          "number": 4,
+          "text": "방학 중에 열람실을 이용할 수 없다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 14번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 5,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L015_SRC_015",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 15,
+      "original_question_number": 15,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L015.mp3",
+      "source_audio_file": "16 트랙 16.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "인주시 전체가 정전되었다."
+        },
+        {
+          "number": 2,
+          "text": "복구가 완료되기까지 2시간 걸렸다."
+        },
+        {
+          "number": 3,
+          "text": "한국 전력은 정전의 원인을 알아냈다."
+        },
+        {
+          "number": 4,
+          "text": "사고가 났을 때 엘리베이터는 작동했다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 15번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 5,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L016_SRC_016",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 16,
+      "original_question_number": 16,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L016.mp3",
+      "source_audio_file": "17 트랙 17.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "인주시에는 혼자 사는 사람이 적다."
+        },
+        {
+          "number": 2,
+          "text": "안내 책자에 대한 반응이 별로 좋지 않다."
+        },
+        {
+          "number": 3,
+          "text": "공유 센터에서 생활용품을 교환할 수 있다."
+        },
+        {
+          "number": 4,
+          "text": "물품을 빌려주는 서비스를 운영할 계획이다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 16번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 5,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L017_SRC_017",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 17,
+      "original_question_number": 17,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L017.mp3",
+      "source_audio_file": "18 트랙 18.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "동영상 시청을 줄이려고 한다."
+        },
+        {
+          "number": 2,
+          "text": "화면이 큰 휴대폰을 사고 싶다."
+        },
+        {
+          "number": 3,
+          "text": "작은 휴대폰이 가지고 다니기 좋다."
+        },
+        {
+          "number": 4,
+          "text": "휴대폰으로 동영상을 보면 불편하다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 17번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 6,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L018_SRC_018",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 18,
+      "original_question_number": 18,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L018.mp3",
+      "source_audio_file": "19 트랙 19.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "연극에서는 배우의 역할이 매우 중요하다."
+        },
+        {
+          "number": 2,
+          "text": "역사와 관련된 연극이 더 많아지면 좋겠다."
+        },
+        {
+          "number": 3,
+          "text": "작품의 배경을 알면 연극 관람에 도움이 된다."
+        },
+        {
+          "number": 4,
+          "text": "연극 관람 전에 주의 사항을 잘 들어야 한다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 18번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 6,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L019_SRC_019",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 19,
+      "original_question_number": 19,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L019.mp3",
+      "source_audio_file": "20 트랙 20.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "실패하더라도 도전해 보려고 한다."
+        },
+        {
+          "number": 2,
+          "text": "여러 회사에 지원해 보는 것이 좋다."
+        },
+        {
+          "number": 3,
+          "text": "경쟁률이 높으면 합격하기가 힘들다."
+        },
+        {
+          "number": 4,
+          "text": "진로에 대해 신중하게 고민해야 한다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 19번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 6,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "id": "T2_94_LEVEL_L020_SRC_020",
+      "source_round": "94",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 20,
+      "original_question_number": 20,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/94/94_L020.mp3",
+      "source_audio_file": "21 트랙 21.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "가방을 튼튼하게 만들면 좋겠다."
+        },
+        {
+          "number": 2,
+          "text": "환경에 좋은 재료를 사용해야 한다."
+        },
+        {
+          "number": 3,
+          "text": "고객의 취향을 맞추는 일은 쉽지 않다."
+        },
+        {
+          "number": 4,
+          "text": "가방을 버리지 말고 고쳐 쓰는 것이 좋다."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "94회 TOPIK II 듣기 20번",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_audio_review": true,
+      "needs_text_review": false,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 6,
+        "review_status": "student_booklet_visual_review"
+      }
+    },
+    {
+      "set_id": "T2_94_LEVEL_SET_021_022_SRC_021_022",
+      "source_round": "94",
+      "set_type": "long_listening_set",
+      "target_slots": [
+        21,
+        22
+      ],
+      "audio_url": "./audio/94/94_L021.mp3",
+      "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+      "audio_group_id": "94_LEVEL_L021_022",
+      "audio_group_numbers": [
+        21,
+        22
+      ],
+      "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "needs_audio_review": true,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 7,
+        "review_status": "student_booklet_visual_review"
+      },
+      "items": [
+        {
+          "id": "T2_94_LEVEL_L021_SRC_021",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 21,
+          "original_question_number": 21,
+          "type": "main_thought_set",
+          "category": "남자의 중심 생각 고르기",
+          "diagnostic_area": "main_thought_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "행사장을 더 큰 장소로 옮겨야 한다."
+            },
+            {
+              "number": 2,
+              "text": "학교 캐릭터를 독특하게 개발하면 좋겠다."
+            },
+            {
+              "number": 3,
+              "text": "입학 설명회 때 학교 캐릭터를 활용하는 것이 좋다."
+            },
+            {
+              "number": 4,
+              "text": "행사에서 쓸 기념품을 넉넉하게 제작할 필요가 있다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 21번",
+          "set_id": "T2_94_LEVEL_SET_021_022_SRC_021_022",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 7,
+            "review_status": "student_booklet_visual_review"
+          }
+        },
+        {
+          "id": "T2_94_LEVEL_L022_SRC_022",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 22,
+          "original_question_number": 22,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "남자는 입학 설명회 자료를 준비해야 한다."
+            },
+            {
+              "number": 2,
+              "text": "입학 설명회는 아직 날짜가 확정되지 않았다."
+            },
+            {
+              "number": 3,
+              "text": "학교 캐릭터는 학생들의 관심을 크게 끌지 못했다."
+            },
+            {
+              "number": 4,
+              "text": "여자는 행사장에 큰 캐릭터 인형을 놓아두려고 한다."
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 22번",
+          "set_id": "T2_94_LEVEL_SET_021_022_SRC_021_022",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 7,
+            "review_status": "student_booklet_visual_review"
+          }
+        }
+      ],
+      "level": "TOPIK II",
+      "section": "listening",
+      "description": "94회 레벨테스트 표시 21~22번 / 원문항 21~22번"
+    },
+    {
+      "set_id": "T2_94_LEVEL_SET_023_024_SRC_027_028",
+      "source_round": "94",
+      "set_type": "long_listening_set",
+      "target_slots": [
+        23,
+        24
+      ],
+      "audio_url": "./audio/94/94_L027.mp3",
+      "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+      "audio_group_id": "94_LEVEL_L023_024",
+      "audio_group_numbers": [
+        23,
+        24
+      ],
+      "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "needs_audio_review": true,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 8,
+        "review_status": "student_booklet_visual_review"
+      },
+      "items": [
+        {
+          "id": "T2_94_LEVEL_L023_SRC_027",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 23,
+          "original_question_number": 27,
+          "type": "speaker_action_intention",
+          "category": "말하는 의도 파악하기",
+          "diagnostic_area": "speaker_action_intention",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 의도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "예능 프로그램의 내용을 제안하려고"
+            },
+            {
+              "number": 2,
+              "text": "흥미로운 예능 프로그램을 추천하려고"
+            },
+            {
+              "number": 3,
+              "text": "해외에서 상을 받은 감독을 소개하려고"
+            },
+            {
+              "number": 4,
+              "text": "감독의 편집 방식의 문제점을 지적하려고"
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 27번",
+          "set_id": "T2_94_LEVEL_SET_023_024_SRC_027_028",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 8,
+            "review_status": "student_booklet_visual_review"
+          }
+        },
+        {
+          "id": "T2_94_LEVEL_L024_SRC_028",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 24,
+          "original_question_number": 28,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "여자는 이 프로그램을 시청한 적이 있다."
+            },
+            {
+              "number": 2,
+              "text": "이 프로그램은 이번 주에 방송을 하지 않았다."
+            },
+            {
+              "number": 3,
+              "text": "이 프로그램에 나온 출연자들은 사이가 좋아 보였다."
+            },
+            {
+              "number": 4,
+              "text": "남자는 이 프로그램의 내용이 믿을 만하다고 생각한다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 28번",
+          "set_id": "T2_94_LEVEL_SET_023_024_SRC_027_028",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 8,
+            "review_status": "student_booklet_visual_review"
+          }
+        }
+      ],
+      "level": "TOPIK II",
+      "section": "listening",
+      "description": "94회 레벨테스트 표시 23~24번 / 원문항 27~28번"
+    },
+    {
+      "set_id": "T2_94_LEVEL_SET_025_026_SRC_029_030",
+      "source_round": "94",
+      "set_type": "long_listening_set",
+      "target_slots": [
+        25,
+        26
+      ],
+      "audio_url": "./audio/94/94_L029.mp3",
+      "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+      "audio_group_id": "94_LEVEL_L025_026",
+      "audio_group_numbers": [
+        25,
+        26
+      ],
+      "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "needs_audio_review": true,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 9,
+        "review_status": "student_booklet_visual_review"
+      },
+      "items": [
+        {
+          "id": "T2_94_LEVEL_L025_SRC_029",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 25,
+          "original_question_number": 29,
+          "type": "speaker_identity",
+          "category": "인물 신분·역할 파악하기",
+          "diagnostic_area": "speaker_identity",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "여자가 누구인지 고르십시오.",
+          "audio_url": "./audio/94/94_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "범인의 권리를 보호해 주는 사람"
+            },
+            {
+              "number": 2,
+              "text": "수사 정보를 기록하고 관리하는 사람"
+            },
+            {
+              "number": 3,
+              "text": "수사를 위해 자료를 수집해 정리하는 사람"
+            },
+            {
+              "number": 4,
+              "text": "범인의 심리를 분석해 수사에 도움을 주는 사람"
+            }
+          ],
+          "correct_answer": 4,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 29번",
+          "set_id": "T2_94_LEVEL_SET_025_026_SRC_029_030",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 9,
+            "review_status": "student_booklet_visual_review"
+          }
+        },
+        {
+          "id": "T2_94_LEVEL_L026_SRC_030",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 26,
+          "original_question_number": 30,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "여자가 해결한 사건은 증거가 충분했다."
+            },
+            {
+              "number": 2,
+              "text": "여자는 추리 소설을 좋아해서 자주 읽었다."
+            },
+            {
+              "number": 3,
+              "text": "여자는 전공과 관련 없는 일을 하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "여자가 해결한 사건은 최근에 발생한 것이다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 30번",
+          "set_id": "T2_94_LEVEL_SET_025_026_SRC_029_030",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 9,
+            "review_status": "student_booklet_visual_review"
+          }
+        }
+      ],
+      "level": "TOPIK II",
+      "section": "listening",
+      "description": "94회 레벨테스트 표시 25~26번 / 원문항 29~30번"
+    },
+    {
+      "set_id": "T2_94_LEVEL_SET_027_028_SRC_041_042",
+      "source_round": "94",
+      "set_type": "long_listening_set",
+      "target_slots": [
+        27,
+        28
+      ],
+      "audio_url": "./audio/94/94_L041.mp3",
+      "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+      "audio_group_id": "94_LEVEL_L027_028",
+      "audio_group_numbers": [
+        27,
+        28
+      ],
+      "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "needs_audio_review": true,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 12,
+        "review_status": "student_booklet_visual_review"
+      },
+      "items": [
+        {
+          "id": "T2_94_LEVEL_L027_SRC_041",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 27,
+          "original_question_number": 41,
+          "type": "topic_content",
+          "category": "강연 중심 내용 고르기",
+          "diagnostic_area": "topic_content",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "이 강연의 중심 내용으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "향원정은 조선 후기 건축미를 대표한다."
+            },
+            {
+              "number": 2,
+              "text": "‘열상진원’의 수로는 과학적인 원리로 만들어졌다."
+            },
+            {
+              "number": 3,
+              "text": "조선 시대에는 우물을 만들 때 화강암을 사용했다."
+            },
+            {
+              "number": 4,
+              "text": "‘열상진원’은 왕궁의 식수원으로 사용하는 데에 적합하다."
+            }
+          ],
+          "correct_answer": 2,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 41번",
+          "set_id": "T2_94_LEVEL_SET_027_028_SRC_041_042",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 12,
+            "review_status": "student_booklet_visual_review"
+          }
+        },
+        {
+          "id": "T2_94_LEVEL_L028_SRC_042",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 28,
+          "original_question_number": 42,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 샘의 물은 수로를 통과할 때 온도가 높아진다."
+            },
+            {
+              "number": 2,
+              "text": "이 샘의 수로는 연못까지 일자로 연결되어 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 샘의 물은 나무를 쌓아 만든 수로를 통해 흐른다."
+            },
+            {
+              "number": 4,
+              "text": "이 샘의 물은 연못 위로 떨어져 아름다운 물결을 만든다."
+            }
+          ],
+          "correct_answer": 1,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 42번",
+          "set_id": "T2_94_LEVEL_SET_027_028_SRC_041_042",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 12,
+            "review_status": "student_booklet_visual_review"
+          }
+        }
+      ],
+      "level": "TOPIK II",
+      "section": "listening",
+      "description": "94회 레벨테스트 표시 27~28번 / 원문항 41~42번"
+    },
+    {
+      "set_id": "T2_94_LEVEL_SET_029_030_SRC_049_050",
+      "source_round": "94",
+      "set_type": "long_listening_set",
+      "target_slots": [
+        29,
+        30
+      ],
+      "audio_url": "./audio/94/94_L049.mp3",
+      "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+      "audio_group_id": "94_LEVEL_L029_030",
+      "audio_group_numbers": [
+        29,
+        30
+      ],
+      "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "needs_audio_review": true,
+      "text_source": {
+        "source_file": "94회 듣기쓰기.pdf",
+        "source_pdf_page": 14,
+        "review_status": "student_booklet_visual_review"
+      },
+      "items": [
+        {
+          "id": "T2_94_LEVEL_L029_SRC_049",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 29,
+          "original_question_number": 49,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "특별 시험은 지방에서 시행되지 않았다."
+            },
+            {
+              "number": 2,
+              "text": "신하가 왕의 말을 받아 적어 편지를 작성했다."
+            },
+            {
+              "number": 3,
+              "text": "왕은 시험이 정기적으로 시행되도록 제도를 바꾸었다."
+            },
+            {
+              "number": 4,
+              "text": "왕이 배포한 책을 통해서는 시험 결과를 알 수 없었다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 49번",
+          "set_id": "T2_94_LEVEL_SET_029_030_SRC_049_050",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 14,
+            "review_status": "student_booklet_visual_review"
+          }
+        },
+        {
+          "id": "T2_94_LEVEL_L030_SRC_050",
+          "source_round": "94",
+          "level": "TOPIK II",
+          "section": "listening",
+          "question_number": 30,
+          "original_question_number": 50,
+          "type": "attitude_method",
+          "category": "남자의 태도 고르기",
+          "diagnostic_area": "attitude_method",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 태도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/94/94_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "선발된 지방 인재의 유능함을 칭찬하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "인재 선발을 위한 시험 문항 개발의 필요성을 강조하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "조선 시대의 인재 선발을 위한 노력과 가치를 높이 평가하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "조선 시대에 발간된 책이 후대로 전해지지 않아 안타까워하고 있다."
+            }
+          ],
+          "correct_answer": 3,
+          "points": 2,
+          "description": "94회 TOPIK II 듣기 50번",
+          "set_id": "T2_94_LEVEL_SET_029_030_SRC_049_050",
+          "has_example": false,
+          "source_has_example": false,
+          "needs_audio_review": true,
+          "needs_text_review": false,
+          "text_source": {
+            "source_file": "94회 듣기쓰기.pdf",
+            "source_pdf_page": 14,
+            "review_status": "student_booklet_visual_review"
+          }
+        }
+      ],
+      "level": "TOPIK II",
+      "section": "listening",
+      "description": "94회 레벨테스트 표시 29~30번 / 원문항 49~50번"
+    }
+  ]
+}
