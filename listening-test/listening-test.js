@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  const WRONG_REVIEW_SCOPE_VERSION = "topik2_wrong_review_current_result_v5";
+
   const MANIFEST_URL = "./data/exam-manifest.json";
   const BANK_URL = "./data/bank/question-bank.json";
 
@@ -121,23 +123,27 @@
     if (item && typeof item.review_source_original_key === "string" && item.review_source_original_key.includes("|")) {
       return item.review_source_original_key;
     }
-    const round = String(item?.source_round || item?.review_source_round || item?.generated_exam_round || item?.round || "103");
+    const round = String(item?.source_round || item?.review_source_round || item?.generated_exam_round || item?.round || "").trim();
     const originalNumber = Number(item?.original_question_number || item?.review_source_question_number || item?.question_number || 0);
-    return `${round}|${originalNumber}`;
+    return round && originalNumber ? `${round}|${originalNumber}` : "";
   }
 
   function sourceResultId(sourceResult) {
     if (!sourceResult) return "";
+    const explicit = sourceResult.result_id || sourceResult.exam_result_id || sourceResult.review_source_id || sourceResult.wrong_review_source_id || "";
+    if (explicit) return String(explicit);
     const base = [
       sourceResult.submitted_at || "",
       sourceResult.started_at || "",
       sourceResult.test_name || sourceResult.generated_exam_label || "",
+      sourceResult.generated_exam_mode || "",
       sourceResult.generated_exam_round || sourceResult.source_round || "",
       sourceResult.student_name || "",
       sourceResult.student_phone || "",
       sourceResult.total_questions || "",
       sourceResult.earned_points || "",
-      sourceResult.correct_count || ""
+      sourceResult.correct_count || "",
+      sourceResult.unanswered_count || ""
     ].join("|");
     return base || "topik2-current-diagnosis";
   }
@@ -145,44 +151,83 @@
   function candidateReviewKeys(item) {
     const keys = new Set();
     if (!item) return keys;
+    if (item.id) keys.add(String(item.id));
     if (item.review_source_original_key) keys.add(String(item.review_source_original_key));
-    keys.add(originalReviewKey(item));
-    const round = String(item.source_round || item.review_source_round || item.generated_exam_round || item.round || "103");
-    const originalNumber = Number(item.original_question_number || item.review_source_question_number || item.question_number || 0);
-    if (originalNumber) {
-      keys.add(`${round}|${originalNumber}`);
-      keys.add(`103|${originalNumber}`);
+    const originalKey = originalReviewKey(item);
+    if (originalKey) keys.add(originalKey);
+
+    const round = String(item.source_round || item.review_source_round || item.generated_exam_round || item.round || "").trim();
+    const originalNumber = Number(item.original_question_number || item.review_source_question_number || 0);
+    const displayNumber = Number(item.question_number || 0);
+    if (round && originalNumber) keys.add(`${round}|${originalNumber}`);
+    if (round && displayNumber) keys.add(`${round}|display:${displayNumber}`);
+    if (displayNumber) {
+      keys.add(`display:${displayNumber}`);
+      keys.add(`qn:${displayNumber}`);
     }
     return keys;
+  }
+
+  function emptyWrongReviewProgress(sourceId) {
+    return {
+      scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+      currentResultOnly: true,
+      sourceId: sourceId || "",
+      resolvedKeys: [],
+      solvedNumbers: [],
+      attempts: []
+    };
+  }
+
+  function normalizeWrongReviewProgress(parsed, sourceResult) {
+    const currentSourceId = sourceResultId(sourceResult);
+    const empty = emptyWrongReviewProgress(currentSourceId);
+    if (!parsed || typeof parsed !== "object" || !currentSourceId) return empty;
+
+    const storedSourceId = String(parsed.sourceId || parsed.source_id || "");
+    const scopeVersion = String(parsed.scopeVersion || parsed.scope_version || "");
+    const currentResultOnly = parsed.currentResultOnly === true;
+
+    if (storedSourceId !== currentSourceId) return empty;
+    if (scopeVersion !== WRONG_REVIEW_SCOPE_VERSION || !currentResultOnly) return empty;
+
+    return {
+      scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+      currentResultOnly: true,
+      sourceId: currentSourceId,
+      resolvedKeys: []
+        .concat(Array.isArray(parsed.resolvedKeys) ? parsed.resolvedKeys : [])
+        .concat(Array.isArray(parsed.solvedKeys) ? parsed.solvedKeys : [])
+        .concat(Array.isArray(parsed.resolved_keys) ? parsed.resolved_keys : [])
+        .map(String)
+        .filter(Boolean),
+      solvedNumbers: []
+        .concat(Array.isArray(parsed.solvedNumbers) ? parsed.solvedNumbers : [])
+        .concat(Array.isArray(parsed.solved_numbers) ? parsed.solved_numbers : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value) && value > 0),
+      attempts: Array.isArray(parsed.attempts) ? parsed.attempts : []
+    };
   }
 
   function getWrongReviewProgress(sourceResult) {
     try {
       const raw = localStorage.getItem("topik2_wrong_review_progress") || sessionStorage.getItem("topik2_wrong_review_progress");
       const parsed = raw ? JSON.parse(raw) : {};
-      const currentSourceId = sourceResultId(sourceResult);
-
-      // 오답풀이 진행률은 원 진단 결과별로만 적용한다.
-      // sourceId가 다른 이전 시험의 진행률은 현재 진단에 섞지 않는다.
-      if (parsed.sourceId && currentSourceId && parsed.sourceId !== currentSourceId) {
-        return { sourceId: currentSourceId, resolvedKeys: [], attempts: [] };
-      }
-
-      return {
-        sourceId: parsed.sourceId || currentSourceId,
-        resolvedKeys: Array.isArray(parsed.resolvedKeys) ? parsed.resolvedKeys.map(String) : [],
-        attempts: Array.isArray(parsed.attempts) ? parsed.attempts : []
-      };
+      return normalizeWrongReviewProgress(parsed, sourceResult);
     } catch (error) {
-      return { sourceId: sourceResultId(sourceResult), resolvedKeys: [], attempts: [] };
+      return emptyWrongReviewProgress(sourceResultId(sourceResult));
     }
   }
 
   function saveWrongReviewProgress(progress, sourceResult) {
     const sourceId = sourceResultId(sourceResult) || progress.sourceId || "";
     const safe = {
+      scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+      currentResultOnly: true,
       sourceId,
-      resolvedKeys: Array.from(new Set((progress.resolvedKeys || []).map(String))),
+      resolvedKeys: Array.from(new Set((progress.resolvedKeys || []).map(String).filter(Boolean))),
+      solvedNumbers: Array.from(new Set((progress.solvedNumbers || []).map((value) => Number(value)).filter((value) => Number.isFinite(value) && value > 0))),
       attempts: Array.isArray(progress.attempts) ? progress.attempts : [],
       updatedAt: new Date().toISOString()
     };
@@ -196,12 +241,25 @@
   function getUnresolvedWrongItems(sourceResult) {
     const progress = getWrongReviewProgress(sourceResult);
     const resolved = new Set(progress.resolvedKeys || []);
+    const solvedNumbers = new Set(
+      (Array.isArray(progress.solvedNumbers) ? progress.solvedNumbers : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value) && value > 0)
+    );
+
     return (Array.isArray(sourceResult?.items) ? sourceResult.items : [])
       .filter((item) => !item.is_correct)
       .filter((item) => {
         for (const key of candidateReviewKeys(item)) {
           if (resolved.has(key)) return false;
         }
+
+        // STEP14 안전장치:
+        // resolvedKeys가 일부 구버전 오답풀이 결과와 매칭되지 않더라도
+        // 원 진단 보고서의 표시 번호가 solvedNumbers에 있으면 다시 출제하지 않는다.
+        const sourceDisplayNumber = Number(item.question_number || 0);
+        if (sourceDisplayNumber && solvedNumbers.has(sourceDisplayNumber)) return false;
+
         return true;
       });
   }
@@ -213,23 +271,62 @@
   function updateWrongReviewProgress(sourceResult, reviewResult) {
     const progress = getWrongReviewProgress(sourceResult);
     const resolved = new Set(progress.resolvedKeys || []);
-    const originalWrongKeys = new Set();
-    getUnresolvedWrongItems(sourceResult).forEach((item) => {
-      candidateReviewKeys(item).forEach((key) => originalWrongKeys.add(key));
+
+    // STEP14:
+    // 원 진단 문항의 모든 후보 키를 source item과 연결해 둔다.
+    // 이렇게 해야 오답풀이에서 맞힌 문항을 원 진단 보고서의 문항 번호로 정확히 차감할 수 있다.
+    const originalWrongKeyToItem = new Map();
+    getUnresolvedWrongItems(sourceResult).forEach((sourceItem) => {
+      candidateReviewKeys(sourceItem).forEach((key) => {
+        if (key && !originalWrongKeyToItem.has(key)) {
+          originalWrongKeyToItem.set(key, sourceItem);
+        }
+      });
     });
 
     const correctedNow = [];
-    (Array.isArray(reviewResult?.items) ? reviewResult.items : []).forEach((item) => {
-      if (!item.is_correct) return;
-      const keys = Array.from(candidateReviewKeys(item));
-      const matchedKey = keys.find((key) => originalWrongKeys.has(key));
-      if (matchedKey) {
-        keys.forEach((key) => resolved.add(key));
-        correctedNow.push(matchedKey);
-      }
+    const correctedSourceNumbers = new Set();
+
+    (Array.isArray(reviewResult?.items) ? reviewResult.items : []).forEach((reviewItem) => {
+      if (!reviewItem.is_correct) return;
+
+      const keys = Array.from(candidateReviewKeys(reviewItem)).filter(Boolean);
+      const matchedKey = keys.find((key) => originalWrongKeyToItem.has(key));
+      if (!matchedKey) return;
+
+      const sourceItem = originalWrongKeyToItem.get(matchedKey);
+
+      // matched key와 review item/source item의 모든 후보 키를 함께 저장한다.
+      // 이후 오답풀이를 다시 열 때 같은 문항이 재출제되지 않도록 하기 위함이다.
+      keys.forEach((key) => resolved.add(key));
+      candidateReviewKeys(sourceItem).forEach((key) => {
+        if (key) resolved.add(key);
+      });
+
+      const sourceDisplayNumber = Number(sourceItem?.question_number || 0);
+      if (sourceDisplayNumber) correctedSourceNumbers.add(sourceDisplayNumber);
+
+      correctedNow.push({
+        key: matchedKey,
+        sourceQuestionNumber: sourceDisplayNumber || "",
+        reviewQuestionNumber: Number(reviewItem.question_number || 0) || "",
+        originalQuestionNumber: Number(sourceItem?.original_question_number || reviewItem.original_question_number || 0) || "",
+        sourceRound: String(sourceItem?.source_round || reviewItem.source_round || "")
+      });
     });
 
+    const solvedNumbers = new Set(
+      (Array.isArray(progress.solvedNumbers) ? progress.solvedNumbers : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value) && value > 0)
+    );
+    correctedSourceNumbers.forEach((num) => solvedNumbers.add(num));
+
     progress.resolvedKeys = Array.from(resolved);
+    progress.solvedNumbers = Array.from(solvedNumbers).sort((a, b) => a - b);
+    progress.scopeVersion = WRONG_REVIEW_SCOPE_VERSION;
+    progress.currentResultOnly = true;
+    progress.sourceId = sourceResultId(sourceResult);
     progress.attempts = [
       ...(progress.attempts || []),
       {
@@ -239,12 +336,15 @@
         reviewTestName: reviewResult?.test_name || "TOPIK II 듣기 오답 다시 풀기",
         reviewedCount: Array.isArray(reviewResult?.items) ? reviewResult.items.length : 0,
         correctedCount: correctedNow.length,
-        correctedKeys: correctedNow
+        correctedKeys: correctedNow.map((entry) => entry.key),
+        correctedItems: correctedNow
       }
     ];
 
+    const savedProgress = saveWrongReviewProgress(progress, sourceResult);
+
     return {
-      progress: saveWrongReviewProgress(progress, sourceResult),
+      progress: savedProgress,
       correctedNow,
       remainingCount: countUnresolvedWrongItems(sourceResult)
     };
@@ -379,6 +479,8 @@
     state.wrongReviewSourceResult = sourceResult;
     localStorage.setItem("topik2_wrong_review_source_id", sourceResultId(sourceResult));
     sessionStorage.setItem("topik2_wrong_review_source_id", sourceResultId(sourceResult));
+    // 현재 원 진단 결과 전용 오답풀이 scope를 보장한다. legacy progress는 여기서 무시된다.
+    saveWrongReviewProgress(getWrongReviewProgress(sourceResult), sourceResult);
     state.startedAt = new Date().toISOString();
     state.answers = {};
     state.currentScreenIndex = 0;
@@ -1503,7 +1605,7 @@
           </div>
 
           <div class="summary-actions">
-            <button class="diagnosis-btn" type="button" onclick="window.open('../listening-diagnosis/index.html?auto=1&v=103', '_blank')">진단 보고서 보기</button>
+            <button class="diagnosis-btn" type="button" onclick="window.open('../listening-diagnosis/index.html?auto=1&v=topik93_step14_wrong_review_decrement_fix', '_blank')">진단 보고서 보기</button>
             <button class="back-btn" type="button" onclick="location.reload()">처음 화면으로 돌아가기</button>
           </div>
         </section>
@@ -1566,8 +1668,8 @@
             <p>남은 오답이 있으면 진단 보고서에서 다시 오답 풀이를 시작할 수 있습니다.</p>
           </div>
           <div class="summary-actions">
-            <button class="diagnosis-btn" type="button" onclick="window.open('../listening-diagnosis/index.html?auto=1&v=step16reviewprogress01', '_blank')">진단 보고서로 돌아가기</button>
-            <button class="back-btn" type="button" onclick="location.href='./index.html?v=wrongreviewdone'">처음 화면으로 돌아가기</button>
+            <button class="diagnosis-btn" type="button" onclick="window.open('../listening-diagnosis/index.html?auto=1&v=topik93_step14_wrong_review_decrement_fix', '_blank')">진단 보고서로 돌아가기</button>
+            <button class="back-btn" type="button" onclick="location.href='./index.html?v=topik93_step14_wrong_review_decrement_fix'">처음 화면으로 돌아가기</button>
           </div>
         </section>
       </div>
@@ -1629,7 +1731,7 @@
       // 원 진단 보고서 화면으로 바로 돌아간다.
       // 이때 오답 풀이 진행률은 이미 topik2_wrong_review_progress에만 반영되어 있고,
       // 원래 50문항 진단 결과는 topik2_listening_last_result에 복원되어 있다.
-      window.location.href = "../listening-diagnosis/index.html?auto=1&v=step18wrongreviewcount01";
+      window.location.href = "../listening-diagnosis/index.html?auto=1&v=topik93_step14_wrong_review_decrement_fix";
       return;
     }
 
@@ -1643,7 +1745,7 @@
     const file = entry?.test_file || "./data/exams/listening-103.json";
 
     // teacher-print.html은 여러 번 교체되는 파일이므로,
-    // 브라우저가 예전 v=103 캐시 화면을 다시 보여 주지 않도록 매번 새 버전값을 붙인다.
+    // 브라우저가 예전 v=topik93_step14_wrong_review_decrement_fix 캐시 화면을 다시 보여 주지 않도록 매번 새 버전값을 붙인다.
     const cacheBust = Date.now();
     const url = `./teacher-print.html?file=${encodeURIComponent(file)}&v=step27teacherprintreturn01&t=${cacheBust}`;
     window.open(url, "_blank", "noopener");
