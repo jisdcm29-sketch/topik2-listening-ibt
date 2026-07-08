@@ -603,6 +603,16 @@
     (function () {
       "use strict";
 
+      const WRONG_REVIEW_SCOPE_VERSION = "topik2_wrong_review_current_result_v5";
+      const WRONG_REVIEW_EMPTY_PROGRESS = (sourceId) => ({
+        scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+        currentResultOnly: true,
+        sourceId: sourceId || "",
+        resolvedKeys: [],
+        solvedNumbers: [],
+        attempts: []
+      });
+
       const REPORT_KEYS = [
         "topik2_listening_last_result",
         "topik2_listening_result",
@@ -914,14 +924,13 @@
       }
 
       function renderWrongItems(items, onlyBlank) {
-        const resolved = new Set(getWrongReviewProgress(window.__TOPIK2_LAST_DIAGNOSIS_RESULT__).resolvedKeys || []);
+        const result = window.__TOPIK2_LAST_DIAGNOSIS_RESULT__;
         const list = items.filter((item) => onlyBlank ? !item.student_answer : (item.student_answer && !item.is_correct));
         if (!list.length) return `<p>${onlyBlank ? "미응답 문항이 없습니다." : "오답 문항이 없습니다."}</p>`;
         return `<div class="wrong-grid">${list.map((item) => {
-          const isResolved = resolved.has(originalReviewKey(item));
           return `
             <div class="wrong-card">
-              <strong>${escapeHtml(item.question_number)}번 ${escapeHtml(AREA_LABELS[itemArea(item)] || "")}${isResolved ? `<span class="resolved-badge">오답풀이 해결</span>` : ""}</strong><br>
+              <strong>${escapeHtml(item.question_number)}번 ${escapeHtml(AREA_LABELS[itemArea(item)] || "")}</strong><br>
               출처: ${escapeHtml(item.source_round || "")}회 원문항 ${escapeHtml(item.original_question_number || item.question_number)}번<br>
               <span class="answer-line">내 답 ${escapeHtml(optionText(item.options, item.student_answer))}</span><br>
               <span class="correct-line">정답 ${escapeHtml(optionText(item.options, item.correct_answer))}</span>
@@ -934,23 +943,27 @@
         if (item && typeof item.review_source_original_key === "string" && item.review_source_original_key.includes("|")) {
           return item.review_source_original_key;
         }
-        const round = String(item?.source_round || item?.review_source_round || item?.generated_exam_round || item?.round || "103");
+        const round = String(item?.source_round || item?.review_source_round || item?.generated_exam_round || item?.round || "").trim();
         const originalNumber = Number(item?.original_question_number || item?.review_source_question_number || item?.question_number || 0);
-        return `${round}|${originalNumber}`;
+        return round && originalNumber ? `${round}|${originalNumber}` : "";
       }
 
       function sourceResultId(result) {
         if (!result) return "";
+        const explicit = result.result_id || result.exam_result_id || result.review_source_id || result.wrong_review_source_id || "";
+        if (explicit) return String(explicit);
         const base = [
           result.submitted_at || "",
           result.started_at || "",
           result.test_name || result.generated_exam_label || "",
+          result.generated_exam_mode || "",
           result.generated_exam_round || result.source_round || "",
           result.student_name || "",
           result.student_phone || "",
           result.total_questions || "",
           result.earned_points || "",
-          result.correct_count || ""
+          result.correct_count || "",
+          result.unanswered_count || ""
         ].join("|");
         return base || "topik2-current-diagnosis";
       }
@@ -958,46 +971,124 @@
       function candidateReviewKeys(item) {
         const keys = new Set();
         if (!item) return keys;
+        if (item.id) keys.add(String(item.id));
         if (item.review_source_original_key) keys.add(String(item.review_source_original_key));
-        keys.add(originalReviewKey(item));
-        const round = String(item.source_round || item.review_source_round || item.generated_exam_round || item.round || "103");
-        const originalNumber = Number(item.original_question_number || item.review_source_question_number || item.question_number || 0);
-        if (originalNumber) {
-          keys.add(`${round}|${originalNumber}`);
-          keys.add(`103|${originalNumber}`);
+        const originalKey = originalReviewKey(item);
+        if (originalKey) keys.add(originalKey);
+
+        const round = String(item.source_round || item.review_source_round || item.generated_exam_round || item.round || "").trim();
+        const originalNumber = Number(item.original_question_number || item.review_source_question_number || 0);
+        const displayNumber = Number(item.question_number || 0);
+        if (round && originalNumber) keys.add(`${round}|${originalNumber}`);
+        if (round && displayNumber) keys.add(`${round}|display:${displayNumber}`);
+        if (displayNumber) {
+          keys.add(`display:${displayNumber}`);
+          keys.add(`qn:${displayNumber}`);
         }
         return keys;
       }
 
+      function normalizeWrongReviewProgress(parsed, currentSourceId) {
+        const empty = WRONG_REVIEW_EMPTY_PROGRESS(currentSourceId);
+        if (!parsed || typeof parsed !== "object" || !currentSourceId) return empty;
+
+        const storedSourceId = String(parsed.sourceId || parsed.source_id || "");
+        const scopeVersion = String(parsed.scopeVersion || parsed.scope_version || "");
+        const currentResultOnly = parsed.currentResultOnly === true;
+
+        // 핵심 보정:
+        // 과거 보고서에서 남은 legacy progress는 sourceId가 우연히 같아도 배지 표시 기준으로 쓰지 않습니다.
+        // 현재 index에서 오답 다시 풀기 버튼을 눌러 새로 만든 v3 progress만 인정합니다.
+        if (storedSourceId !== currentSourceId) return empty;
+        if (scopeVersion !== WRONG_REVIEW_SCOPE_VERSION && !currentResultOnly) return empty;
+
+        const resolvedKeys = []
+          .concat(Array.isArray(parsed.resolvedKeys) ? parsed.resolvedKeys : [])
+          .concat(Array.isArray(parsed.solvedKeys) ? parsed.solvedKeys : [])
+          .concat(Array.isArray(parsed.resolved_keys) ? parsed.resolved_keys : [])
+          .map(String)
+          .filter(Boolean);
+
+        const solvedNumbers = []
+          .concat(Array.isArray(parsed.solvedNumbers) ? parsed.solvedNumbers : [])
+          .concat(Array.isArray(parsed.solved_numbers) ? parsed.solved_numbers : [])
+          .map((value) => Number(value))
+          .filter((value) => Number.isFinite(value) && value > 0);
+
+        return {
+          scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+          currentResultOnly: true,
+          sourceId: currentSourceId,
+          resolvedKeys,
+          solvedNumbers,
+          attempts: Array.isArray(parsed.attempts) ? parsed.attempts : []
+        };
+      }
+
       function getWrongReviewProgress(result) {
+        const currentSourceId = sourceResultId(result || window.__TOPIK2_LAST_DIAGNOSIS_RESULT__);
         try {
           const raw = localStorage.getItem("topik2_wrong_review_progress") || sessionStorage.getItem("topik2_wrong_review_progress");
           const parsed = raw ? JSON.parse(raw) : {};
-          const currentSourceId = sourceResultId(result);
-          if (parsed.sourceId && currentSourceId && parsed.sourceId !== currentSourceId) {
-            return { sourceId: currentSourceId, resolvedKeys: [], attempts: [] };
-          }
-          return {
-            sourceId: parsed.sourceId || currentSourceId,
-            resolvedKeys: Array.isArray(parsed.resolvedKeys) ? parsed.resolvedKeys.map(String) : [],
-            attempts: Array.isArray(parsed.attempts) ? parsed.attempts : []
-          };
+          return normalizeWrongReviewProgress(parsed, currentSourceId);
         } catch (error) {
-          return { sourceId: sourceResultId(result), resolvedKeys: [], attempts: [] };
+          return WRONG_REVIEW_EMPTY_PROGRESS(currentSourceId);
         }
+      }
+
+      function saveWrongReviewProgress(progress) {
+        const payload = {
+          scopeVersion: WRONG_REVIEW_SCOPE_VERSION,
+          currentResultOnly: true,
+          sourceId: progress.sourceId || "",
+          resolvedKeys: Array.isArray(progress.resolvedKeys) ? progress.resolvedKeys.map(String) : [],
+          solvedNumbers: Array.isArray(progress.solvedNumbers) ? progress.solvedNumbers : [],
+          attempts: Array.isArray(progress.attempts) ? progress.attempts : []
+        };
+        localStorage.setItem("topik2_wrong_review_progress", JSON.stringify(payload, null, 2));
+        sessionStorage.setItem("topik2_wrong_review_progress", JSON.stringify(payload, null, 2));
+        return payload;
       }
 
       function setWrongReviewSourceScope(result) {
         const sourceId = sourceResultId(result);
         localStorage.setItem("topik2_wrong_review_source_id", sourceId);
         sessionStorage.setItem("topik2_wrong_review_source_id", sourceId);
-        const progress = getWrongReviewProgress(result);
-        if (!progress.sourceId) {
-          progress.sourceId = sourceId;
-          localStorage.setItem("topik2_wrong_review_progress", JSON.stringify(progress, null, 2));
-          sessionStorage.setItem("topik2_wrong_review_progress", JSON.stringify(progress, null, 2));
+
+        // STEP14:
+        // 오답 다시 풀기를 다시 시작할 때 기존 진행 기록을 지우면,
+        // 이미 맞힌 문항이 다음 오답풀이에 다시 나타난다.
+        // 따라서 현재 result와 scopeVersion이 일치하는 진행 기록은 보존한다.
+        let rawProgress = null;
+        try {
+          rawProgress = localStorage.getItem("topik2_wrong_review_progress") ||
+            sessionStorage.getItem("topik2_wrong_review_progress");
+          const parsed = rawProgress ? JSON.parse(rawProgress) : null;
+          const isValidCurrentProgress = parsed &&
+            parsed.scopeVersion === WRONG_REVIEW_SCOPE_VERSION &&
+            parsed.currentResultOnly === true &&
+            String(parsed.sourceId || "") === String(sourceId || "");
+
+          if (!rawProgress) {
+            saveWrongReviewProgress(WRONG_REVIEW_EMPTY_PROGRESS(sourceId));
+          } else if (!isValidCurrentProgress) {
+            // 구버전/다른 시험 기록은 읽을 때 무시되므로 여기서 굳이 덮어쓰지 않는다.
+            // 덮어쓰면 직전 오답풀이에서 저장된 해결 문항이 사라질 수 있다.
+          }
+        } catch (error) {
+          if (!rawProgress) saveWrongReviewProgress(WRONG_REVIEW_EMPTY_PROGRESS(sourceId));
         }
         return sourceId;
+      }
+
+      function isWrongReviewResolved(result, item) {
+        const progress = getWrongReviewProgress(result);
+        const resolved = new Set(progress.resolvedKeys || []);
+        for (const key of candidateReviewKeys(item)) {
+          if (resolved.has(key)) return true;
+        }
+        const displayNumber = Number(item?.question_number || 0);
+        return Boolean(displayNumber && Array.isArray(progress.solvedNumbers) && progress.solvedNumbers.includes(displayNumber));
       }
 
       function getOriginalWrongItems(result) {
@@ -1005,30 +1096,18 @@
       }
 
       function getResolvedWrongItems(result) {
-        const resolved = new Set(getWrongReviewProgress(result).resolvedKeys || []);
-        return getOriginalWrongItems(result).filter((item) => {
-          for (const key of candidateReviewKeys(item)) {
-            if (resolved.has(key)) return true;
-          }
-          return false;
-        });
+        return getOriginalWrongItems(result).filter((item) => isWrongReviewResolved(result, item));
       }
 
       function getUnresolvedWrongItems(result) {
-        const resolved = new Set(getWrongReviewProgress(result).resolvedKeys || []);
-        return getOriginalWrongItems(result).filter((item) => {
-          for (const key of candidateReviewKeys(item)) {
-            if (resolved.has(key)) return false;
-          }
-          return true;
-        });
+        return getOriginalWrongItems(result).filter((item) => !isWrongReviewResolved(result, item));
       }
 
       function renderReviewProgressBox(result) {
         const originalWrongItems = getOriginalWrongItems(result);
         const resolvedItems = getResolvedWrongItems(result);
         const unresolvedItems = getUnresolvedWrongItems(result);
-        const progress = getWrongReviewProgress();
+        const progress = getWrongReviewProgress(result);
         const lastAttempt = Array.isArray(progress.attempts) && progress.attempts.length
           ? progress.attempts[progress.attempts.length - 1]
           : null;
@@ -1064,7 +1143,7 @@
               </div>
             </div>
             <div class="review-progress-note">
-              오답 다시 풀기 결과는 이 진행 현황에만 반영됩니다. 처음 50문항 시험의 점수, 정답 수, 유형별 진단, 오답 문항 목록은 변경하지 않습니다.
+              오답 다시 풀기 결과는 이 진행 현황에만 반영됩니다. 처음 시험의 점수, 정답 수, 유형별 진단, 오답 문항 목록은 변경하지 않습니다.
             </div>
             <div class="review-progress-list">
               원 진단 오답·미응답: ${escapeHtml(originalNums)}<br>
@@ -1141,6 +1220,8 @@
             <strong>공식 급수 안내</strong><br>
             이 보고서는 TOPIK II 듣기 영역만 기준으로 한 예상 수준입니다. 공식 TOPIK II 급수는 듣기·쓰기·읽기 총점 기준으로 결정되므로, 이 결과만으로 공식 급수를 확정할 수 없습니다.
           </section>
+
+          ${renderReviewProgressBox(result)}
 
           <h3 class="section-title">시험 정보</h3>
           <table>
@@ -1316,7 +1397,7 @@
         sessionStorage.setItem("topik2_wrong_review_items", JSON.stringify(reviewItems));
         localStorage.setItem("topik2_wrong_review_started_at", new Date().toISOString());
 
-        const url = "../listening-test/index.html?mode=wrong-review&v=step68wrongreviewcountmatch01";
+        const url = "../listening-test/index.html?mode=wrong-review&v=topik93_step14_wrong_review_decrement_fix";
         window.open(url, "_blank");
       });
 

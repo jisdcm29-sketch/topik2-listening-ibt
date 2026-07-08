@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>TOPIK II 오답풀이 진행 기록 초기화</title>
+  <style>
+    body { font-family: "Malgun Gothic", Arial, sans-serif; background:#f3f6fb; color:#052b55; }
+    main { max-width: 760px; margin: 60px auto; background:#fff; border:1px solid #d6e2f0; border-radius:14px; padding:28px; }
+    button { border:0; border-radius:10px; background:#1a73e8; color:#fff; padding:14px 22px; font-weight:900; cursor:pointer; }
+    pre { background:#f5f7fb; border:1px solid #d6e2f0; padding:14px; border-radius:10px; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>오답풀이 진행 기록 초기화</h1>
+  <p>이 페이지는 이전 시험의 오답풀이 진행 기록이 새 진단 보고서에 섞이는 것을 막기 위해 관련 브라우저 저장값만 정리합니다.</p>
+  <button id="resetBtn" type="button">오답풀이 진행 기록 초기화</button>
+  <pre id="log">대기 중</pre>
+</main>
+<script>
+(function () {
+  "use strict";
+  const KEYS = [
+    "topik2_wrong_review_progress",
+    "topik2_wrong_review_source_id",
+    "topik2_wrong_review_source_result",
+    "topik2_wrong_review_items",
+    "topik2_wrong_review_started_at",
+    "topik2_wrong_review_last_result",
+    "topik2_wrong_review_current_signature",
+    "topik2_wrong_review_current_items",
+    "topik2_wrong_review_solved",
+    "wrongReviewProgress",
+    "wrongReviewSolved"
+  ];
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    const removed = [];
+    for (const storage of [localStorage, sessionStorage]) {
+      KEYS.forEach((key) => {
+        if (storage.getItem(key) !== null) {
+          storage.removeItem(key);
+          removed.push((storage === localStorage ? "localStorage:" : "sessionStorage:") + key);
+        }
+      });
+    }
+    document.getElementById("log").textContent = removed.length ? removed.join("\n") : "삭제할 오답풀이 진행 기록이 없습니다.";
+  });
+})();
+</script>
+</body>
+</html>
