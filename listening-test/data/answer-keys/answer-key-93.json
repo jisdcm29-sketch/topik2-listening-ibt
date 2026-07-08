@@ -1,0 +1,499 @@
+{
+  "exam_id": "listening-93",
+  "id": "answer-key-93",
+  "source_round": "93",
+  "level": "TOPIK II",
+  "test_level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "full",
+  "test_scope": "제93회 TOPIK II 듣기 1~50번",
+  "total_questions": 50,
+  "total_possible_points": 100,
+  "source": "사용자 제공 제93회 TOPIK II 듣기 최종 정답표 이미지",
+  "answer_key": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 4,
+    "7": 4,
+    "8": 3,
+    "9": 2,
+    "10": 4,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 2,
+    "19": 2,
+    "20": 1,
+    "21": 3,
+    "22": 3,
+    "23": 2,
+    "24": 3,
+    "25": 3,
+    "26": 1,
+    "27": 2,
+    "28": 1,
+    "29": 4,
+    "30": 4,
+    "31": 3,
+    "32": 2,
+    "33": 4,
+    "34": 1,
+    "35": 4,
+    "36": 2,
+    "37": 3,
+    "38": 4,
+    "39": 4,
+    "40": 1,
+    "41": 3,
+    "42": 2,
+    "43": 1,
+    "44": 4,
+    "45": 4,
+    "46": 4,
+    "47": 3,
+    "48": 2,
+    "49": 4,
+    "50": 3
+  },
+  "answer_map": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 4,
+    "7": 4,
+    "8": 3,
+    "9": 2,
+    "10": 4,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 2,
+    "19": 2,
+    "20": 1,
+    "21": 3,
+    "22": 3,
+    "23": 2,
+    "24": 3,
+    "25": 3,
+    "26": 1,
+    "27": 2,
+    "28": 1,
+    "29": 4,
+    "30": 4,
+    "31": 3,
+    "32": 2,
+    "33": 4,
+    "34": 1,
+    "35": 4,
+    "36": 2,
+    "37": 3,
+    "38": 4,
+    "39": 4,
+    "40": 1,
+    "41": 3,
+    "42": 2,
+    "43": 1,
+    "44": 4,
+    "45": 4,
+    "46": 4,
+    "47": 3,
+    "48": 2,
+    "49": 4,
+    "50": 3
+  },
+  "answers": [
+    {
+      "question_number": 1,
+      "original_question_number": 1,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 2,
+      "original_question_number": 2,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 3,
+      "original_question_number": 3,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 4,
+      "original_question_number": 4,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 5,
+      "original_question_number": 5,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 6,
+      "original_question_number": 6,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2
+    },
+    {
+      "question_number": 7,
+      "original_question_number": 7,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2
+    },
+    {
+      "question_number": 8,
+      "original_question_number": 8,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 9,
+      "original_question_number": 9,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 10,
+      "original_question_number": 10,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2
+    },
+    {
+      "question_number": 11,
+      "original_question_number": 11,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 12,
+      "original_question_number": 12,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 13,
+      "original_question_number": 13,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 14,
+      "original_question_number": 14,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2
+    },
+    {
+      "question_number": 15,
+      "original_question_number": 15,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 16,
+      "original_question_number": 16,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 17,
+      "original_question_number": 17,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 18,
+      "original_question_number": 18,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 19,
+      "original_question_number": 19,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2
+    },
+    {
+      "question_number": 20,
+      "original_question_number": 20,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2
+    },
+    {
+      "question_number": 21,
+      "original_question_number": 21,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_021_022"
+    },
+    {
+      "question_number": 22,
+      "original_question_number": 22,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_021_022"
+    },
+    {
+      "question_number": 23,
+      "original_question_number": 23,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_023_024"
+    },
+    {
+      "question_number": 24,
+      "original_question_number": 24,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_023_024"
+    },
+    {
+      "question_number": 25,
+      "original_question_number": 25,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_025_026"
+    },
+    {
+      "question_number": 26,
+      "original_question_number": 26,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2,
+      "set_id": "T2_93_SET_025_026"
+    },
+    {
+      "question_number": 27,
+      "original_question_number": 27,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_027_028"
+    },
+    {
+      "question_number": 28,
+      "original_question_number": 28,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2,
+      "set_id": "T2_93_SET_027_028"
+    },
+    {
+      "question_number": 29,
+      "original_question_number": 29,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_029_030"
+    },
+    {
+      "question_number": 30,
+      "original_question_number": 30,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_029_030"
+    },
+    {
+      "question_number": 31,
+      "original_question_number": 31,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_031_032"
+    },
+    {
+      "question_number": 32,
+      "original_question_number": 32,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_031_032"
+    },
+    {
+      "question_number": 33,
+      "original_question_number": 33,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_033_034"
+    },
+    {
+      "question_number": 34,
+      "original_question_number": 34,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2,
+      "set_id": "T2_93_SET_033_034"
+    },
+    {
+      "question_number": 35,
+      "original_question_number": 35,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_035_036"
+    },
+    {
+      "question_number": 36,
+      "original_question_number": 36,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_035_036"
+    },
+    {
+      "question_number": 37,
+      "original_question_number": 37,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_037_038"
+    },
+    {
+      "question_number": 38,
+      "original_question_number": 38,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_037_038"
+    },
+    {
+      "question_number": 39,
+      "original_question_number": 39,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_039_040"
+    },
+    {
+      "question_number": 40,
+      "original_question_number": 40,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2,
+      "set_id": "T2_93_SET_039_040"
+    },
+    {
+      "question_number": 41,
+      "original_question_number": 41,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_041_042"
+    },
+    {
+      "question_number": 42,
+      "original_question_number": 42,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_041_042"
+    },
+    {
+      "question_number": 43,
+      "original_question_number": 43,
+      "correct_answer": 1,
+      "answer": 1,
+      "points": 2,
+      "set_id": "T2_93_SET_043_044"
+    },
+    {
+      "question_number": 44,
+      "original_question_number": 44,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_043_044"
+    },
+    {
+      "question_number": 45,
+      "original_question_number": 45,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_045_046"
+    },
+    {
+      "question_number": 46,
+      "original_question_number": 46,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_045_046"
+    },
+    {
+      "question_number": 47,
+      "original_question_number": 47,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_047_048"
+    },
+    {
+      "question_number": 48,
+      "original_question_number": 48,
+      "correct_answer": 2,
+      "answer": 2,
+      "points": 2,
+      "set_id": "T2_93_SET_047_048"
+    },
+    {
+      "question_number": 49,
+      "original_question_number": 49,
+      "correct_answer": 4,
+      "answer": 4,
+      "points": 2,
+      "set_id": "T2_93_SET_049_050"
+    },
+    {
+      "question_number": 50,
+      "original_question_number": 50,
+      "correct_answer": 3,
+      "answer": 3,
+      "points": 2,
+      "set_id": "T2_93_SET_049_050"
+    }
+  ]
+}
