@@ -1,0 +1,1643 @@
+{
+  "exam_id": "level-test-91",
+  "id": "level-test-91",
+  "source_round": "91",
+  "title": "제91회 TOPIK II 듣기 레벨테스트",
+  "test_name": "제91회 TOPIK II 듣기 레벨테스트",
+  "level": "TOPIK II",
+  "test_level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "level-test",
+  "exam_mode": "fixed",
+  "generated_exam_mode": "fixed",
+  "test_scope": "제91회 TOPIK II 듣기 레벨테스트 30문항",
+  "total_questions": 30,
+  "total_sets": 5,
+  "total_possible_points": 60,
+  "score_basis": 100,
+  "time_limit_minutes": 30,
+  "audio_mode": "manual",
+  "guide_audio": "./audio/91/91_GUIDE.mp3",
+  "source_exam_id": "listening-91",
+  "source_files": {
+    "full_exam": "./data/exams/listening-91.json",
+    "answer_key": "./data/answer-keys/answer-key-91.json",
+    "question_paper_pdf": "91회 듣기쓰기.pdf",
+    "source_answer_key_pdf": "제91회_정답 및 배점표_TOPIK2_탑재용.pdf"
+  },
+  "level_test_structure": {
+    "policy": "TOPIK II 듣기 대표 유형을 포함한 30문항 레벨테스트",
+    "single_questions": "원문항 1~20번을 표시 1~20번으로 사용",
+    "set_questions": [
+      {
+        "display_range": [
+          21,
+          22
+        ],
+        "original_range": [
+          21,
+          22
+        ]
+      },
+      {
+        "display_range": [
+          23,
+          24
+        ],
+        "original_range": [
+          27,
+          28
+        ]
+      },
+      {
+        "display_range": [
+          25,
+          26
+        ],
+        "original_range": [
+          29,
+          30
+        ]
+      },
+      {
+        "display_range": [
+          27,
+          28
+        ],
+        "original_range": [
+          41,
+          42
+        ]
+      },
+      {
+        "display_range": [
+          29,
+          30
+        ],
+        "original_range": [
+          49,
+          50
+        ]
+      }
+    ],
+    "set_unit_rule": "후반부 문항은 반드시 2문항 세트 단위로 포함한다."
+  },
+  "data_status": "draft_for_review",
+  "notes": "91회 1~50번 통합본에서 생성한 30문항 레벨테스트 검수본입니다.",
+  "items": [
+    {
+      "id": "T2_91_LEVEL_L001",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 1,
+      "original_question_number": 1,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/91/91_L001.mp3",
+      "source_audio_file": "02 트랙 2.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 1번(원문항 1번)",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/91/91_L001_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/91/91_L001_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/91/91_L001_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/91/91_L001_04.png"
+        }
+      ],
+      "level_test_question_number": 1,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L002",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 2,
+      "original_question_number": 2,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/91/91_L002.mp3",
+      "source_audio_file": "03 트랙 3.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 2번(원문항 2번)",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/91/91_L002_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/91/91_L002_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/91/91_L002_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/91/91_L002_04.png"
+        }
+      ],
+      "level_test_question_number": 2,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L003",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 3,
+      "original_question_number": 3,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그래프를 고르십시오.",
+      "audio_url": "./audio/91/91_L003.mp3",
+      "source_audio_file": "04 트랙 4.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 3,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 3번(원문항 3번)",
+      "set_id": "",
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/91/91_L003_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/91/91_L003_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/91/91_L003_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/91/91_L003_04.png"
+        }
+      ],
+      "level_test_question_number": 3,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L004",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 4,
+      "original_question_number": 4,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L004.mp3",
+      "source_audio_file": "05 트랙 5.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "그래? 안 나와서 걱정했어."
+        },
+        {
+          "number": 2,
+          "text": "무슨 학원에 다니고 있어?"
+        },
+        {
+          "number": 3,
+          "text": "그래? 할머니 댁에 언제 가?"
+        },
+        {
+          "number": 4,
+          "text": "부모님과 함께 가기로 했거든."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 4번(원문항 4번)",
+      "set_id": "",
+      "level_test_question_number": 4,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L005",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 5,
+      "original_question_number": 5,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L005.mp3",
+      "source_audio_file": "06 트랙 6.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "그럼 거기로 다시 가 볼까요?"
+        },
+        {
+          "number": 2,
+          "text": "아직 한 곳밖에 안 가 봤는데요."
+        },
+        {
+          "number": 3,
+          "text": "그럼 이 소파를 사는 게 어때요?"
+        },
+        {
+          "number": 4,
+          "text": "집 근처에 있는 소파 가게에서 샀어요."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 5번(원문항 5번)",
+      "set_id": "",
+      "level_test_question_number": 5,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L006",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 6,
+      "original_question_number": 6,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L006.mp3",
+      "source_audio_file": "07 트랙 7.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "면접 날짜를 다시 확인하고 알려 줘."
+        },
+        {
+          "number": 2,
+          "text": "준비 많이 했으니까 잘할 수 있을 거야."
+        },
+        {
+          "number": 3,
+          "text": "면접 보기 전인데 안 떨린다니 대단하다."
+        },
+        {
+          "number": 4,
+          "text": "생각하지 못한 질문을 받아서 정말 놀랐겠네."
+        }
+      ],
+      "correct_answer": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 6번(원문항 6번)",
+      "set_id": "",
+      "level_test_question_number": 6,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L007",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 7,
+      "original_question_number": 7,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L007.mp3",
+      "source_audio_file": "08 트랙 8.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "맞아요. 이전 작품은 내용이 별로였어요."
+        },
+        {
+          "number": 2,
+          "text": "그래요? 이 드라마 다 보면 다른 작품도 봐야겠어요."
+        },
+        {
+          "number": 3,
+          "text": "맞아요. 이 드라마는 몇 번을 다시 봐도 재미있네요."
+        },
+        {
+          "number": 4,
+          "text": "그래요? 이 작가가 처음으로 쓴 작품인 줄 몰랐어요."
+        }
+      ],
+      "correct_answer": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 7번(원문항 7번)",
+      "set_id": "",
+      "level_test_question_number": 7,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L008",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 8,
+      "original_question_number": 8,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L008.mp3",
+      "source_audio_file": "09 트랙 9.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "얼룩이 잘 지워진 것 같아요."
+        },
+        {
+          "number": 2,
+          "text": "운동화를 깨끗하게 신으셨네요."
+        },
+        {
+          "number": 3,
+          "text": "해 봐야 알겠지만 최대한 없애 볼게요."
+        },
+        {
+          "number": 4,
+          "text": "집에 돌아가서 다시 한번 지워 보려고요."
+        }
+      ],
+      "correct_answer": 3,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 8번(원문항 8번)",
+      "set_id": "",
+      "level_test_question_number": 8,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L009",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 9,
+      "original_question_number": 9,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L009.mp3",
+      "source_audio_file": "10 트랙 10.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "김밥을 산다."
+        },
+        {
+          "number": 2,
+          "text": "기차를 탄다."
+        },
+        {
+          "number": 3,
+          "text": "자리에 앉는다."
+        },
+        {
+          "number": 4,
+          "text": "카페로 들어간다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 9번(원문항 9번)",
+      "set_id": "",
+      "level_test_question_number": 9,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L010",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 10,
+      "original_question_number": 10,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L010.mp3",
+      "source_audio_file": "11 트랙 11.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "고객 대기실로 간다."
+        },
+        {
+          "number": 2,
+          "text": "남자에게 열쇠를 준다."
+        },
+        {
+          "number": 3,
+          "text": "차의 상태를 확인한다."
+        },
+        {
+          "number": 4,
+          "text": "차를 수리하러 예약한다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 10번(원문항 10번)",
+      "set_id": "",
+      "level_test_question_number": 10,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L011",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 11,
+      "original_question_number": 11,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L011.mp3",
+      "source_audio_file": "12 트랙 12.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "물감을 찾아본다."
+        },
+        {
+          "number": 2,
+          "text": "미술 연필을 고른다."
+        },
+        {
+          "number": 3,
+          "text": "직원에게 물어본다."
+        },
+        {
+          "number": 4,
+          "text": "남자에게 제품 이름을 말한다."
+        }
+      ],
+      "correct_answer": 3,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 11번(원문항 11번)",
+      "set_id": "",
+      "level_test_question_number": 11,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L012",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 12,
+      "original_question_number": 12,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L012.mp3",
+      "source_audio_file": "13 트랙 13.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "촬영팀에게 연락한다."
+        },
+        {
+          "number": 2,
+          "text": "진행 순서를 설명한다."
+        },
+        {
+          "number": 3,
+          "text": "공연 무대를 점검한다."
+        },
+        {
+          "number": 4,
+          "text": "공연팀을 데리러 간다."
+        }
+      ],
+      "correct_answer": 4,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 12번(원문항 12번)",
+      "set_id": "",
+      "level_test_question_number": 12,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L013",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 13,
+      "original_question_number": 13,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L013.mp3",
+      "source_audio_file": "14 트랙 14.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "길이 예전에 비해 좁아졌다."
+        },
+        {
+          "number": 2,
+          "text": "여자는 이곳에 처음 와 봤다."
+        },
+        {
+          "number": 3,
+          "text": "남자는 인주서점에 간 적이 없다."
+        },
+        {
+          "number": 4,
+          "text": "인주서점은 지금까지 같은 자리에 있다."
+        }
+      ],
+      "correct_answer": 4,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 13번(원문항 13번)",
+      "set_id": "",
+      "level_test_question_number": 13,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L014",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 14,
+      "original_question_number": 14,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L014.mp3",
+      "source_audio_file": "15 트랙 15.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "분실물은 구두 매장에 있었다."
+        },
+        {
+          "number": 2,
+          "text": "오후 8시에 지갑이 발견되었다."
+        },
+        {
+          "number": 3,
+          "text": "고객 센터는 구두 매장 옆에 있다."
+        },
+        {
+          "number": 4,
+          "text": "지갑을 잃어버린 사람은 1층으로 가면 된다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 14번(원문항 14번)",
+      "set_id": "",
+      "level_test_question_number": 14,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L015",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 15,
+      "original_question_number": 15,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L015.mp3",
+      "source_audio_file": "16 트랙 16.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "이 사고는 어젯밤에 발생했다."
+        },
+        {
+          "number": 2,
+          "text": "이 사고로 인해 사람들이 크게 다쳤다."
+        },
+        {
+          "number": 3,
+          "text": "경찰은 사고 원인에 대해 조사하고 있다."
+        },
+        {
+          "number": 4,
+          "text": "낚시배가 다른 배와 충돌하는 사고가 났다."
+        }
+      ],
+      "correct_answer": 3,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 15번(원문항 15번)",
+      "set_id": "",
+      "level_test_question_number": 15,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L016",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 16,
+      "original_question_number": 16,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L016.mp3",
+      "source_audio_file": "17 트랙 17.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "여자는 수술 과정에 참여한다."
+        },
+        {
+          "number": 2,
+          "text": "여자는 보호자의 집에서 동물을 돌본다."
+        },
+        {
+          "number": 3,
+          "text": "여자의 직업은 사람들에게 잘 알려져 있다."
+        },
+        {
+          "number": 4,
+          "text": "동물의 상태를 관찰하는 일은 여자의 업무가 아니다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 16번(원문항 16번)",
+      "set_id": "",
+      "level_test_question_number": 16,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L017",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 17,
+      "original_question_number": 17,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L017.mp3",
+      "source_audio_file": "18 트랙 18.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "저녁 식사를 미리 준비해 두어야 한다."
+        },
+        {
+          "number": 2,
+          "text": "음식을 한꺼번에 많이 먹지 않는 것이 좋다."
+        },
+        {
+          "number": 3,
+          "text": "건강을 위해서 식사를 규칙적으로 해야 한다."
+        },
+        {
+          "number": 4,
+          "text": "피곤할 때는 저녁을 밖에서 사 먹는 것이 좋다."
+        }
+      ],
+      "correct_answer": 4,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 17번(원문항 17번)",
+      "set_id": "",
+      "level_test_question_number": 17,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L018",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 18,
+      "original_question_number": 18,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L018.mp3",
+      "source_audio_file": "19 트랙 19.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "친구가 힘들 때는 옆에 있어 줘야 한다."
+        },
+        {
+          "number": 2,
+          "text": "여러 사람과 잘 지내기 위해 노력할 필요가 있다."
+        },
+        {
+          "number": 3,
+          "text": "다른 사람과 함께 있을 때는 말을 조심해야 한다."
+        },
+        {
+          "number": 4,
+          "text": "친구와 문제가 생겼을 때는 빨리 해결하는 것이 좋다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 18번(원문항 18번)",
+      "set_id": "",
+      "level_test_question_number": 18,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L019",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 19,
+      "original_question_number": 19,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L019.mp3",
+      "source_audio_file": "20 트랙 20.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "여행은 여유롭게 하는 것이 좋다."
+        },
+        {
+          "number": 2,
+          "text": "여행을 자주 가는 것은 좋지 않다."
+        },
+        {
+          "number": 3,
+          "text": "여행에서 다양한 경험을 해 봐야 한다."
+        },
+        {
+          "number": 4,
+          "text": "여행에 필요한 예산을 정해 놓을 필요가 있다."
+        }
+      ],
+      "correct_answer": 1,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 19번(원문항 19번)",
+      "set_id": "",
+      "level_test_question_number": 19,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "id": "T2_91_LEVEL_L020",
+      "source_round": "91",
+      "level": "TOPIK II",
+      "section": "listening",
+      "points": 2,
+      "source_has_example": false,
+      "has_example": false,
+      "question_number": 20,
+      "original_question_number": 20,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/91/91_L020.mp3",
+      "source_audio_file": "21 트랙 21.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "광고를 짧게 만드는 것이 효과적이다."
+        },
+        {
+          "number": 2,
+          "text": "광고는 대중의 호기심을 자극해야 한다."
+        },
+        {
+          "number": 3,
+          "text": "광고는 제품의 정보를 사실대로 전달해야 한다."
+        },
+        {
+          "number": 4,
+          "text": "광고는 보는 사람이 쉽게 이해할 수 있어야 한다."
+        }
+      ],
+      "correct_answer": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 20번(원문항 20번)",
+      "set_id": "",
+      "level_test_question_number": 20,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91"
+    },
+    {
+      "set_id": "T2_91_LEVEL_SET_021_022",
+      "source_round": "91",
+      "set_type": "main_thought_set",
+      "target_slots": [
+        21,
+        22
+      ],
+      "audio_url": "./audio/91/91_L021.mp3",
+      "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+      "audio_group_id": "91_LEVEL_L021_GROUP",
+      "audio_group_numbers": [
+        21,
+        22
+      ],
+      "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_91_LEVEL_L021",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 21,
+          "original_question_number": 21,
+          "type": "main_thought_set",
+          "category": "중심 생각(세트)",
+          "diagnostic_area": "main_thought_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "회의 내용을 빠짐없이 기록해야 한다."
+            },
+            {
+              "number": 2,
+              "text": "회의 때 낭비되는 종이를 줄이는 것이 좋다."
+            },
+            {
+              "number": 3,
+              "text": "회의실을 지금보다 더 큰 장소로 바꿔야 한다."
+            },
+            {
+              "number": 4,
+              "text": "발표 자료는 알아보기 쉽게 만드는 것이 좋다."
+            }
+          ],
+          "correct_answer": 2,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 21번(원문항 21번)",
+          "set_id": "T2_91_LEVEL_SET_021_022",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 21,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        },
+        {
+          "id": "T2_91_LEVEL_L022",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 22,
+          "original_question_number": 22,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이번 회의는 발표 자료 없이 진행된다."
+            },
+            {
+              "number": 2,
+              "text": "여자는 회의에서 쓸 자료를 복사할 예정이다."
+            },
+            {
+              "number": 3,
+              "text": "남자는 회의 때 대형 화면을 사용한 적이 있다."
+            },
+            {
+              "number": 4,
+              "text": "여자는 참석자들에게 참고할 자료를 이미 이메일로 보내 놓았다."
+            }
+          ],
+          "correct_answer": 3,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 22번(원문항 22번)",
+          "set_id": "T2_91_LEVEL_SET_021_022",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 22,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        }
+      ],
+      "id": "T2_91_LEVEL_SET_021_022",
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "listening_set",
+      "category": "긴 대화·담화 듣고 두 문제 풀기",
+      "diagnostic_area": "set",
+      "question_number": 21,
+      "original_question_number": 21,
+      "points": 4,
+      "item_count": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 21~22번 세트(원문항 21~22번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_91_SET_021_022",
+      "level_test_question_number": 21,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91",
+      "original_target_slots": [
+        21,
+        22
+      ],
+      "original_audio_group_numbers": [
+        21,
+        22
+      ]
+    },
+    {
+      "set_id": "T2_91_LEVEL_SET_023_024",
+      "source_round": "91",
+      "set_type": "speaker_action_intention",
+      "target_slots": [
+        23,
+        24
+      ],
+      "audio_url": "./audio/91/91_L027.mp3",
+      "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+      "audio_group_id": "91_LEVEL_L023_GROUP",
+      "audio_group_numbers": [
+        23,
+        24
+      ],
+      "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_91_LEVEL_L023",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 23,
+          "original_question_number": 27,
+          "type": "speaker_action_intention",
+          "category": "행동·의도 파악",
+          "diagnostic_area": "speaker_action_intention",
+          "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 의도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 과자의 맛이 달라진 것을 지적하려고"
+            },
+            {
+              "number": 2,
+              "text": "이 과자를 생산하게 된 이유를 알려 주려고"
+            },
+            {
+              "number": 3,
+              "text": "이 과자의 생산이 중단될 것이라는 소식을 전하려고"
+            },
+            {
+              "number": 4,
+              "text": "이 과자를 구하기 어려운 것에 대한 불만을 말하려고"
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 23번(원문항 27번)",
+          "set_id": "T2_91_LEVEL_SET_023_024",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 23,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        },
+        {
+          "id": "T2_91_LEVEL_L024",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 24,
+          "original_question_number": 28,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[23~24] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 회사는 작업 시간을 늘렸다."
+            },
+            {
+              "number": 2,
+              "text": "남자는 이 과자를 구입한 적이 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 과자는 사람들의 관심을 끌지 못했다."
+            },
+            {
+              "number": 4,
+              "text": "여자는 남자에게 이 과자에 대해 처음 들었다."
+            }
+          ],
+          "correct_answer": 1,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 24번(원문항 28번)",
+          "set_id": "T2_91_LEVEL_SET_023_024",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 24,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        }
+      ],
+      "id": "T2_91_LEVEL_SET_023_024",
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "listening_set",
+      "category": "긴 대화·담화 듣고 두 문제 풀기",
+      "diagnostic_area": "set",
+      "question_number": 23,
+      "original_question_number": 27,
+      "points": 4,
+      "item_count": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 23~24번 세트(원문항 27~28번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_91_SET_027_028",
+      "level_test_question_number": 23,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91",
+      "original_target_slots": [
+        27,
+        28
+      ],
+      "original_audio_group_numbers": [
+        23,
+        24
+      ]
+    },
+    {
+      "set_id": "T2_91_LEVEL_SET_025_026",
+      "source_round": "91",
+      "set_type": "speaker_identity",
+      "target_slots": [
+        25,
+        26
+      ],
+      "audio_url": "./audio/91/91_L029.mp3",
+      "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+      "audio_group_id": "91_LEVEL_L025_GROUP",
+      "audio_group_numbers": [
+        25,
+        26
+      ],
+      "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_91_LEVEL_L025",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 25,
+          "original_question_number": 29,
+          "type": "speaker_identity",
+          "category": "화자 신분 파악",
+          "diagnostic_area": "speaker_identity",
+          "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 누구인지 고르십시오.",
+          "audio_url": "./audio/91/91_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "도로를 정비하는 사람"
+            },
+            {
+              "number": 2,
+              "text": "교통 상황을 촬영하는 사람"
+            },
+            {
+              "number": 3,
+              "text": "도로에 CCTV를 설치하는 사람"
+            },
+            {
+              "number": 4,
+              "text": "방송에서 교통 상황을 알려 주는 사람"
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 25번(원문항 29번)",
+          "set_id": "T2_91_LEVEL_SET_025_026",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 25,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        },
+        {
+          "id": "T2_91_LEVEL_L026",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 26,
+          "original_question_number": 30,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[25~26] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "남자는 매일 오후에 근무를 시작한다."
+            },
+            {
+              "number": 2,
+              "text": "남자는 이 일을 할 때 긴장하지 않는다."
+            },
+            {
+              "number": 3,
+              "text": "남자는 CCTV를 분석하는 일을 하지 않는다."
+            },
+            {
+              "number": 4,
+              "text": "남자의 일에는 시민들이 보낸 문자를 보는 것이 포함된다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 26번(원문항 30번)",
+          "set_id": "T2_91_LEVEL_SET_025_026",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 26,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        }
+      ],
+      "id": "T2_91_LEVEL_SET_025_026",
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "listening_set",
+      "category": "긴 대화·담화 듣고 두 문제 풀기",
+      "diagnostic_area": "set",
+      "question_number": 25,
+      "original_question_number": 29,
+      "points": 4,
+      "item_count": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 25~26번 세트(원문항 29~30번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_91_SET_029_030",
+      "level_test_question_number": 25,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91",
+      "original_target_slots": [
+        29,
+        30
+      ],
+      "original_audio_group_numbers": [
+        25,
+        26
+      ]
+    },
+    {
+      "set_id": "T2_91_LEVEL_SET_027_028",
+      "source_round": "91",
+      "set_type": "long_dialogue_two_question_set",
+      "target_slots": [
+        27,
+        28
+      ],
+      "audio_url": "./audio/91/91_L041.mp3",
+      "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+      "audio_group_id": "91_LEVEL_L027_GROUP",
+      "audio_group_numbers": [
+        27,
+        28
+      ],
+      "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_91_LEVEL_L027",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 27,
+          "original_question_number": 41,
+          "type": "topic_content",
+          "category": "강연 중심 내용 고르기",
+          "diagnostic_area": "topic_content",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "이 강연의 중심 내용으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "제품의 품질은 부품의 질에 의해 결정된다."
+            },
+            {
+              "number": 2,
+              "text": "제조업은 일자리 창출에 크게 기여하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "제품에 대한 고객의 의견을 반영하는 것이 중요하다."
+            },
+            {
+              "number": 4,
+              "text": "제조업은 사업 영역 확장을 통해 발전을 도모하고 있다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 27번(원문항 41번)",
+          "set_id": "T2_91_LEVEL_SET_027_028",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 27,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        },
+        {
+          "id": "T2_91_LEVEL_L028",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 28,
+          "original_question_number": 42,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 업체는 엔진 판매에 어려움을 겪고 있다."
+            },
+            {
+              "number": 2,
+              "text": "조선업이 경제적으로 힘든 상황에 놓여 있다."
+            },
+            {
+              "number": 3,
+              "text": "이 업체는 안정적인 수입을 얻지 못하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "이 업체는 실시간 엔진 점검 서비스 시스템을 마련했다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 28번(원문항 42번)",
+          "set_id": "T2_91_LEVEL_SET_027_028",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 28,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        }
+      ],
+      "id": "T2_91_LEVEL_SET_027_028",
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "listening_set",
+      "category": "긴 대화·담화 듣고 두 문제 풀기",
+      "diagnostic_area": "set",
+      "question_number": 27,
+      "original_question_number": 41,
+      "points": 4,
+      "item_count": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 27~28번 세트(원문항 41~42번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_91_SET_041_042",
+      "level_test_question_number": 27,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91",
+      "original_target_slots": [
+        41,
+        42
+      ],
+      "original_audio_group_numbers": [
+        27,
+        28
+      ]
+    },
+    {
+      "set_id": "T2_91_LEVEL_SET_029_030",
+      "source_round": "91",
+      "set_type": "long_dialogue_two_question_set",
+      "target_slots": [
+        29,
+        30
+      ],
+      "audio_url": "./audio/91/91_L049.mp3",
+      "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+      "audio_group_id": "91_LEVEL_L029_GROUP",
+      "audio_group_numbers": [
+        29,
+        30
+      ],
+      "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_91_LEVEL_L029",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 29,
+          "original_question_number": 49,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 철학자는 도덕성에 대해 일반적인 견해를 따르고 있다."
+            },
+            {
+              "number": 2,
+              "text": "이 철학자는 도덕성을 평가하는 기준에서 감정을 배제했다."
+            },
+            {
+              "number": 3,
+              "text": "이 철학자에 따르면 출근 시간을 지키는 것은 도덕적 의무가 아니다."
+            },
+            {
+              "number": 4,
+              "text": "이 철학자에 따르면 어떤 상황에서도 다른 사람을 돕는 것이 최우선이다."
+            }
+          ],
+          "correct_answer": 2,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 29번(원문항 49번)",
+          "set_id": "T2_91_LEVEL_SET_029_030",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 29,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        },
+        {
+          "id": "T2_91_LEVEL_L030",
+          "source_round": "91",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 30,
+          "original_question_number": 50,
+          "type": "attitude_method",
+          "category": "남자가 말하는 방식 파악",
+          "diagnostic_area": "attitude_method",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 태도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/91/91_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "도덕적 행위의 당위성을 강조하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "도덕적 행위의 가치를 과대평가하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "도덕성에 대한 섣부른 판단을 경계하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "도덕성에 대한 연구의 필요성을 제기하고 있다."
+            }
+          ],
+          "correct_answer": 3,
+          "description": "제91회 TOPIK II 듣기 레벨테스트 30번(원문항 50번)",
+          "set_id": "T2_91_LEVEL_SET_029_030",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 30,
+          "level_test_source": "fixed-level-test-91",
+          "display_exam_id": "level-test-91"
+        }
+      ],
+      "id": "T2_91_LEVEL_SET_029_030",
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "listening_set",
+      "category": "긴 대화·담화 듣고 두 문제 풀기",
+      "diagnostic_area": "set",
+      "question_number": 29,
+      "original_question_number": 49,
+      "points": 4,
+      "item_count": 2,
+      "description": "제91회 TOPIK II 듣기 레벨테스트 29~30번 세트(원문항 49~50번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_91_SET_049_050",
+      "level_test_question_number": 29,
+      "level_test_source": "fixed-level-test-91",
+      "display_exam_id": "level-test-91",
+      "original_target_slots": [
+        49,
+        50
+      ],
+      "original_audio_group_numbers": [
+        29,
+        30
+      ]
+    }
+  ]
+}
