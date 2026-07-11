@@ -1,0 +1,1666 @@
+{
+  "exam_id": "level-test-89",
+  "id": "level-test-89",
+  "source_round": "89",
+  "title": "제89회 TOPIK II 듣기 레벨테스트",
+  "test_name": "제89회 TOPIK II 듣기 레벨테스트",
+  "level": "TOPIK II",
+  "test_level": "TOPIK II",
+  "section": "listening",
+  "exam_type": "level-test",
+  "exam_mode": "fixed-level-test",
+  "generated_exam_mode": "fixed-level-test",
+  "test_scope": "제89회 TOPIK II 듣기 레벨테스트 30문항",
+  "total_questions": 30,
+  "total_sets": 5,
+  "total_possible_points": 60,
+  "score_basis": 100,
+  "time_limit_minutes": 30,
+  "audio_mode": "manual",
+  "guide_audio": "./audio/89/89_GUIDE.mp3",
+  "source_exam_id": "listening-89",
+  "source_files": {
+    "exam": "./data/exams/listening-89.json",
+    "answer_key": "./data/answer-keys/answer-key-89.json"
+  },
+  "level_test_structure": {
+    "policy": "TOPIK II 듣기 대표 유형을 포함하는 30문항 레벨테스트",
+    "single_questions": "표시 1~20번 = 원문항 1~20번",
+    "set_questions": [
+      {
+        "display_range": [
+          21,
+          22
+        ],
+        "original_range": [
+          21,
+          22
+        ]
+      },
+      {
+        "display_range": [
+          23,
+          24
+        ],
+        "original_range": [
+          27,
+          28
+        ]
+      },
+      {
+        "display_range": [
+          25,
+          26
+        ],
+        "original_range": [
+          29,
+          30
+        ]
+      },
+      {
+        "display_range": [
+          27,
+          28
+        ],
+        "original_range": [
+          41,
+          42
+        ]
+      },
+      {
+        "display_range": [
+          29,
+          30
+        ],
+        "original_range": [
+          49,
+          50
+        ]
+      }
+    ],
+    "set_selection_unit": "two_question_set"
+  },
+  "data_status": "reviewed_level_test_time_fixed",
+  "notes": [
+    "원본 1~20번 단일 문항과 후반부 대표 세트 5개를 포함했습니다.",
+    "후반부 문항은 세트 단위로 선택했으며 하나의 오디오를 공유합니다.",
+    "question_number는 레벨테스트 표시 번호, original_question_number는 원본 시험지 번호입니다.",
+    "STEP07B: level-test timer corrected to 30 minutes."
+  ],
+  "items": [
+    {
+      "id": "T2_89_LEVEL_L001",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 1,
+      "original_question_number": 1,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/89/89_L001.mp3",
+      "source_audio_file": "02 트랙 2.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 1번(원문항 1번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/89/89_L001_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/89/89_L001_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/89/89_L001_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/89/89_L001_04.png"
+        }
+      ],
+      "test_level": "TOPIK II",
+      "level_test_question_number": 1,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L002",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 2,
+      "original_question_number": 2,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그림을 고르십시오.",
+      "audio_url": "./audio/89/89_L002.mp3",
+      "source_audio_file": "03 트랙 3.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 2번(원문항 2번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/89/89_L002_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/89/89_L002_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/89/89_L002_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/89/89_L002_04.png"
+        }
+      ],
+      "test_level": "TOPIK II",
+      "level_test_question_number": 2,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L003",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 3,
+      "original_question_number": 3,
+      "type": "visual_graph_choice",
+      "category": "알맞은 그림/그래프 고르기",
+      "diagnostic_area": "visual_graph_choice",
+      "instruction": "[1~3] 다음을 듣고 가장 알맞은 그림 또는 그래프를 고르십시오. (각 2점)",
+      "question": "알맞은 그래프를 고르십시오.",
+      "audio_url": "./audio/89/89_L003.mp3",
+      "source_audio_file": "04 트랙 4.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": ""
+        },
+        {
+          "number": 2,
+          "text": ""
+        },
+        {
+          "number": 3,
+          "text": ""
+        },
+        {
+          "number": 4,
+          "text": ""
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 3번(원문항 3번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "image_options": [
+        {
+          "number": 1,
+          "image_url": "./images/89/89_L003_01.png"
+        },
+        {
+          "number": 2,
+          "image_url": "./images/89/89_L003_02.png"
+        },
+        {
+          "number": 3,
+          "image_url": "./images/89/89_L003_03.png"
+        },
+        {
+          "number": 4,
+          "image_url": "./images/89/89_L003_04.png"
+        }
+      ],
+      "test_level": "TOPIK II",
+      "level_test_question_number": 3,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L004",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 4,
+      "original_question_number": 4,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L004.mp3",
+      "source_audio_file": "05 트랙 5.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "밥 먹고 좀 쉬어요."
+        },
+        {
+          "number": 2,
+          "text": "비밀번호 자주 넣어요."
+        },
+        {
+          "number": 3,
+          "text": "회사 앞에 하나 있어요."
+        },
+        {
+          "number": 4,
+          "text": "점심은 회사에서 먹었어요."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 4번(원문항 4번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 4,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L005",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 5,
+      "original_question_number": 5,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L005.mp3",
+      "source_audio_file": "06 트랙 6.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "오후에는 시간이 없어요."
+        },
+        {
+          "number": 2,
+          "text": "오늘은 일이 있어서 안 가요."
+        },
+        {
+          "number": 3,
+          "text": "건강도 좋아지고 재미있어요."
+        },
+        {
+          "number": 4,
+          "text": "동호회에 별로 관심이 없어요."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 5번(원문항 5번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 5,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L006",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 6,
+      "original_question_number": 6,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L006.mp3",
+      "source_audio_file": "07 트랙 7.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "주말농장에 가 봤어요."
+        },
+        {
+          "number": 2,
+          "text": "주말에는 갈 수 없어요."
+        },
+        {
+          "number": 3,
+          "text": "준비 시간이 충분했어요."
+        },
+        {
+          "number": 4,
+          "text": "특별히 필요한 건 없어요."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 6번(원문항 6번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 6,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L007",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 7,
+      "original_question_number": 7,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L007.mp3",
+      "source_audio_file": "08 트랙 8.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "시간표는 벌써 봤을 거야."
+        },
+        {
+          "number": 2,
+          "text": "지하철을 잘 이용하고 있어."
+        },
+        {
+          "number": 3,
+          "text": "시간이 늦어서 지하철을 놓쳤어."
+        },
+        {
+          "number": 4,
+          "text": "주말에는 시간표가 다른 줄 몰랐어."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 7번(원문항 7번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 7,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L008",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 8,
+      "original_question_number": 8,
+      "type": "following_response",
+      "category": "이어질 수 있는 말 고르기",
+      "diagnostic_area": "following_response",
+      "instruction": "[4~8] 다음을 듣고 이어질 수 있는 말로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "이어질 수 있는 말로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L008.mp3",
+      "source_audio_file": "09 트랙 9.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "네. 자료는 지난주에 지웠어요."
+        },
+        {
+          "number": 2,
+          "text": "네. 교육 시간은 아직 안 정했어요."
+        },
+        {
+          "number": 3,
+          "text": "네. 지난번에 찍어 놓은 걸 활용하죠."
+        },
+        {
+          "number": 4,
+          "text": "네. 직원이 몇 명인지는 확실하지 않아요."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 8번(원문항 8번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 8,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L009",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 9,
+      "original_question_number": 9,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L009.mp3",
+      "source_audio_file": "10 트랙 10.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "창문을 연다."
+        },
+        {
+          "number": 2,
+          "text": "화분을 옮긴다."
+        },
+        {
+          "number": 3,
+          "text": "베란다로 나간다."
+        },
+        {
+          "number": 4,
+          "text": "청소기를 찾는다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 9번(원문항 9번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 9,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L010",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 10,
+      "original_question_number": 10,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L010.mp3",
+      "source_audio_file": "11 트랙 11.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "장난감을 준다."
+        },
+        {
+          "number": 2,
+          "text": "장난감을 빌린다."
+        },
+        {
+          "number": 3,
+          "text": "장난감을 구경한다."
+        },
+        {
+          "number": 4,
+          "text": "장난감을 예약한다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 10번(원문항 10번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 10,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L011",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 11,
+      "original_question_number": 11,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L011.mp3",
+      "source_audio_file": "12 트랙 12.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "책을 사러 간다."
+        },
+        {
+          "number": 2,
+          "text": "서점 밖으로 나간다."
+        },
+        {
+          "number": 3,
+          "text": "작가의 사인을 받는다."
+        },
+        {
+          "number": 4,
+          "text": "사인회 시간을 묻는다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 11번(원문항 11번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 11,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L012",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 12,
+      "original_question_number": 12,
+      "type": "next_action",
+      "category": "여자가 이어서 할 행동 고르기",
+      "diagnostic_area": "next_action",
+      "instruction": "[9~12] 다음을 듣고 여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "여자가 이어서 할 행동으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L012.mp3",
+      "source_audio_file": "13 트랙 13.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "사무실에 들른다."
+        },
+        {
+          "number": 2,
+          "text": "학원에 등록한다."
+        },
+        {
+          "number": 3,
+          "text": "시험 접수를 한다."
+        },
+        {
+          "number": 4,
+          "text": "교육장을 찾아간다."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 12번(원문항 12번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 12,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L013",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 13,
+      "original_question_number": 13,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L013.mp3",
+      "source_audio_file": "14 트랙 14.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "남자는 지금 수미하고 같이 있다."
+        },
+        {
+          "number": 2,
+          "text": "여자는 잠시 후 출발하려고 한다."
+        },
+        {
+          "number": 3,
+          "text": "남자는 조금 전 식당에 도착했다."
+        },
+        {
+          "number": 4,
+          "text": "여자는 일이 늦게 끝나서 늦는다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 13번(원문항 13번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 13,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L014",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 14,
+      "original_question_number": 14,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L014.mp3",
+      "source_audio_file": "15 트랙 15.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "엘리베이터는 내일부터 수리를 시작한다."
+        },
+        {
+          "number": 2,
+          "text": "엘리베이터 수리는 한 시간 정도 걸린다."
+        },
+        {
+          "number": 3,
+          "text": "건물의 모든 엘리베이터가 운행을 멈췄다."
+        },
+        {
+          "number": 4,
+          "text": "게시판에 엘리베이터 수리를 알릴 것이다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 14번(원문항 14번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 14,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L015",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 15,
+      "original_question_number": 15,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L015.mp3",
+      "source_audio_file": "16 트랙 16.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "물놀이장이 작년보다 일찍 문을 열었다."
+        },
+        {
+          "number": 2,
+          "text": "물놀이장은 예약하지 않고 이용할 수 있다."
+        },
+        {
+          "number": 3,
+          "text": "물놀이장을 이용하려면 입장료를 내야 한다."
+        },
+        {
+          "number": 4,
+          "text": "인주시 물놀이장 중 일부가 운영을 시작했다."
+        }
+      ],
+      "correct_answer": 1,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 15번(원문항 15번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 15,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L016",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 16,
+      "original_question_number": 16,
+      "type": "same_content_single",
+      "category": "들은 내용과 같은 것 고르기",
+      "diagnostic_area": "same_content_single",
+      "instruction": "[13~16] 다음을 듣고 들은 내용과 같은 것을 고르십시오. (각 2점)",
+      "question": "들은 내용과 같은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L016.mp3",
+      "source_audio_file": "17 트랙 17.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "한국 요리에 자주 사용되는 양념을 전시한다."
+        },
+        {
+          "number": 2,
+          "text": "도서관 안에 요리를 할 수 있는 장소가 있다."
+        },
+        {
+          "number": 3,
+          "text": "한 달에 한 번 한국 음식 만들기 수업을 한다."
+        },
+        {
+          "number": 4,
+          "text": "다른 나라의 음식 관련 책은 가지고 있지 않다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 16번(원문항 16번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 16,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L017",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 17,
+      "original_question_number": 17,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L017.mp3",
+      "source_audio_file": "18 트랙 18.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "공연 연습을 열심히 해야 한다."
+        },
+        {
+          "number": 2,
+          "text": "다양한 연주 방법을 배워야 한다."
+        },
+        {
+          "number": 3,
+          "text": "인기 있는 가요를 공연에서 연주하고 싶다."
+        },
+        {
+          "number": 4,
+          "text": "유명한 가수들과 같이 공연을 하면 좋겠다."
+        }
+      ],
+      "correct_answer": 3,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 17번(원문항 17번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 17,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L018",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 18,
+      "original_question_number": 18,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L018.mp3",
+      "source_audio_file": "19 트랙 19.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "좋은 아이디어를 떠올리는 것은 힘들다."
+        },
+        {
+          "number": 2,
+          "text": "다른 사람과 과제를 같이 하면 좋은 점이 많다."
+        },
+        {
+          "number": 3,
+          "text": "과정을 즐기면 더욱 좋은 결과를 얻을 수 있다."
+        },
+        {
+          "number": 4,
+          "text": "여러 사람이 서로 의견을 맞추는 것은 쉽지 않다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 18번(원문항 18번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 18,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L019",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 19,
+      "original_question_number": 19,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L019.mp3",
+      "source_audio_file": "20 트랙 20.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "진로에 대해 신중히 고민해야 한다."
+        },
+        {
+          "number": 2,
+          "text": "쉬면서 미래에 대해 생각하고 싶다."
+        },
+        {
+          "number": 3,
+          "text": "다른 사람의 조언을 잘 들어야 한다."
+        },
+        {
+          "number": 4,
+          "text": "근무 조건이 좋은 직장을 찾고 싶다."
+        }
+      ],
+      "correct_answer": 2,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 19번(원문항 19번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 19,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "id": "T2_89_LEVEL_L020",
+      "source_round": "89",
+      "level": "TOPIK II",
+      "section": "listening",
+      "question_number": 20,
+      "original_question_number": 20,
+      "type": "main_thought_single",
+      "category": "남자의 중심 생각 고르기",
+      "diagnostic_area": "main_thought_single",
+      "instruction": "[17~20] 다음을 듣고 남자의 중심 생각으로 가장 알맞은 것을 고르십시오. (각 2점)",
+      "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+      "audio_url": "./audio/89/89_L020.mp3",
+      "source_audio_file": "21 트랙 21.wma",
+      "options": [
+        {
+          "number": 1,
+          "text": "일상적인 소재의 만화를 그려야 한다."
+        },
+        {
+          "number": 2,
+          "text": "사람들의 표정을 표현하는 것은 어렵다."
+        },
+        {
+          "number": 3,
+          "text": "만화가는 독자들의 공감을 얻는 게 중요하다."
+        },
+        {
+          "number": 4,
+          "text": "그림을 잘 그리려면 세심한 관찰이 필요하다."
+        }
+      ],
+      "correct_answer": 4,
+      "points": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 20번(원문항 20번)",
+      "set_id": "",
+      "has_example": false,
+      "source_has_example": false,
+      "test_level": "TOPIK II",
+      "level_test_question_number": 20,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89"
+    },
+    {
+      "set_id": "T2_89_LEVEL_SET_021_022",
+      "source_round": "89",
+      "set_type": "main_thought_set",
+      "target_slots": [
+        21,
+        22
+      ],
+      "audio_url": "./audio/89/89_L021.mp3",
+      "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+      "audio_group_id": "89_LEVEL_L021_GROUP",
+      "audio_group_numbers": [
+        21,
+        22
+      ],
+      "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_89_LEVEL_L021",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 21,
+          "original_question_number": 21,
+          "type": "main_thought_set",
+          "category": "중심 생각(세트)",
+          "diagnostic_area": "main_thought_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자의 중심 생각으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "출장 기간을 더 늘려야 한다."
+            },
+            {
+              "number": 2,
+              "text": "출장 가는 곳을 바꿔야 한다."
+            },
+            {
+              "number": 3,
+              "text": "출장 갈 사람을 다시 정해야 한다."
+            },
+            {
+              "number": 4,
+              "text": "출장 업무를 여러 부서와 논의해야 한다."
+            }
+          ],
+          "correct_answer": 1,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 21번(원문항 21번)",
+          "set_id": "T2_89_LEVEL_SET_021_022",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 21,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        },
+        {
+          "id": "T2_89_LEVEL_L022",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 22,
+          "original_question_number": 22,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[21~22] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L021.mp3",
+          "source_audio_file": "22 트랙 22.wma + 23 트랙 23.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "신제품 전시회는 해외에서 열린다."
+            },
+            {
+              "number": 2,
+              "text": "출장 기간은 전체 3일로 예정되어 있다."
+            },
+            {
+              "number": 3,
+              "text": "새로운 제품을 구입하기 위해 출장을 간다."
+            },
+            {
+              "number": 4,
+              "text": "전시회 전에 현지 업체와 상담을 하기로 했다."
+            }
+          ],
+          "correct_answer": 1,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 22번(원문항 22번)",
+          "set_id": "T2_89_LEVEL_SET_021_022",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 22,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        }
+      ],
+      "id": "T2_89_LEVEL_SET_021_022",
+      "item_count": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 21~22번 세트(원문항 21~22번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_89_SET_021_022",
+      "level_test_question_number": 21,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89",
+      "original_target_slots": [
+        21,
+        22
+      ],
+      "original_audio_group_numbers": [
+        21,
+        22
+      ],
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "main_thought_set",
+      "category": "중심 생각(세트)",
+      "diagnostic_area": "main_thought_set",
+      "question_number": 21,
+      "original_question_number": 21,
+      "points": 4
+    },
+    {
+      "set_id": "T2_89_LEVEL_SET_023_024",
+      "source_round": "89",
+      "set_type": "speaker_action_intention",
+      "target_slots": [
+        23,
+        24
+      ],
+      "audio_url": "./audio/89/89_L027.mp3",
+      "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+      "audio_group_id": "89_LEVEL_L023_GROUP",
+      "audio_group_numbers": [
+        23,
+        24
+      ],
+      "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_89_LEVEL_L023",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 23,
+          "original_question_number": 27,
+          "type": "speaker_action_intention",
+          "category": "행동·의도 파악",
+          "diagnostic_area": "speaker_action_intention",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 의도로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "교육 효과를 전달하려고"
+            },
+            {
+              "number": 2,
+              "text": "교육 기간 연장을 부탁하려고"
+            },
+            {
+              "number": 3,
+              "text": "응급 처치 방법에 대해 물어보려고"
+            },
+            {
+              "number": 4,
+              "text": "응급 처치 교육 신청을 제안하려고"
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 23번(원문항 27번)",
+          "set_id": "T2_89_LEVEL_SET_023_024",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 23,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        },
+        {
+          "id": "T2_89_LEVEL_L024",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 24,
+          "original_question_number": 28,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[27~28] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L027.mp3",
+          "source_audio_file": "28 트랙 28.wma + 29 트랙 29.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "매주 소방서에서 응급 처치 교육을 한다."
+            },
+            {
+              "number": 2,
+              "text": "여자는 응급 처치 교육을 받은 적이 있다."
+            },
+            {
+              "number": 3,
+              "text": "응급 처치 교육에는 실습이 포함되어 있다."
+            },
+            {
+              "number": 4,
+              "text": "응급 처치 교육은 2회 이상 참가해야 한다."
+            }
+          ],
+          "correct_answer": 3,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 24번(원문항 28번)",
+          "set_id": "T2_89_LEVEL_SET_023_024",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 24,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        }
+      ],
+      "id": "T2_89_LEVEL_SET_023_024",
+      "item_count": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 23~24번 세트(원문항 27~28번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_89_SET_027_028",
+      "level_test_question_number": 23,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89",
+      "original_target_slots": [
+        27,
+        28
+      ],
+      "original_audio_group_numbers": [
+        27,
+        28
+      ],
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "speaker_action_intention",
+      "category": "행동·의도 파악",
+      "diagnostic_area": "speaker_action_intention",
+      "question_number": 23,
+      "original_question_number": 27,
+      "points": 4
+    },
+    {
+      "set_id": "T2_89_LEVEL_SET_025_026",
+      "source_round": "89",
+      "set_type": "speaker_identity",
+      "target_slots": [
+        25,
+        26
+      ],
+      "audio_url": "./audio/89/89_L029.mp3",
+      "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+      "audio_group_id": "89_LEVEL_L025_GROUP",
+      "audio_group_numbers": [
+        25,
+        26
+      ],
+      "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_89_LEVEL_L025",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 25,
+          "original_question_number": 29,
+          "type": "speaker_identity",
+          "category": "화자 신분 파악",
+          "diagnostic_area": "speaker_identity",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 누구인지 고르십시오.",
+          "audio_url": "./audio/89/89_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "번역물 편집자"
+            },
+            {
+              "number": 2,
+              "text": "번역 사업 책임자"
+            },
+            {
+              "number": 3,
+              "text": "역사 자료 분석가"
+            },
+            {
+              "number": 4,
+              "text": "역사 기록물 수집가"
+            }
+          ],
+          "correct_answer": 2,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 25번(원문항 29번)",
+          "set_id": "T2_89_LEVEL_SET_025_026",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 25,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        },
+        {
+          "id": "T2_89_LEVEL_L026",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 26,
+          "original_question_number": 30,
+          "type": "same_content_set",
+          "category": "들은 내용 일치(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[29~30] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L029.mp3",
+          "source_audio_file": "30 트랙 30.wma + 31 트랙 31.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 작업의 결과물을 저렴하게 이용할 수 있다."
+            },
+            {
+              "number": 2,
+              "text": "최근 이 작업의 진행 속도가 상당히 느려졌다."
+            },
+            {
+              "number": 3,
+              "text": "이 작업의 결과물은 역사 연구에 쓰일 수 있다."
+            },
+            {
+              "number": 4,
+              "text": "직접 방문해야 이 작업의 결과물을 볼 수 있다."
+            }
+          ],
+          "correct_answer": 3,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 26번(원문항 30번)",
+          "set_id": "T2_89_LEVEL_SET_025_026",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 26,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        }
+      ],
+      "id": "T2_89_LEVEL_SET_025_026",
+      "item_count": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 25~26번 세트(원문항 29~30번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_89_SET_029_030",
+      "level_test_question_number": 25,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89",
+      "original_target_slots": [
+        29,
+        30
+      ],
+      "original_audio_group_numbers": [
+        29,
+        30
+      ],
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "speaker_identity",
+      "category": "화자 신분 파악",
+      "diagnostic_area": "speaker_identity",
+      "question_number": 25,
+      "original_question_number": 29,
+      "points": 4
+    },
+    {
+      "set_id": "T2_89_LEVEL_SET_027_028",
+      "source_round": "89",
+      "set_type": "long_dialogue_two_question_set",
+      "target_slots": [
+        27,
+        28
+      ],
+      "audio_url": "./audio/89/89_L041.mp3",
+      "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+      "audio_group_id": "89_LEVEL_L027_GROUP",
+      "audio_group_numbers": [
+        27,
+        28
+      ],
+      "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_89_LEVEL_L027",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 27,
+          "original_question_number": 41,
+          "type": "topic_content",
+          "category": "강연 중심 내용 고르기",
+          "diagnostic_area": "topic_content",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "이 강연의 중심 내용으로 가장 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "조선 후기에는 다양한 보부상 집단이 존재했다."
+            },
+            {
+              "number": 2,
+              "text": "보부상의 상업 활동은 조선 후기에 시작되었다."
+            },
+            {
+              "number": 3,
+              "text": "보부상의 집단 활동은 신분 상승을 위한 것이었다."
+            },
+            {
+              "number": 4,
+              "text": "보부상은 공동체 의식에 바탕을 둔 상인 조직이었다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 27번(원문항 41번)",
+          "set_id": "T2_89_LEVEL_SET_027_028",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 27,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        },
+        {
+          "id": "T2_89_LEVEL_L028",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 28,
+          "original_question_number": 42,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[41~42] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L041.mp3",
+          "source_audio_file": "42 트랙 42.wma + 43 트랙 43.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "보부상은 지켜야 할 규율을 문서로 정리했다."
+            },
+            {
+              "number": 2,
+              "text": "보부상은 자신의 신분을 증명할 수단이 없었다."
+            },
+            {
+              "number": 3,
+              "text": "보부상은 지정된 시장에서만 장사를 할 수 있었다."
+            },
+            {
+              "number": 4,
+              "text": "보부상은 지역 단위의 조직을 구성하는 데 머물렀다."
+            }
+          ],
+          "correct_answer": 1,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 28번(원문항 42번)",
+          "set_id": "T2_89_LEVEL_SET_027_028",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 28,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        }
+      ],
+      "id": "T2_89_LEVEL_SET_027_028",
+      "item_count": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 27~28번 세트(원문항 41~42번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_89_SET_041_042",
+      "level_test_question_number": 27,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89",
+      "original_target_slots": [
+        41,
+        42
+      ],
+      "original_audio_group_numbers": [
+        41,
+        42
+      ],
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "topic_content",
+      "category": "강연 중심 내용 고르기",
+      "diagnostic_area": "topic_content",
+      "question_number": 27,
+      "original_question_number": 41,
+      "points": 4
+    },
+    {
+      "set_id": "T2_89_LEVEL_SET_029_030",
+      "source_round": "89",
+      "set_type": "long_dialogue_two_question_set",
+      "target_slots": [
+        29,
+        30
+      ],
+      "audio_url": "./audio/89/89_L049.mp3",
+      "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+      "audio_group_id": "89_LEVEL_L029_GROUP",
+      "audio_group_numbers": [
+        29,
+        30
+      ],
+      "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+      "items": [
+        {
+          "id": "T2_89_LEVEL_L029",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 29,
+          "original_question_number": 49,
+          "type": "same_content_set",
+          "category": "들은 내용과 같은 것 고르기(세트)",
+          "diagnostic_area": "same_content_set",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "들은 내용과 같은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "이 공연의 전통은 전승되지 못했다."
+            },
+            {
+              "number": 2,
+              "text": "이 공연은 전용 시설에서 이루어졌다."
+            },
+            {
+              "number": 3,
+              "text": "이 공연에는 여성들도 적극 참여하였다."
+            },
+            {
+              "number": 4,
+              "text": "이 공연은 다양한 장르로 구성되어 있다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 29번(원문항 49번)",
+          "set_id": "T2_89_LEVEL_SET_029_030",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 29,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        },
+        {
+          "id": "T2_89_LEVEL_L030",
+          "source_round": "89",
+          "level": "TOPIK II",
+          "section": "listening",
+          "points": 2,
+          "source_has_example": false,
+          "has_example": false,
+          "question_number": 30,
+          "original_question_number": 50,
+          "type": "attitude_method",
+          "category": "남자가 말하는 방식 파악",
+          "diagnostic_area": "attitude_method",
+          "instruction": "[49~50] 다음을 듣고 물음에 답하십시오. (각 2점)",
+          "question": "남자가 말하는 방식으로 알맞은 것을 고르십시오.",
+          "audio_url": "./audio/89/89_L049.mp3",
+          "source_audio_file": "50 트랙 50.wma + 51 트랙 51.wma",
+          "options": [
+            {
+              "number": 1,
+              "text": "유사한 사례들을 비교하고 있다."
+            },
+            {
+              "number": 2,
+              "text": "현상을 논리적으로 분석하고 있다."
+            },
+            {
+              "number": 3,
+              "text": "기준에 따라 대상을 분류하고 있다."
+            },
+            {
+              "number": 4,
+              "text": "자료를 통해 대상을 설명하고 있다."
+            }
+          ],
+          "correct_answer": 4,
+          "description": "제89회 TOPIK II 듣기 레벨테스트 30번(원문항 50번)",
+          "set_id": "T2_89_LEVEL_SET_029_030",
+          "test_level": "TOPIK II",
+          "level_test_question_number": 30,
+          "level_test_source": "fixed-level-test-89",
+          "display_exam_id": "level-test-89"
+        }
+      ],
+      "id": "T2_89_LEVEL_SET_029_030",
+      "item_count": 2,
+      "description": "제89회 TOPIK II 듣기 레벨테스트 29~30번 세트(원문항 49~50번)",
+      "has_example": false,
+      "source_has_example": false,
+      "needs_human_review": true,
+      "original_set_id": "T2_89_SET_049_050",
+      "level_test_question_number": 29,
+      "level_test_source": "fixed-level-test-89",
+      "display_exam_id": "level-test-89",
+      "original_target_slots": [
+        49,
+        50
+      ],
+      "original_audio_group_numbers": [
+        49,
+        50
+      ],
+      "level": "TOPIK II",
+      "test_level": "TOPIK II",
+      "section": "listening",
+      "type": "same_content_set",
+      "category": "들은 내용과 같은 것 고르기(세트)",
+      "diagnostic_area": "same_content_set",
+      "question_number": 29,
+      "original_question_number": 49,
+      "points": 4
+    }
+  ]
+}
