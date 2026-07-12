@@ -515,6 +515,50 @@
       text-overflow:ellipsis;
     }
 
+
+
+    /* Step 35: 학생용 문제지 47~50번 마지막 세트 간격 보정
+       - 마지막 긴 세트(47~48, 49~50)는 2열 폭이 좁아져 글자가 세로로 떨어질 수 있다.
+       - 해당 세트만 넓은 1열 카드로 출력해 문항·선택지 가독성을 확보한다. */
+    .set-wrap.set-wrap-wide{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .set-wrap.set-wrap-wide .question-card{
+      width:100%;
+    }
+    .set-wrap.set-wrap-wide .q-card-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      padding-right:0;
+      min-height:0;
+    }
+    .set-wrap.set-wrap-wide .q-title{
+      flex:1 1 auto;
+      min-width:0;
+      white-space:normal;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    .set-wrap.set-wrap-wide .q-badges{
+      position:static;
+      flex:0 0 auto;
+      min-width:0;
+      max-width:none;
+      display:flex;
+      flex-direction:row;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
+    .set-wrap.set-wrap-wide .q-badge{
+      max-width:none;
+      white-space:nowrap;
+      overflow:visible;
+      text-overflow:clip;
+    }
+
     @media print{
       @page{size:A4 portrait; margin:12mm;}
       body{background:#fff; font-size:12px;}
@@ -545,6 +589,82 @@
       .set-wrap .q-instruction{font-size:9.5px; line-height:1.25; margin:0 0 4px; word-break:keep-all;}
       .set-wrap .options{gap:5px; margin-top:5px;}
       .set-wrap .option-row{font-size:9.8px; line-height:1.28; grid-template-columns:22px 1fr; gap:3px; min-height:17px; word-break:keep-all; overflow-wrap:break-word;}
+
+      /* Step 35 print override: 47~50번 마지막 세트는 A4 인쇄에서 1열로 넓게 배치 */
+      .set-wrap.set-wrap-wide{
+        grid-template-columns:1fr !important;
+        gap:7px !important;
+        break-inside:auto;
+        page-break-inside:auto;
+      }
+      .set-wrap.set-wrap-wide .question-card{
+        padding:8px 9px 9px !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+      .set-wrap.set-wrap-wide .q-card-head{
+        display:flex !important;
+        justify-content:space-between !important;
+        align-items:flex-start !important;
+        gap:8px !important;
+        padding-right:0 !important;
+        min-height:0 !important;
+        margin-bottom:4px !important;
+      }
+      .set-wrap.set-wrap-wide .q-title{
+        flex:1 1 auto !important;
+        min-width:0 !important;
+        font-size:11.5px !important;
+        line-height:1.28 !important;
+        white-space:normal !important;
+        word-break:keep-all !important;
+        overflow-wrap:break-word !important;
+        letter-spacing:-.2px !important;
+      }
+      .set-wrap.set-wrap-wide .q-badges{
+        position:static !important;
+        flex:0 0 auto !important;
+        max-width:none !important;
+        min-width:72px !important;
+        display:flex !important;
+        flex-direction:row !important;
+        flex-wrap:wrap !important;
+        justify-content:flex-end !important;
+        align-items:flex-start !important;
+        gap:2px !important;
+      }
+      .set-wrap.set-wrap-wide .q-badge{
+        font-size:7.4px !important;
+        line-height:1.1 !important;
+        padding:2px 3px !important;
+        max-width:none !important;
+        white-space:nowrap !important;
+        overflow:visible !important;
+        text-overflow:clip !important;
+      }
+      .set-wrap.set-wrap-wide .q-instruction{
+        font-size:9.6px !important;
+        line-height:1.25 !important;
+        margin:0 0 4px !important;
+        white-space:normal !important;
+        word-break:keep-all !important;
+        overflow-wrap:break-word !important;
+      }
+      .set-wrap.set-wrap-wide .options{
+        gap:4px !important;
+        margin-top:4px !important;
+      }
+      .set-wrap.set-wrap-wide .option-row{
+        font-size:9.9px !important;
+        line-height:1.27 !important;
+        grid-template-columns:22px minmax(0, 1fr) !important;
+        gap:4px !important;
+        min-height:17px !important;
+        white-space:normal !important;
+        word-break:keep-all !important;
+        overflow-wrap:break-word !important;
+      }
+
       .answer-card{
         break-inside:avoid;
         page-break-inside:avoid;
@@ -980,6 +1100,17 @@
     return getInstructionText(item).replace(/\s+/g, " ").trim();
   }
 
+
+  function isWideSetGroup(group){
+    if(!group || group.type !== "set" || !Array.isArray(group.items)) return false;
+    const nums = group.items.map(getOriginalNo).filter(Boolean);
+    if(!nums.length) return false;
+    const minNo = Math.min(...nums);
+    const maxNo = Math.max(...nums);
+    // 47~48, 49~50처럼 마지막 긴 세트만 넓은 1열 출력으로 전환한다.
+    return minNo >= 47 || maxNo >= 47;
+  }
+
   function renderItem(item, includeAnswer, showInstruction){
     const qno = getOriginalNo(item);
     const question = item.question || item.instruction || "문항";
@@ -1073,7 +1204,8 @@
 
     groupForRender(items).forEach(group => {
       if(group.type === "set"){
-        out += '<div class="set-wrap">';
+        const wideClass = isWideSetGroup(group) ? " set-wrap-wide" : "";
+        out += '<div class="set-wrap' + wideClass + '">';
         group.items.forEach(it => out += renderItem(it, includeInline, shouldPrintInstruction(it)));
         out += '</div>';
       }else{
