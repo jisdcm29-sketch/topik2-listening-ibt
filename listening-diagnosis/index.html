@@ -593,6 +593,7 @@
   <div class="toolbar no-print">
     <button id="printBtn" type="button">PDF로 인쇄 / 저장</button>
     <button id="wrongReviewBtn" class="secondary" type="button">오답 다시 풀기</button>
+    <button id="practiceAgainBtn" class="ghost" type="button" title="시험 선택 인증화면으로 이동합니다.">다른 회차·유형 풀기</button>
   </div>
 
   <main id="report" class="report-paper">
@@ -1398,6 +1399,11 @@
         localStorage.setItem("topik2_wrong_review_started_at", new Date().toISOString());
 
         const url = "../listening-test/index.html?mode=wrong-review&v=topik93_step14_wrong_review_decrement_fix";
+        window.open(url, "_blank");
+      });
+
+      document.getElementById("practiceAgainBtn").addEventListener("click", () => {
+        const url = "../listening-test/index.html?v=question_practice_step03_from_diagnosis";
         window.open(url, "_blank");
       });
 
