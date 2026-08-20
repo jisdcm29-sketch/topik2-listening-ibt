@@ -142,6 +142,131 @@
       min-height: 20px;
     }
 
+
+    .question-practice-select-group {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .question-practice-toggle-btn {
+      width: 100%;
+      border: 2px solid #7bb7ff;
+      background: #fff;
+      color: #0b57d0;
+      border-radius: 8px;
+      min-height: 42px;
+      padding: 9px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .question-practice-toggle-btn.active {
+      border-color: var(--blue);
+      background: #e8f3ff;
+      box-shadow: inset 0 0 0 1px #1a73e8;
+    }
+
+    .question-practice-panel {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .question-practice-panel.collapsed {
+      display: none;
+    }
+
+    .question-practice-panel.disabled {
+      opacity: 0.58;
+    }
+
+    .question-practice-round-box {
+      display: grid;
+      gap: 8px;
+    }
+
+    .question-practice-round-title {
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    .question-practice-round-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .question-practice-round-btn,
+    .question-practice-range-btn {
+      border: 2px solid #7bb7ff;
+      background: #fff;
+      color: #0b57d0;
+      border-radius: 8px;
+      min-height: 40px;
+      padding: 8px 10px;
+      font-weight: 900;
+      cursor: pointer;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .question-practice-round-btn.active,
+    .question-practice-range-btn.active {
+      border-color: var(--blue);
+      background: #e8f3ff;
+      box-shadow: inset 0 0 0 1px #1a73e8;
+    }
+
+    .question-practice-round-btn:disabled,
+    .question-practice-range-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .question-practice-quick-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .question-practice-actions.one {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .question-practice-actions .secondary {
+      border: 1px solid #a9c9f6;
+      background: #f7fbff;
+      color: #0b57d0;
+      border-radius: 8px;
+      min-height: 38px;
+      padding: 8px 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .question-practice-status {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    .question-practice-status.active {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+
     .teacher-panel {
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -885,6 +1010,14 @@
       }
     }
 
+
+    @media (max-width: 680px) {
+      .question-practice-round-list,
+      .question-practice-quick-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -917,6 +1050,34 @@
       <div class="panel-title">세부 시험지 선택</div>
       <div id="roundList" class="round-list"></div>
       <div id="selectedExamText" class="selected-line"></div>
+
+      <section class="question-practice-select-group" aria-label="문항 선택 연습">
+        <div class="panel-title">문항 선택 연습</div>
+        <button id="questionPracticeToggleBtn" type="button" class="question-practice-toggle-btn" aria-expanded="false">
+          문항 선택 연습 열기
+        </button>
+
+        <div id="questionPracticePanel" class="question-practice-panel collapsed" aria-label="문항 선택 연습 설정">
+          <div class="question-practice-round-box" aria-label="연습 회차 선택">
+            <div class="question-practice-round-title">
+              <strong>연습 회차 선택</strong>
+            </div>
+            <div id="questionPracticeRoundList" class="question-practice-round-list">
+              <button type="button" class="question-practice-round-btn" disabled>회차 목록을 불러오는 중입니다.</button>
+            </div>
+          </div>
+
+          <div id="questionPracticeTypeGrid" class="question-practice-quick-grid" aria-label="대표 유형 선택"></div>
+
+          <div class="question-practice-actions one">
+            <button id="questionPracticeClearBtn" type="button" class="secondary">전체 시험으로 보기</button>
+          </div>
+
+          <p id="questionPracticeStatus" class="question-practice-status">
+            유형을 선택하지 않으면 전체 시험으로 진행합니다.
+          </p>
+        </div>
+      </section>
     </div>
 
     <div class="teacher-panel">

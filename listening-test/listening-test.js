@@ -6,6 +6,30 @@
   const MANIFEST_URL = "./data/exam-manifest.json";
   const BANK_URL = "./data/bank/question-bank.json";
 
+
+  const QUESTION_PRACTICE_TYPES = [
+    { key: "visual_graph_choice", label: "1~3 그림/그래프", questionNumbers: [1, 2, 3] },
+    { key: "following_response", label: "4~8 이어질 수 있는 말", questionNumbers: [4, 5, 6, 7, 8] },
+    { key: "next_action", label: "9~12 여자가 이어서 할 행동", questionNumbers: [9, 10, 11, 12] },
+    { key: "same_content_single", label: "13~16 내용 일치", questionNumbers: [13, 14, 15, 16] },
+    { key: "main_thought_single", label: "17~20 남자의 중심 생각", questionNumbers: [17, 18, 19, 20] },
+    { key: "set_021_022", label: "21~22 중심 생각+내용 일치", questionNumbers: [21, 22] },
+    { key: "set_023_024", label: "23~24 행동·의도+내용 일치", questionNumbers: [23, 24] },
+    { key: "set_025_026", label: "25~26 중심 생각+내용 일치", questionNumbers: [25, 26] },
+    { key: "set_027_028", label: "27~28 말하는 의도+내용 일치", questionNumbers: [27, 28] },
+    { key: "set_029_030", label: "29~30 여자 신분+내용 일치", questionNumbers: [29, 30] },
+    { key: "set_031_032", label: "31~32 중심 생각+태도", questionNumbers: [31, 32] },
+    { key: "set_033_034", label: "33~34 주제·내용+내용 일치", questionNumbers: [33, 34] },
+    { key: "set_035_036", label: "35~36 행동·의도+내용 일치", questionNumbers: [35, 36] },
+    { key: "set_037_038", label: "37~38 여자 중심 생각+내용 일치", questionNumbers: [37, 38] },
+    { key: "set_039_040", label: "39~40 대화 전 내용+내용 일치", questionNumbers: [39, 40] },
+    { key: "set_041_042", label: "41~42 강연 중심 내용+내용 일치", questionNumbers: [41, 42] },
+    { key: "set_043_044", label: "43~44 내용·이유 파악", questionNumbers: [43, 44] },
+    { key: "set_045_046", label: "45~46 내용 일치+말하는 방식", questionNumbers: [45, 46] },
+    { key: "set_047_048", label: "47~48 내용 일치+태도", questionNumbers: [47, 48] },
+    { key: "set_049_050", label: "49~50 내용 일치+말하는 방식", questionNumbers: [49, 50] }
+  ];
+
   const $ = (id) => document.getElementById(id);
   const audioController = new window.TopikAudioController();
 
@@ -31,7 +55,25 @@
     screenTiming: null,
     flowRunId: 0,
     submitted: false,
-    wrongReviewSourceResult: null
+    wrongReviewSourceResult: null,
+    isQuestionPracticeMode: false,
+    questionPracticePanelExpanded: false,
+    questionPractice: {
+      enabled: false,
+      range: "",
+      rawQuestionNumbers: [],
+      questionNumbers: [],
+      label: "",
+      typeLabel: "",
+      sourceExamIds: []
+    }
+  };
+
+  window.__TOPIK2_LISTENING_DEBUG__ = {
+    state,
+    getQuestionPracticeState: () => cloneJson(state.questionPractice),
+    getCurrentExam: () => state.currentExam,
+    getScreens: () => state.screens
   };
 
   function escapeHtml(value) {
@@ -587,6 +629,477 @@
     );
   }
 
+
+  function getExamLabel(entry) {
+    return entry?.short_label || entry?.label || entry?.source_round || entry?.exam_id || "";
+  }
+
+  function getQuestionPracticeAvailableExams() {
+    if (!state.manifest || !Array.isArray(state.manifest.exams)) return [];
+    return state.manifest.exams.filter((entry) =>
+      entry.enabled !== false &&
+      entry.student_visible !== false &&
+      entry.exam_type === "full" &&
+      entry.test_file
+    );
+  }
+
+  function isQuestionPracticeAvailable() {
+    return state.examType === "full" && state.generationMode === "fixed";
+  }
+
+  function getQuestionPracticeType(typeKey) {
+    return QUESTION_PRACTICE_TYPES.find((type) => type.key === typeKey) || null;
+  }
+
+  function getQuestionPracticeSelectedEntries() {
+    const exams = getQuestionPracticeAvailableExams();
+    const selected = new Set(state.questionPractice.sourceExamIds || []);
+    const entries = exams.filter((entry) => selected.has(entry.exam_id));
+    if (entries.length > 0) return entries;
+
+    if (state.selectedExamEntry && state.selectedExamEntry.exam_type === "full") {
+      return [state.selectedExamEntry];
+    }
+    return [];
+  }
+
+  function syncQuestionPracticeSourceExams() {
+    const exams = getQuestionPracticeAvailableExams();
+    const validIds = new Set(exams.map((entry) => entry.exam_id));
+    state.questionPractice.sourceExamIds = (state.questionPractice.sourceExamIds || []).filter((id) => validIds.has(id));
+
+    if (
+      isQuestionPracticeAvailable() &&
+      state.questionPractice.sourceExamIds.length === 0 &&
+      state.selectedExamEntry &&
+      state.selectedExamEntry.exam_type === "full" &&
+      validIds.has(state.selectedExamEntry.exam_id)
+    ) {
+      state.questionPractice.sourceExamIds = [state.selectedExamEntry.exam_id];
+    }
+  }
+
+  function renderQuestionPracticeTypeButtons() {
+    const grid = $("questionPracticeTypeGrid");
+    if (!grid) return;
+    grid.innerHTML = "";
+
+    QUESTION_PRACTICE_TYPES.forEach((type) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "question-practice-range-btn";
+      btn.dataset.questionPracticeType = type.key;
+      btn.textContent = type.label;
+      btn.addEventListener("click", () => applyQuestionPracticeSelection(type.key));
+      grid.appendChild(btn);
+    });
+  }
+
+  function setQuestionPracticePanelExpanded(expanded) {
+    state.questionPracticePanelExpanded = Boolean(expanded);
+    const panel = $("questionPracticePanel");
+    const toggle = $("questionPracticeToggleBtn");
+    if (panel) {
+      panel.classList.toggle("collapsed", !state.questionPracticePanelExpanded);
+      panel.classList.toggle("expanded", state.questionPracticePanelExpanded);
+    }
+    if (toggle) {
+      toggle.classList.toggle("active", state.questionPracticePanelExpanded);
+      toggle.setAttribute("aria-expanded", state.questionPracticePanelExpanded ? "true" : "false");
+      toggle.textContent = state.questionPracticePanelExpanded ? "문항 선택 연습 닫기" : "문항 선택 연습 열기";
+    }
+  }
+
+  function toggleQuestionPracticePanel() {
+    setQuestionPracticePanelExpanded(!state.questionPracticePanelExpanded);
+  }
+
+  function updateQuestionPracticeStatus(message, active) {
+    const status = $("questionPracticeStatus");
+    if (!status) return;
+
+    if (message) {
+      status.textContent = message;
+      status.classList.toggle("active", Boolean(active));
+      return;
+    }
+
+    if (!isQuestionPracticeAvailable()) {
+      status.textContent = "문항 선택 연습은 50문항 실전시험 · 회차별 시험지에서만 사용할 수 있습니다.";
+      status.classList.remove("active");
+      return;
+    }
+
+    const entries = getQuestionPracticeSelectedEntries();
+    if (!state.questionPractice.enabled) {
+      const roundText = entries.map(getExamLabel).join(", ");
+      status.textContent = roundText
+        ? `${roundText} 선택됨 · 유형을 선택하지 않으면 전체 시험으로 진행합니다.`
+        : "연습 회차를 선택한 뒤 유형을 선택하세요.";
+      status.classList.remove("active");
+      return;
+    }
+
+    const count = state.questionPractice.questionNumbers.length * entries.length;
+    const roundText = entries.map(getExamLabel).join(", ");
+    status.textContent = `${roundText} ${state.questionPractice.typeLabel} 연습 적용 중 (${count}문항 기준, 세트는 자동 포함)`;
+    status.classList.add("active");
+  }
+
+  function renderQuestionPracticeRoundList() {
+    const list = $("questionPracticeRoundList");
+    if (!list) return;
+
+    syncQuestionPracticeSourceExams();
+    list.innerHTML = "";
+
+    const available = isQuestionPracticeAvailable();
+    const exams = getQuestionPracticeAvailableExams();
+
+    if (!available) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "question-practice-round-btn";
+      btn.disabled = true;
+      btn.textContent = "50문항 실전시험 · 회차별 시험지에서 사용 가능";
+      list.appendChild(btn);
+      updateQuestionPracticeStatus();
+      return;
+    }
+
+    if (exams.length === 0) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "question-practice-round-btn";
+      btn.disabled = true;
+      btn.textContent = "연습 가능한 회차가 없습니다.";
+      list.appendChild(btn);
+      updateQuestionPracticeStatus();
+      return;
+    }
+
+    const selected = new Set(state.questionPractice.sourceExamIds || []);
+    exams.forEach((entry) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "question-practice-round-btn";
+      btn.dataset.questionPracticeExamId = entry.exam_id;
+      btn.textContent = getExamLabel(entry);
+      btn.classList.toggle("active", selected.has(entry.exam_id));
+      btn.addEventListener("click", () => toggleQuestionPracticeSourceExam(entry.exam_id));
+      list.appendChild(btn);
+    });
+
+    updateQuestionPracticeStatus();
+  }
+
+  function updateQuestionPracticeAvailability() {
+    const available = isQuestionPracticeAvailable();
+    const panel = $("questionPracticePanel");
+    const toggle = $("questionPracticeToggleBtn");
+
+    if (panel) panel.classList.toggle("disabled", !available);
+    if (toggle) toggle.disabled = false;
+
+    document.querySelectorAll("[data-question-practice-type]").forEach((button) => {
+      button.disabled = !available;
+      button.classList.toggle("active", state.questionPractice.enabled && button.dataset.questionPracticeType === state.questionPractice.range);
+    });
+
+    renderQuestionPracticeRoundList();
+    updateStartButton();
+  }
+
+  function toggleQuestionPracticeSourceExam(examId) {
+    if (!isQuestionPracticeAvailable()) return;
+
+    const ids = new Set(state.questionPractice.sourceExamIds || []);
+    if (ids.has(examId)) ids.delete(examId);
+    else ids.add(examId);
+
+    state.questionPractice.sourceExamIds = Array.from(ids);
+    renderQuestionPracticeRoundList();
+    updateStartButton();
+  }
+
+  function applyQuestionPracticeSelection(typeKey) {
+    if (!isQuestionPracticeAvailable()) {
+      updateQuestionPracticeStatus("문항 선택 연습은 50문항 실전시험 · 회차별 시험지에서만 사용할 수 있습니다.", false);
+      return;
+    }
+
+    const type = getQuestionPracticeType(typeKey);
+    if (!type) return;
+
+    syncQuestionPracticeSourceExams();
+    state.questionPractice.enabled = true;
+    state.questionPractice.range = type.key;
+    state.questionPractice.rawQuestionNumbers = type.questionNumbers.slice();
+    state.questionPractice.questionNumbers = type.questionNumbers.slice();
+    state.questionPractice.label = type.label;
+    state.questionPractice.typeLabel = type.label;
+
+    document.querySelectorAll("[data-question-practice-type]").forEach((button) => {
+      button.classList.toggle("active", button.dataset.questionPracticeType === type.key);
+    });
+
+    updateQuestionPracticeStatus();
+    updateStartButton();
+  }
+
+  function clearQuestionPracticeSelection() {
+    state.questionPractice.enabled = false;
+    state.questionPractice.range = "";
+    state.questionPractice.rawQuestionNumbers = [];
+    state.questionPractice.questionNumbers = [];
+    state.questionPractice.label = "";
+    state.questionPractice.typeLabel = "";
+
+    document.querySelectorAll("[data-question-practice-type]").forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    updateQuestionPracticeStatus();
+    updateStartButton();
+  }
+
+  function syncQuestionPracticeStateFromDom() {
+    if (!isQuestionPracticeAvailable()) return;
+
+    const activeTypeButton = document.querySelector("[data-question-practice-type].active");
+    if (activeTypeButton) {
+      const type = getQuestionPracticeType(activeTypeButton.dataset.questionPracticeType);
+      if (type) {
+        state.questionPractice.enabled = true;
+        state.questionPractice.range = type.key;
+        state.questionPractice.rawQuestionNumbers = type.questionNumbers.slice();
+        state.questionPractice.questionNumbers = type.questionNumbers.slice();
+        state.questionPractice.label = type.label;
+        state.questionPractice.typeLabel = type.label;
+      }
+    }
+
+    const activeRoundIds = Array.from(document.querySelectorAll("[data-question-practice-exam-id].active"))
+      .map((button) => button.dataset.questionPracticeExamId)
+      .filter(Boolean);
+
+    if (activeRoundIds.length > 0) {
+      state.questionPractice.sourceExamIds = activeRoundIds;
+    }
+
+    syncQuestionPracticeSourceExams();
+  }
+
+  function isQuestionPracticeUiSelected() {
+    return Boolean(
+      document.querySelector("[data-question-practice-type].active") ||
+      state.questionPractice.enabled ||
+      (state.questionPractice.range && Array.isArray(state.questionPractice.questionNumbers) && state.questionPractice.questionNumbers.length > 0)
+    );
+  }
+
+  function shouldUseQuestionPracticeSelection() {
+    syncQuestionPracticeStateFromDom();
+    return (
+      isQuestionPracticeAvailable() &&
+      state.questionPractice.enabled &&
+      Array.isArray(state.questionPractice.questionNumbers) &&
+      state.questionPractice.questionNumbers.length > 0 &&
+      getQuestionPracticeSelectedEntries().length > 0
+    );
+  }
+
+  function getScreenSourceQuestionNumbers(screen) {
+    return (screen?.questions || [])
+      .map((question) => Number(question.original_question_number || question.question_number))
+      .filter(Boolean);
+  }
+
+  function screenMatchesPracticeNumbers(screen, selectedNumberSet) {
+    return getScreenSourceQuestionNumbers(screen).some((number) => selectedNumberSet.has(Number(number)));
+  }
+
+  function getSourceRoundForPractice(exam, entry, item) {
+    return String(
+      item?.source_round ||
+      entry?.source_round ||
+      exam?.source_round ||
+      exam?.source_round_label ||
+      exam?.round ||
+      ""
+    ).trim();
+  }
+
+  function normalizePracticeInstruction(originalInstruction, startNumber, endNumber) {
+    if (startNumber === endNumber) return originalInstruction || "";
+    const pointMatch = String(originalInstruction || "").match(/\([^)]*점[^)]*\)/);
+    const pointText = pointMatch ? ` ${pointMatch[0]}` : "";
+    return `[${startNumber}~${endNumber}] 다음을 듣고 물음에 답하십시오.${pointText}`;
+  }
+
+  function normalizeQuestionForPractice(question, displayNumber, sourceExam, sourceEntry) {
+    const originalNumber = Number(question.original_question_number || question.question_number || displayNumber);
+    const sourceRound = getSourceRoundForPractice(sourceExam, sourceEntry, question);
+    const sourceLabel = `${sourceRound || getExamLabel(sourceEntry)}회 ${originalNumber}번`.replace(/^회\s*/, "");
+
+    const normalized = cloneJson(question);
+    normalized.question_number = displayNumber;
+    normalized.original_question_number = originalNumber;
+    normalized.source_question_number = originalNumber;
+    normalized.source_round = sourceRound || normalized.source_round || sourceExam?.source_round || "";
+    normalized.generated_exam_round = sourceRound || normalized.source_round || "";
+    normalized.question_practice_source_label = sourceLabel;
+    normalized.id = `QP_${String(displayNumber).padStart(3, "0")}_SRC_${String(sourceRound || sourceExam?.exam_id || "ROUND")}_${String(originalNumber).padStart(3, "0")}`;
+    return normalized;
+  }
+
+  function buildQuestionPracticeScreen(sourceExam, sourceEntry, screen, displayStart) {
+    const sourceNumbers = getScreenSourceQuestionNumbers(screen);
+    const startNumber = displayStart;
+    const questions = (screen.questions || []).map((question, idx) =>
+      normalizeQuestionForPractice(question, displayStart + idx, sourceExam, sourceEntry)
+    );
+
+    if (questions.length === 0) return null;
+
+    if (questions.length === 1) {
+      const single = questions[0];
+      single.audio_url = single.audio_url || screen.entry?.audio_url || "";
+      return {
+        item: single,
+        renderUnit: {
+          unit_type: "single",
+          question_numbers: [startNumber],
+          source_question_numbers: sourceNumbers,
+          audio_url: single.audio_url || "",
+          instruction: single.instruction || screen.entry?.instruction || ""
+        },
+        nextDisplayNumber: displayStart + 1
+      };
+    }
+
+    const endNumber = displayStart + questions.length - 1;
+    const sourceRound = getSourceRoundForPractice(sourceExam, sourceEntry, questions[0]);
+    const setId = `QP_SET_${String(startNumber).padStart(3, "0")}_${String(endNumber).padStart(3, "0")}_SRC_${String(sourceRound || sourceExam?.exam_id || "ROUND")}_${sourceNumbers.join("_")}`;
+    const audioUrl = screen.entry?.audio_url || questions[0]?.audio_url || "";
+
+    questions.forEach((question) => {
+      question.set_id = setId;
+      question.audio_url = question.audio_url || audioUrl;
+    });
+
+    const setEntry = cloneJson(screen.entry || {});
+    setEntry.set_id = setId;
+    setEntry.source_round = sourceRound || setEntry.source_round || sourceExam?.source_round || "";
+    setEntry.target_slots = questions.map((question) => Number(question.question_number));
+    setEntry.audio_group_numbers = questions.map((question) => Number(question.question_number));
+    setEntry.original_target_slots = sourceNumbers;
+    setEntry.source_question_numbers = sourceNumbers;
+    setEntry.audio_url = audioUrl;
+    setEntry.instruction = normalizePracticeInstruction(setEntry.instruction, startNumber, endNumber);
+    setEntry.question_practice_source_label = `${sourceRound || getExamLabel(sourceEntry)}회 ${sourceNumbers.join("·")}번`.replace(/^회\s*/, "");
+    setEntry.items = questions;
+
+    return {
+      item: setEntry,
+      renderUnit: {
+        unit_type: "question_set",
+        question_numbers: questions.map((question) => Number(question.question_number)),
+        source_question_numbers: sourceNumbers,
+        audio_url: audioUrl,
+        instruction: setEntry.instruction,
+        set_id: setId,
+        audio_group_id: setEntry.audio_group_id || setId
+      },
+      nextDisplayNumber: displayStart + questions.length
+    };
+  }
+
+  async function buildQuestionPracticeExamAndAnswerKey() {
+    const entries = getQuestionPracticeSelectedEntries();
+    const selectedNumbers = new Set(state.questionPractice.questionNumbers.map(Number));
+    const generatedItems = [];
+    const renderSequence = [];
+    const sourceRoundLabels = [];
+    const sourceRounds = [];
+    let display = 1;
+    let autoIncludedSetQuestions = false;
+
+    for (const entry of entries) {
+      const sourceExam = await fetchJson(entry.test_file);
+      const sourceScreens = makeScreens(sourceExam);
+      sourceRoundLabels.push(getExamLabel(entry));
+      sourceRounds.push(String(sourceExam.source_round || entry.source_round || entry.exam_id || ""));
+
+      sourceScreens.forEach((screen) => {
+        if (!screenMatchesPracticeNumbers(screen, selectedNumbers)) return;
+
+        const sourceNumbers = getScreenSourceQuestionNumbers(screen);
+        const matchedCount = sourceNumbers.filter((number) => selectedNumbers.has(Number(number))).length;
+        if (sourceNumbers.length > matchedCount) autoIncludedSetQuestions = true;
+
+        const generated = buildQuestionPracticeScreen(sourceExam, entry, screen, display);
+        if (!generated) return;
+
+        generatedItems.push(generated.item);
+        renderSequence.push(generated.renderUnit);
+        display = generated.nextDisplayNumber;
+      });
+    }
+
+    if (generatedItems.length === 0) {
+      throw new Error("선택한 회차에서 해당 유형 문항을 찾지 못했습니다. exam JSON의 문항 번호와 세트 구조를 확인하세요.");
+    }
+
+    const totalQuestions = display - 1;
+    const flatGeneratedItems = window.TopikResultBuilder.normalizeQuestionItems(generatedItems);
+    const totalPossiblePoints = flatGeneratedItems.reduce((sum, item) => sum + (Number(item.points) || 2), 0);
+    const roundText = sourceRoundLabels.join(", ");
+    const typeLabel = state.questionPractice.typeLabel || state.questionPractice.label || "선택 유형";
+
+    console.info("[question-practice] generated exam", {
+      sourceRoundLabels,
+      typeLabel,
+      totalQuestions,
+      totalScreens: renderSequence.length,
+      requestedQuestionNumbers: state.questionPractice.questionNumbers.slice()
+    });
+
+    return {
+      exam_id: `question-practice-${Date.now()}`,
+      source_round: sourceRounds.filter(Boolean).join(","),
+      source_rounds: sourceRounds.filter(Boolean),
+      source_round_labels: sourceRoundLabels,
+      title: "TOPIK II 듣기 문항 선택 연습",
+      level: "TOPIK II",
+      section: "listening",
+      exam_type: "question-practice",
+      generated_exam_mode: "question-practice",
+      generated_exam_label: `${roundText} ${typeLabel} 연습`,
+      test_scope: `여러 회차 동일 유형 연습: ${roundText} / ${typeLabel}`,
+      total_questions: totalQuestions,
+      total_possible_points: totalPossiblePoints,
+      time_limit_minutes: Math.max(10, Math.ceil(totalQuestions * 1.2)),
+      audio_mode: "manual",
+      guide_audio: entries.length === 1 ? "" : "",
+      render_sequence: renderSequence,
+      items: generatedItems,
+      question_practice_selection: {
+        mode: "multi-round-type-practice",
+        source_exam_ids: entries.map((entry) => entry.exam_id),
+        source_rounds: sourceRounds.filter(Boolean),
+        source_round_labels: sourceRoundLabels,
+        requested_question_numbers: state.questionPractice.questionNumbers.slice(),
+        selected_type_label: typeLabel,
+        total_selected_rounds: entries.length,
+        total_questions: totalQuestions,
+        set_questions_auto_included: autoIncludedSetQuestions
+      }
+    };
+  }
+
+
   function setActiveButtons(selector, attrName, value) {
     document.querySelectorAll(selector).forEach((button) => {
       button.classList.toggle("active", button.dataset[attrName] === value);
@@ -594,9 +1107,11 @@
   }
 
   function updateStartButton() {
-    const hasExam = state.generationMode === "random"
-      ? Boolean(state.bank)
-      : Boolean(state.selectedExamEntry);
+    const hasExam = shouldUseQuestionPracticeSelection()
+      ? true
+      : (state.generationMode === "random"
+        ? Boolean(state.bank)
+        : Boolean(state.selectedExamEntry));
     $("startBtn").disabled = !hasExam;
   }
 
@@ -605,8 +1120,6 @@
     list.innerHTML = "";
 
     const exams = getVisibleExams();
-    const getLabel = (entry) => entry?.short_label || entry?.label || entry?.source_round || entry?.exam_id || "";
-
     if (state.generationMode === "random") {
       state.roundListExpanded = false;
       if (!state.bank) {
@@ -626,6 +1139,7 @@
         list.appendChild(btn);
         $("selectedExamText").textContent = `${bankSourceLabel} 선택됨`;
       }
+      updateQuestionPracticeAvailability();
       updateStartButton();
       return;
     }
@@ -635,6 +1149,7 @@
       state.selectedExamEntry = null;
       state.roundListExpanded = false;
       $("selectedExamText").textContent = "";
+      updateQuestionPracticeAvailability();
       updateStartButton();
       return;
     }
@@ -668,7 +1183,7 @@
     toggleBtn.setAttribute("aria-expanded", state.roundListExpanded ? "true" : "false");
 
     const selectedText = document.createElement("span");
-    selectedText.textContent = getLabel(state.selectedExamEntry);
+    selectedText.textContent = getExamLabel(state.selectedExamEntry);
     selectedText.style.display = "block";
     selectedText.style.flex = "1 1 auto";
     selectedText.style.textAlign = "center";
@@ -703,7 +1218,7 @@
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "round-btn";
-      btn.textContent = getLabel(entry);
+      btn.textContent = getExamLabel(entry);
       btn.classList.toggle("active", state.selectedExamEntry && state.selectedExamEntry.exam_id === entry.exam_id);
       btn.addEventListener("click", () => {
         state.selectedExamEntry = entry;
@@ -717,7 +1232,8 @@
     list.appendChild(wrap);
 
     $("selectedExamText").textContent =
-      state.selectedExamEntry ? `${getLabel(state.selectedExamEntry)} 선택됨` : "";
+      state.selectedExamEntry ? `${getExamLabel(state.selectedExamEntry)} 선택됨` : "";
+    updateQuestionPracticeAvailability();
     updateStartButton();
   }
 
@@ -734,7 +1250,9 @@
       state.bank = null;
     }
 
+    renderQuestionPracticeTypeButtons();
     renderRoundList();
+    updateQuestionPracticeAvailability();
   }
 
   function handleAuth() {
@@ -748,7 +1266,73 @@
     $("authStatus").textContent = "인증되었습니다.";
   }
 
+  function findItemByQuestionNumber(flatItems, questionNumber) {
+    const target = Number(questionNumber);
+    const byDisplayNumber = flatItems.find((item) => Number(item.question_number) === target);
+    if (byDisplayNumber) return byDisplayNumber;
+
+    const exam = state.currentExam || {};
+    const isPracticeExam = exam.exam_type === "question-practice" || exam.generated_exam_mode === "question-practice" || state.isQuestionPracticeMode;
+    if (isPracticeExam) {
+      return null;
+    }
+
+    return flatItems.find((item) => Number(item.original_question_number) === target) || null;
+  }
+
+  function normalizeRenderUnitQuestionNumbers(unit) {
+    if (!unit) return [];
+    if (Array.isArray(unit.question_numbers)) {
+      return unit.question_numbers.map(Number).filter(Boolean);
+    }
+    if (Array.isArray(unit.target_questions)) {
+      return unit.target_questions.map(Number).filter(Boolean);
+    }
+    if (Array.isArray(unit.target_slots)) {
+      return unit.target_slots.map(Number).filter(Boolean);
+    }
+    if (Array.isArray(unit.audio_group_numbers)) {
+      return unit.audio_group_numbers.map(Number).filter(Boolean);
+    }
+    if (unit.question_number) return [Number(unit.question_number)].filter(Boolean);
+    return [];
+  }
+
+  function makeScreensFromRenderSequence(exam) {
+    const renderSequence = Array.isArray(exam?.render_sequence) ? exam.render_sequence : [];
+    if (renderSequence.length === 0) return [];
+
+    const flatItems = flattenItems(exam);
+    return renderSequence.map((unit) => {
+      const questionNumbers = normalizeRenderUnitQuestionNumbers(unit);
+      const questions = questionNumbers
+        .map((number) => findItemByQuestionNumber(flatItems, number))
+        .filter(Boolean);
+      const missingQuestionNumbers = questionNumbers.filter((number) =>
+        !questions.some((item) => Number(item.question_number) === Number(number) || Number(item.original_question_number) === Number(number))
+      );
+
+      const entry = {
+        ...unit,
+        instruction: unit.instruction || questions[0]?.instruction || "",
+        audio_url: unit.audio_url || unit.question_audio || questions[0]?.audio_url || "",
+        items: questions
+      };
+
+      return {
+        type: questionNumbers.length > 1 ? "set" : "single",
+        entry,
+        questions,
+        renderUnit: unit,
+        missingQuestionNumbers
+      };
+    });
+  }
+
   function makeScreens(exam) {
+    const sequenceScreens = makeScreensFromRenderSequence(exam);
+    if (sequenceScreens.length > 0) return sequenceScreens;
+
     return (exam.items || []).map((entry) => {
       if (entry && entry.items && Array.isArray(entry.items)) {
         return { type: "set", entry, questions: entry.items };
@@ -1037,12 +1621,23 @@
 
     $("studentTopName").textContent = $("studentName").value.trim() || "응시자";
     $("testTopTitle").textContent = exam.title || "TOPIK II 듣기 PBT형 IBT";
-    $("groupInstruction").textContent = screen.entry.instruction || "";
+    $("groupInstruction").textContent = screen.entry?.instruction || "";
     $("questionCounter").textContent = `${range} / ${totalQuestions}`;
     $("questionArea").classList.toggle("visual-area", hasVisualQuestion);
 
-    if (currentAudio) {
-      audioController.load(currentAudio);
+    if (!Array.isArray(screen.questions) || screen.questions.length === 0 || (screen.missingQuestionNumbers || []).length > 0) {
+      console.error("[renderCurrentScreen] item not found", {
+        screen,
+        missingQuestionNumbers: screen.missingQuestionNumbers || [],
+        renderUnit: screen.renderUnit || null
+      });
+      $("questionArea").innerHTML = '<div class="empty-question">문항 데이터와 오디오 순서가 맞지 않습니다. Console을 확인하세요.</div>';
+      $("prevBtn").disabled = state.currentScreenIndex === 0;
+      $("nextBtn").disabled = true;
+      updateSubmitVisibility();
+      updateAudioUi();
+      renderProgress();
+      return;
     }
 
     const setHtml = screen.type === "set"
@@ -1050,6 +1645,10 @@
       : renderQuestionPaper(screen.questions[0]);
 
     $("questionArea").innerHTML = setHtml;
+
+    if (currentAudio) {
+      audioController.load(currentAudio);
+    }
 
     $("prevBtn").disabled = state.currentScreenIndex === 0;
     $("nextBtn").disabled = state.currentScreenIndex >= state.screens.length - 1;
@@ -1350,8 +1949,28 @@
       state.submitted = false;
       $("resultArea").innerHTML = "";
 
+      syncQuestionPracticeStateFromDom();
+
       let exam;
-      if (state.generationMode === "random") {
+      state.isQuestionPracticeMode = false;
+      const wantsQuestionPractice = isQuestionPracticeUiSelected();
+
+      console.info("[question-practice] start check", {
+        examType: state.examType,
+        generationMode: state.generationMode,
+        enabled: state.questionPractice.enabled,
+        range: state.questionPractice.range,
+        questionNumbers: state.questionPractice.questionNumbers,
+        sourceExamIds: state.questionPractice.sourceExamIds,
+        selectedEntries: getQuestionPracticeSelectedEntries().map((entry) => entry.exam_id)
+      });
+
+      if (shouldUseQuestionPracticeSelection()) {
+        exam = await buildQuestionPracticeExamAndAnswerKey();
+        state.isQuestionPracticeMode = true;
+      } else if (wantsQuestionPractice) {
+        throw new Error("문항 선택 연습이 선택되었지만 시험에 적용할 수 없습니다. 50문항 실전시험 · 회차별 시험지 상태에서 연습 회차와 유형을 다시 선택하세요.");
+      } else if (state.generationMode === "random") {
         exam = generateRandomExamFromBank();
       } else {
         if (!state.selectedExamEntry) throw new Error("시험지를 선택하세요.");
@@ -1361,6 +1980,16 @@
 
       state.currentExam = exam;
       state.screens = makeScreens(exam);
+
+      if (state.isQuestionPracticeMode) {
+        console.info("[question-practice] applied", {
+          totalQuestions: getTotalQuestions(exam),
+          totalScreens: state.screens.length,
+          generatedExamLabel: exam.generated_exam_label,
+          selection: exam.question_practice_selection
+        });
+      }
+
       state.totalSeconds = getDefaultTimeLimitMinutes(exam) * 60;
       state.examStartMs = Date.now();
 
@@ -1372,6 +2001,7 @@
       renderCurrentScreen();
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
+      console.error("[startExam]", error);
       alert(error.message);
     }
   }
@@ -1699,6 +2329,14 @@
       startedAt: state.startedAt
     });
 
+    if (state.currentExam.generated_exam_mode === "question-practice") {
+      result.exam_type = "question-practice";
+      result.generated_exam_mode = "question-practice";
+      result.generated_exam_label = state.currentExam.generated_exam_label || "문항 선택 연습";
+      result.test_scope = state.currentExam.test_scope || result.test_scope || "문항 선택 연습";
+      result.question_practice_selection = state.currentExam.question_practice_selection || null;
+    }
+
     const bottomAudio = document.querySelector(".bottom-audio");
     if (bottomAudio) bottomAudio.style.display = "none";
     const loginTopBar = $("loginTopBar");
@@ -1858,12 +2496,23 @@
   function bindUI() {
     $("authBtn").addEventListener("click", handleAuth);
 
+    const questionPracticeToggleBtn = $("questionPracticeToggleBtn");
+    if (questionPracticeToggleBtn) {
+      questionPracticeToggleBtn.addEventListener("click", toggleQuestionPracticePanel);
+    }
+
+    const questionPracticeClearBtn = $("questionPracticeClearBtn");
+    if (questionPracticeClearBtn) {
+      questionPracticeClearBtn.addEventListener("click", clearQuestionPracticeSelection);
+    }
+
     document.querySelectorAll("[data-exam-type]").forEach((button) => {
       button.addEventListener("click", () => {
         state.examType = button.dataset.examType;
         state.roundListExpanded = false;
         setActiveButtons("[data-exam-type]", "examType", state.examType);
         renderRoundList();
+        updateQuestionPracticeAvailability();
       });
     });
 
@@ -1873,6 +2522,7 @@
         state.roundListExpanded = false;
         setActiveButtons("[data-generation-mode]", "generationMode", state.generationMode);
         renderRoundList();
+        updateQuestionPracticeAvailability();
       });
     });
 
