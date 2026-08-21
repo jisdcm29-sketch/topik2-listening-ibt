@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>TOPIK II 듣기 문제지 출력</title>
+  <title>Юү багшийн TOPIK 2 сонсох 문제지 출력</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
@@ -684,7 +684,7 @@
 <body>
   <header class="topbar">
     <div>
-      <h1>TOPIK II 듣기 문제지 출력</h1>
+      <h1>Юү багшийн TOPIK 2 сонсох 문제지 출력</h1>
       <p>TOPIK II 듣기 문제은행 기준 · 학생용 문제지 · 교사용 정답표 · 선택 오디오 ZIP 다운로드</p>
     </div>
     <button class="back-btn" type="button" onclick="location.href='./index.html?v=step34answerkeyfix01&t='+Date.now()">시험 화면으로 돌아가기</button>
@@ -733,7 +733,7 @@
         <label class="checkline"><input id="appendAnswerKey" type="checkbox"> 마지막에 정답표 포함</label>
         <div class="field" style="margin-top:12px;">
           <label for="paperTitle">문제지 제목</label>
-          <input id="paperTitle" type="text" value="TOPIK II 듣기 문제지">
+          <input id="paperTitle" type="text" value="TOPIK 2 сонсох 문제지">
         </div>
       </section>
 
@@ -763,6 +763,19 @@
   "use strict";
   const $ = (id) => document.getElementById(id);
   const MANIFEST_URL = "./data/exam-manifest.json";
+  const PUBLIC_ROUND_LABELS = {
+    "89": "실전A",
+    "90": "실전B",
+    "91": "실전C",
+    "93": "실전D",
+    "94": "실전E",
+    "96": "실전F",
+    "97": "실전G",
+    "99": "실전H",
+    "100": "실전I",
+    "102": "실전J",
+    "103": "실전K"
+      };
   const state = { exam:null, exams:[], flat:[], selected:[], manifest:null, examEntries:[], selectedExamUrls:[] };
 
   function qs(name){ return new URLSearchParams(location.search).get(name); }
@@ -791,7 +804,23 @@
       .replace(/^listening-test\//, "");
   }
   function entryLabel(entry){
-    return entry?.short_label || entry?.label || (entry?.source_round ? entry.source_round + "회" : "") || entry?.exam_id || "시험지";
+    return entry?.public_short_label || entry?.public_label || entry?.short_label || entry?.label || (entry?.source_round ? entry.source_round + "회" : "") || entry?.exam_id || "시험지";
+  }
+  function publicRoundLabel(value){
+    const raw = String(value || "").trim();
+    const match = raw.match(/\d+/);
+    const key = match ? match[0] : raw;
+    const entry = state.examEntries.find((examEntry) => String(examEntry.source_round || "") === key);
+    return entry?.public_short_label || entry?.public_label || PUBLIC_ROUND_LABELS[key] || (key ? key + "회" : "");
+  }
+  function selectedRoundPublicLabels(){
+    const selected = new Set((state.selectedExamUrls || []).map(comparablePath));
+    const labels = state.examEntries
+      .filter((entry) => selected.has(comparablePath(entry.test_file)))
+      .map((entry) => entryLabel(entry))
+      .filter(Boolean);
+    if(labels.length) return Array.from(new Set(labels));
+    return (state.exams || []).map((exam) => publicRoundLabel(exam.source_round)).filter(Boolean);
   }
   function roundNumberFromEntry(entry){
     return String(entry?.source_round || entryLabel(entry).replace(/[^\d]/g, "") || "").trim();
@@ -811,18 +840,17 @@
     return nums.join("·");
   }
   function selectedRoundText(){
-    const label = selectedRoundLabel();
-    return label ? label + "회" : "선택 회차";
+    const labels = selectedRoundPublicLabels();
+    return labels.length ? labels.join("·") : "선택 시험";
   }
   function selectedRoundTitleText(){
-    const nums = Array.from(new Set(selectedRoundNumbers()));
-    if(nums.length === 0) return "선택 회차";
-    return nums.map((num) => "제" + num + "회").join("·");
+    const labels = selectedRoundPublicLabels();
+    return labels.length ? labels.join("·") : "선택 시험";
   }
   function answerQuestionLabel(item){
-    const round = item.source_round || "";
+    const round = publicRoundLabel(item.source_round || "");
     const no = getOriginalNo(item);
-    return (round ? round + "회 " : "") + no + "번";
+    return (round ? round + " " : "") + no + "번";
   }
   function roundOrderIndex(item){
     const round = String(item.source_round || "");
@@ -897,7 +925,7 @@
       input.checked = true;
       input.disabled = true;
       label.appendChild(input);
-      label.appendChild(document.createTextNode(" " + (state.exam?.source_round || "103") + "회"));
+      label.appendChild(document.createTextNode(" " + selectedRoundText()));
       box.appendChild(label);
       return;
     }
@@ -1082,9 +1110,9 @@
     const bits = [];
     const qno = getOriginalNo(item);
     const isSetRange = qno >= 21;
-    const round = item.source_round || state.exam.source_round || "103";
+    const round = publicRoundLabel(item.source_round || state.exam.source_round || "");
     if($("showSource").checked){
-      bits.push(isSetRange ? (round + "회 " + qno + "번") : (round + "회 원문항 " + qno + "번"));
+      bits.push(isSetRange ? (round + " " + qno + "번") : (round + " 원문항 " + qno + "번"));
     }
     bits.push(isSetRange ? compactTypeLabel(item) : typeLabel(item));
     return '<div class="q-badges">' + bits.map(b => '<span class="q-badge">' + escapeHtml(b) + '</span>').join("") + '</div>';
@@ -1163,12 +1191,12 @@
   }
     function getPaperTitleForMode(mode){
     if(mode === "student"){
-      return selectedRoundTitleText() + " TOPIK II 듣기 학생용 문제지";
+      return selectedRoundTitleText() + " TOPIK 2 сонсох 학생용 문제지";
     }
     if(mode === "teacher-key"){
-      return selectedRoundTitleText() + " TOPIK II 듣기 문제지+정답표";
+      return selectedRoundTitleText() + " TOPIK 2 сонсох 문제지+정답표";
     }
-    return $("paperTitle").value || (selectedRoundTitleText() + " TOPIK II 듣기 문제지");
+    return $("paperTitle").value || (selectedRoundTitleText() + " TOPIK 2 сонсох 문제지");
   }
 
   function getPaperMetaLabelForMode(mode){
@@ -1220,7 +1248,7 @@
   function renderAnswerOnly(){
     const items = selectedItems();
     let out = '<div class="paper">';
-    out += '<div class="paper-topline"><h1>' + escapeHtml(selectedRoundTitleText()) + ' TOPIK II 듣기 교사용 정답표</h1><div class="paper-summary">' + items.length + '문항</div></div>';
+    out += '<div class="paper-topline"><h1>' + escapeHtml(selectedRoundTitleText()) + ' TOPIK 2 сонсох 교사용 정답표</h1><div class="paper-summary">' + items.length + '문항</div></div>';
     out += '<div class="blue-rule"></div>' + renderAnswerTable(items) + '</div>';
     $("preview").className = "";
     $("preview").innerHTML = out;
@@ -1322,14 +1350,14 @@
     }
     const csv = csvRows.map(r => r.map(v => '"' + String(v ?? "").replace(/"/g,'""') + '"').join(",")).join("\r\n");
     entries.push({name:"audio-mapping.csv", data:enc.encode(csv)});
-    entries.push({name:"README.txt", data:enc.encode("TOPIK II 듣기 선택 오디오 ZIP\r\n회차: " + selectedRoundText() + "\r\n선택 문항: " + items.map(x => (x.source_round || "") + "회 " + getOriginalNo(x) + "번").join(", ") + "\r\n오디오 파일 수: " + rows.length + "\r\n생성 시각: " + new Date().toLocaleString() + "\r\n")});
+    entries.push({name:"README.txt", data:enc.encode("TOPIK II 듣기 선택 오디오 ZIP\r\n회차: " + selectedRoundText() + "\r\n선택 문항: " + items.map(x => answerQuestionLabel(x)).join(", ") + "\r\n오디오 파일 수: " + rows.length + "\r\n생성 시각: " + new Date().toLocaleString() + "\r\n")});
     downloadBlob("topik2-" + round + "-selected-audio.zip", makeZip(entries));
     $("status").innerHTML = "선택 오디오 ZIP 생성 완료<br>선택 문항: " + items.length + "문항<br>오디오 파일: " + rows.length + "개" + (failed.length ? "<br><span style='color:#dc2626'>다운로드 실패: " + failed.length + "개</span>" : "");
   }
   function reset(){
     $("startNo").value = 1; $("endNo").value = 4; $("limitNo").value = 0; $("orderMode").value = "question";
     $("showSource").checked = true; $("showAnswerInline").checked = false; $("appendAnswerKey").checked = false;
-    $("paperTitle").value = "TOPIK II 듣기 문제지";
+    $("paperTitle").value = "TOPIK 2 сонсох 문제지";
     $("preview").className = "empty";
     $("preview").innerHTML = "왼쪽에서 조건을 정한 뒤 [문제지 미리보기 생성]을 누르세요.";
   }
@@ -1360,7 +1388,7 @@
       state.selected = [];
       state.exam = {
         source_round: selectedRoundLabel(),
-        title: selectedRoundText() + " TOPIK II 듣기 문제지"
+        title: selectedRoundText() + " TOPIK 2 сонсох 문제지"
       };
 
       $("preview").className = "empty";
@@ -1373,7 +1401,7 @@
         "세트 문항: " + state.flat.filter(x => x.set_id).length + "문항" +
         (errors.length ? "<br><span style='color:#dc2626'>일부 회차 로드 실패: " + errors.length + "개</span>" : "");
 
-      $("paperTitle").value = selectedRoundTitleText() + " TOPIK II 듣기 문제지";
+      $("paperTitle").value = selectedRoundTitleText() + " TOPIK 2 сонсох 문제지";
       renderRoundList();
     }catch(err){
       $("status").innerHTML = '<span style="color:#dc2626">로드 실패: ' + escapeHtml(err.message) + '</span>';

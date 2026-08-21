@@ -5,6 +5,8 @@
 
   const MANIFEST_URL = "./data/exam-manifest.json";
   const BANK_URL = "./data/bank/question-bank.json";
+  const APP_PUBLIC_TITLE = "Юү багшийн TOPIK 2 сонсох шалгалт";
+  const RANDOM_BANK_PUBLIC_LABEL = "통합 문제은행";
 
 
   const QUESTION_PRACTICE_TYPES = [
@@ -499,7 +501,7 @@
     return {
       exam_id: "wrong-review",
       source_round: result.generated_exam_round || result.source_round || "103",
-      title: "TOPIK II 듣기 오답 다시 풀기",
+      title: `${APP_PUBLIC_TITLE} 오답 다시 풀기`,
       level: "TOPIK II",
       section: "listening",
       exam_type: "wrong-review",
@@ -613,7 +615,7 @@
 
   function getBankSourceLabel(bank) {
     const rounds = getBankRoundList(bank);
-    return rounds.length ? `${rounds.join("·")}회 문제은행` : "문제은행";
+    return rounds.length ? RANDOM_BANK_PUBLIC_LABEL : "문제은행";
   }
 
   function getBankSourceRoundCsv(bank) {
@@ -640,7 +642,15 @@
 
 
   function getExamLabel(entry) {
-    return entry?.short_label || entry?.label || entry?.source_round || entry?.exam_id || "";
+    return entry?.public_short_label || entry?.public_label || entry?.short_label || entry?.label || entry?.source_round || entry?.exam_id || "";
+  }
+
+  function getExamSourceDisplayLabel(entry, fallbackRound) {
+    const publicLabel = entry?.public_short_label || entry?.public_label;
+    if (publicLabel) return String(publicLabel).replace(/\s*레벨테스트.*$/, "");
+    const base = getExamLabel(entry);
+    if (base) return String(base).replace(/\s*레벨테스트.*$/, "");
+    return fallbackRound ? `${fallbackRound}회` : "";
   }
 
   function getQuestionPracticeAvailableExams() {
@@ -965,7 +975,8 @@
   function normalizeQuestionForPractice(question, displayNumber, sourceExam, sourceEntry) {
     const originalNumber = Number(question.original_question_number || question.question_number || displayNumber);
     const sourceRound = getSourceRoundForPractice(sourceExam, sourceEntry, question);
-    const sourceLabel = `${sourceRound || getExamLabel(sourceEntry)}회 ${originalNumber}번`.replace(/^회\s*/, "");
+    const sourceDisplayLabel = getExamSourceDisplayLabel(sourceEntry, sourceRound);
+    const sourceLabel = `${sourceDisplayLabel} ${originalNumber}번`.trim();
 
     const normalized = cloneJson(question);
     normalized.question_number = displayNumber;
@@ -1022,7 +1033,8 @@
     setEntry.source_question_numbers = sourceNumbers;
     setEntry.audio_url = audioUrl;
     setEntry.instruction = normalizePracticeInstruction(setEntry.instruction, startNumber, endNumber);
-    setEntry.question_practice_source_label = `${sourceRound || getExamLabel(sourceEntry)}회 ${sourceNumbers.join("·")}번`.replace(/^회\s*/, "");
+    const sourceDisplayLabel = getExamSourceDisplayLabel(sourceEntry, sourceRound);
+    setEntry.question_practice_source_label = `${sourceDisplayLabel} ${sourceNumbers.join("·")}번`.trim();
     setEntry.items = questions;
 
     return {
@@ -1095,7 +1107,7 @@
       source_round: sourceRounds.filter(Boolean).join(","),
       source_rounds: sourceRounds.filter(Boolean),
       source_round_labels: sourceRoundLabels,
-      title: "TOPIK II 듣기 문항 선택 연습",
+      title: `${APP_PUBLIC_TITLE} 문항 선택 연습`,
       level: "TOPIK II",
       section: "listening",
       exam_type: "question-practice",
@@ -2140,6 +2152,13 @@
         if (!state.selectedExamEntry) throw new Error("시험지를 선택하세요.");
         exam = await fetchJson(state.selectedExamEntry.test_file);
         exam.generated_exam_mode = "fixed";
+        const publicExamLabel = getExamLabel(state.selectedExamEntry);
+        if (publicExamLabel) {
+          exam.public_exam_label = publicExamLabel;
+          exam.generated_exam_label = publicExamLabel;
+          exam.test_scope = publicExamLabel;
+        }
+        exam.title = APP_PUBLIC_TITLE;
       }
 
       state.currentExam = exam;
