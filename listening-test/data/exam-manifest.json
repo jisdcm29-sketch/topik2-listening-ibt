@@ -21,7 +21,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "full-50",
-      "review_notice": "89회 1~50번 통합본"
+      "review_notice": "89회 1~50번 통합본",
+      "public_label": "실전A",
+      "public_short_label": "실전A"
     },
     {
       "exam_id": "level-test-89",
@@ -38,7 +40,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "level-test-30",
-      "review_notice": "89회 TOPIK II 듣기 레벨테스트 30문항"
+      "review_notice": "89회 TOPIK II 듣기 레벨테스트 30문항",
+      "public_label": "실전A 레벨테스트",
+      "public_short_label": "실전A 레벨테스트"
     },
     {
       "exam_id": "listening-89-step41-50",
@@ -57,7 +61,9 @@
       "review_stage": "step41-50",
       "review_notice": "89회 41~50번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전A step41-50 검수",
+      "public_short_label": "실전A step41-50 검수"
     },
     {
       "exam_id": "listening-89-step31-40",
@@ -76,7 +82,9 @@
       "review_stage": "step31-40",
       "review_notice": "89회 31~40번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전A step31-40 검수",
+      "public_short_label": "실전A step31-40 검수"
     },
     {
       "exam_id": "listening-89-step21-30",
@@ -95,7 +103,9 @@
       "review_stage": "step21-30",
       "review_notice": "89회 21~30번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전A step21-30 검수",
+      "public_short_label": "실전A step21-30 검수"
     },
     {
       "exam_id": "listening-89-step11-20",
@@ -114,7 +124,9 @@
       "review_stage": "step11-20",
       "review_notice": "89회 11~20번 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전A step11-20 검수",
+      "public_short_label": "실전A step11-20 검수"
     },
     {
       "exam_id": "listening-89-step01-10",
@@ -133,7 +145,9 @@
       "review_stage": "step01-10",
       "review_notice": "89회 1~3번 이미지와 1~10번 오디오 검수용",
       "display_order": 0,
-      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "89회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전A step01-10 검수",
+      "public_short_label": "실전A step01-10 검수"
     },
     {
       "exam_id": "listening-90",
@@ -150,7 +164,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "full-50",
-      "review_notice": "90회 1~50번 통합본"
+      "review_notice": "90회 1~50번 통합본",
+      "public_label": "실전B",
+      "public_short_label": "실전B"
     },
     {
       "exam_id": "level-test-90",
@@ -167,7 +183,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "level-test-30",
-      "review_notice": "90회 TOPIK II 듣기 레벨테스트 30문항"
+      "review_notice": "90회 TOPIK II 듣기 레벨테스트 30문항",
+      "public_label": "실전B 레벨테스트",
+      "public_short_label": "실전B 레벨테스트"
     },
     {
       "exam_id": "listening-90-step41-50",
@@ -186,7 +204,9 @@
       "review_stage": "step41-50",
       "review_notice": "90회 41~50번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전B step41-50 검수",
+      "public_short_label": "실전B step41-50 검수"
     },
     {
       "exam_id": "listening-90-step31-40",
@@ -205,7 +225,9 @@
       "review_stage": "step31-40",
       "review_notice": "90회 31~40번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전B step31-40 검수",
+      "public_short_label": "실전B step31-40 검수"
     },
     {
       "exam_id": "listening-90-step21-30",
@@ -224,7 +246,9 @@
       "review_stage": "step21-30",
       "review_notice": "90회 21~30번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전B step21-30 검수",
+      "public_short_label": "실전B step21-30 검수"
     },
     {
       "exam_id": "listening-90-step11-20",
@@ -243,7 +267,9 @@
       "review_stage": "step11-20",
       "review_notice": "90회 11~20번 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전B step11-20 검수",
+      "public_short_label": "실전B step11-20 검수"
     },
     {
       "exam_id": "listening-90-step01-10",
@@ -262,7 +288,9 @@
       "review_stage": "step01-10",
       "review_notice": "90회 1~3번 이미지와 1~10번 오디오 검수용",
       "display_order": 0,
-      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "90회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전B step01-10 검수",
+      "public_short_label": "실전B step01-10 검수"
     },
     {
       "exam_id": "listening-91",
@@ -279,7 +307,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "full-50",
-      "review_notice": "91회 1~50번 통합본"
+      "review_notice": "91회 1~50번 통합본",
+      "public_label": "실전C",
+      "public_short_label": "실전C"
     },
     {
       "exam_id": "level-test-91",
@@ -296,7 +326,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "level-test-30",
-      "review_notice": "91회 TOPIK II 듣기 레벨테스트 30문항"
+      "review_notice": "91회 TOPIK II 듣기 레벨테스트 30문항",
+      "public_label": "실전C 레벨테스트",
+      "public_short_label": "실전C 레벨테스트"
     },
     {
       "exam_id": "listening-91-step41-50",
@@ -315,7 +347,9 @@
       "review_stage": "step41-50",
       "review_notice": "91회 41~50번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전C step41-50 검수",
+      "public_short_label": "실전C step41-50 검수"
     },
     {
       "exam_id": "listening-91-step31-40",
@@ -334,7 +368,9 @@
       "review_stage": "step31-40",
       "review_notice": "91회 31~40번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전C step31-40 검수",
+      "public_short_label": "실전C step31-40 검수"
     },
     {
       "exam_id": "listening-91-step21-30",
@@ -353,7 +389,9 @@
       "review_stage": "step21-30",
       "review_notice": "91회 21~30번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전C step21-30 검수",
+      "public_short_label": "실전C step21-30 검수"
     },
     {
       "id": "listening-91-step11-20",
@@ -372,7 +410,9 @@
       "review_stage": "step11-20",
       "review_notice": "91회 11~20번 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전C step11-20 검수",
+      "public_short_label": "실전C step11-20 검수"
     },
     {
       "exam_id": "listening-91-step01-10",
@@ -391,7 +431,9 @@
       "review_stage": "step01-10",
       "review_notice": "91회 1~3번 이미지와 1~10번 오디오 검수용",
       "display_order": 0,
-      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "91회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전C step01-10 검수",
+      "public_short_label": "실전C step01-10 검수"
     },
     {
       "exam_id": "listening-93",
@@ -408,7 +450,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "full-50",
-      "review_notice": "93회 1~50번 통합본 검수용"
+      "review_notice": "93회 1~50번 통합본 검수용",
+      "public_label": "실전D",
+      "public_short_label": "실전D"
     },
     {
       "exam_id": "level-test-93",
@@ -425,7 +469,9 @@
       "student_visible": true,
       "ui_visible": true,
       "review_stage": "level-test-30",
-      "review_notice": "93회 TOPIK II 듣기 레벨테스트 30문항"
+      "review_notice": "93회 TOPIK II 듣기 레벨테스트 30문항",
+      "public_label": "실전D 레벨테스트",
+      "public_short_label": "실전D 레벨테스트"
     },
     {
       "exam_id": "listening-93-step41-50",
@@ -442,7 +488,9 @@
       "ui_visible": false,
       "review_stage": "step41-50",
       "review_notice": "93회 41~50번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전D step41-50 검수",
+      "public_short_label": "실전D step41-50 검수"
     },
     {
       "exam_id": "listening-93-step31-40",
@@ -459,7 +507,9 @@
       "ui_visible": false,
       "review_stage": "step31-40",
       "review_notice": "93회 31~40번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전D step31-40 검수",
+      "public_short_label": "실전D step31-40 검수"
     },
     {
       "id": "listening-93-step21-30",
@@ -477,7 +527,9 @@
       "review_stage": "step21-30",
       "review_notice": "93회 21~30번 세트 문항 오디오 및 선택지 검수용",
       "display_order": 0,
-      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전D step21-30 검수",
+      "public_short_label": "실전D step21-30 검수"
     },
     {
       "id": "listening-93-step11-20",
@@ -495,7 +547,9 @@
       "review_stage": "step11-20",
       "review_notice": "93회 11~20번 오디오 및 선택지 검수용",
       "display_order": 1,
-      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전D step11-20 검수",
+      "public_short_label": "실전D step11-20 검수"
     },
     {
       "id": "listening-93-step01-10",
@@ -513,7 +567,9 @@
       "review_stage": "step01-10",
       "review_notice": "93회 1~3번 이미지와 1~10번 오디오 검수용",
       "display_order": 2,
-      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "93회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전D step01-10 검수",
+      "public_short_label": "실전D step01-10 검수"
     },
     {
       "exam_id": "listening-94",
@@ -524,7 +580,9 @@
       "test_file": "./data/exams/listening-94.json",
       "answer_key_file": "./data/answer-keys/answer-key-94.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전E",
+      "public_short_label": "실전E"
     },
     {
       "exam_id": "level-test-94",
@@ -535,7 +593,9 @@
       "test_file": "./data/exams/level-test-94.json",
       "answer_key_file": "./data/answer-keys/answer-key-94-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전E 레벨테스트",
+      "public_short_label": "실전E 레벨테스트"
     },
     {
       "exam_id": "listening-94-step41-50",
@@ -550,7 +610,9 @@
       "ui_visible": false,
       "review_stage": "step41-50",
       "review_notice": "94회 41~50번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전E step41-50 검수",
+      "public_short_label": "실전E step41-50 검수"
     },
     {
       "exam_id": "listening-94-step31-40",
@@ -565,7 +627,9 @@
       "ui_visible": false,
       "review_stage": "step31-40",
       "review_notice": "94회 31~40번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전E step31-40 검수",
+      "public_short_label": "실전E step31-40 검수"
     },
     {
       "exam_id": "listening-94-step21-30",
@@ -580,7 +644,9 @@
       "ui_visible": false,
       "review_stage": "step21-30",
       "review_notice": "94회 21~30번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전E step21-30 검수",
+      "public_short_label": "실전E step21-30 검수"
     },
     {
       "exam_id": "listening-94-step11-20",
@@ -595,7 +661,9 @@
       "ui_visible": false,
       "review_stage": "step11-20",
       "review_notice": "94회 11~20번 오디오 및 선택지 검수용",
-      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전E step11-20 검수",
+      "public_short_label": "실전E step11-20 검수"
     },
     {
       "exam_id": "listening-94-step01-10",
@@ -610,7 +678,9 @@
       "ui_visible": false,
       "review_stage": "step01-10",
       "review_notice": "94회 1~3번 이미지와 1~10번 오디오 검수용",
-      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "94회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전E step01-10 검수",
+      "public_short_label": "실전E step01-10 검수"
     },
     {
       "exam_id": "listening-96",
@@ -621,7 +691,9 @@
       "test_file": "./data/exams/listening-96.json",
       "answer_key_file": "./data/answer-keys/answer-key-96.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전F",
+      "public_short_label": "실전F"
     },
     {
       "exam_id": "level-test-96",
@@ -632,7 +704,9 @@
       "test_file": "./data/exams/level-test-96.json",
       "answer_key_file": "./data/answer-keys/answer-key-96-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전F 레벨테스트",
+      "public_short_label": "실전F 레벨테스트"
     },
     {
       "exam_id": "listening-96-step41-50",
@@ -647,7 +721,9 @@
       "ui_visible": false,
       "review_stage": "step41-50",
       "review_notice": "96회 41~50번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전F step41-50 검수",
+      "public_short_label": "실전F step41-50 검수"
     },
     {
       "exam_id": "listening-96-step31-40",
@@ -662,7 +738,9 @@
       "ui_visible": false,
       "review_stage": "step31-40",
       "review_notice": "96회 31~40번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전F step31-40 검수",
+      "public_short_label": "실전F step31-40 검수"
     },
     {
       "exam_id": "listening-96-step21-30",
@@ -677,7 +755,9 @@
       "ui_visible": false,
       "review_stage": "step21-30",
       "review_notice": "96회 21~30번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전F step21-30 검수",
+      "public_short_label": "실전F step21-30 검수"
     },
     {
       "exam_id": "listening-96-step11-20",
@@ -692,7 +772,9 @@
       "ui_visible": false,
       "review_stage": "step11-20",
       "review_notice": "96회 11~20번 오디오 및 선택지 검수용",
-      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전F step11-20 검수",
+      "public_short_label": "실전F step11-20 검수"
     },
     {
       "exam_id": "listening-96-step01-10",
@@ -707,7 +789,9 @@
       "ui_visible": false,
       "review_stage": "step01-10",
       "review_notice": "96회 1~3번 이미지와 1~10번 오디오 검수용",
-      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김"
+      "hidden_reason": "96회 전체 50문항 통합본 생성 후 중간 검수용 항목 숨김",
+      "public_label": "실전F step01-10 검수",
+      "public_short_label": "실전F step01-10 검수"
     },
     {
       "exam_id": "listening-97",
@@ -718,7 +802,9 @@
       "test_file": "./data/exams/listening-97.json",
       "answer_key_file": "./data/answer-keys/answer-key-97.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전G",
+      "public_short_label": "실전G"
     },
     {
       "exam_id": "level-test-97",
@@ -729,7 +815,9 @@
       "test_file": "./data/exams/level-test-97.json",
       "answer_key_file": "./data/answer-keys/answer-key-97-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전G 레벨테스트",
+      "public_short_label": "실전G 레벨테스트"
     },
     {
       "exam_id": "listening-97-step01-10",
@@ -744,7 +832,9 @@
       "ui_visible": false,
       "review_stage": "step01-10",
       "review_notice": "97회 1~3번 이미지와 1~10번 오디오 검수용",
-      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전G step01-10 검수",
+      "public_short_label": "실전G step01-10 검수"
     },
     {
       "exam_id": "listening-97-step11-20",
@@ -759,7 +849,9 @@
       "ui_visible": false,
       "review_stage": "step11-20",
       "review_notice": "97회 11~20번 오디오 및 선택지 검수용",
-      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전G step11-20 검수",
+      "public_short_label": "실전G step11-20 검수"
     },
     {
       "exam_id": "listening-97-step21-30",
@@ -774,7 +866,9 @@
       "ui_visible": false,
       "review_stage": "step21-30",
       "review_notice": "97회 21~30번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전G step21-30 검수",
+      "public_short_label": "실전G step21-30 검수"
     },
     {
       "exam_id": "listening-97-step31-40",
@@ -789,7 +883,9 @@
       "ui_visible": false,
       "review_stage": "step31-40",
       "review_notice": "97회 31~40번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전G step31-40 검수",
+      "public_short_label": "실전G step31-40 검수"
     },
     {
       "exam_id": "listening-97-step41-50",
@@ -804,7 +900,9 @@
       "ui_visible": false,
       "review_stage": "step41-50",
       "review_notice": "97회 41~50번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "97회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전G step41-50 검수",
+      "public_short_label": "실전G step41-50 검수"
     },
     {
       "exam_id": "listening-99",
@@ -815,7 +913,9 @@
       "test_file": "./data/exams/listening-99.json",
       "answer_key_file": "./data/answer-keys/answer-key-99.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전H",
+      "public_short_label": "실전H"
     },
     {
       "exam_id": "level-test-99",
@@ -826,7 +926,9 @@
       "test_file": "./data/exams/level-test-99.json",
       "answer_key_file": "./data/answer-keys/answer-key-99-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전H 레벨테스트",
+      "public_short_label": "실전H 레벨테스트"
     },
     {
       "exam_id": "listening-99-step01-10",
@@ -841,7 +943,9 @@
       "ui_visible": false,
       "review_stage": "step01-10",
       "review_notice": "99회 1~3번 이미지와 1~10번 오디오 검수용",
-      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전H step01-10 검수",
+      "public_short_label": "실전H step01-10 검수"
     },
     {
       "exam_id": "listening-99-step11-20",
@@ -856,7 +960,9 @@
       "ui_visible": false,
       "review_stage": "step11-20",
       "review_notice": "99회 11~20번 오디오 및 선택지 검수용",
-      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전H step11-20 검수",
+      "public_short_label": "실전H step11-20 검수"
     },
     {
       "exam_id": "listening-99-step21-30",
@@ -871,7 +977,9 @@
       "ui_visible": false,
       "review_stage": "step21-30",
       "review_notice": "99회 21~30번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전H step21-30 검수",
+      "public_short_label": "실전H step21-30 검수"
     },
     {
       "exam_id": "listening-99-step31-40",
@@ -886,7 +994,9 @@
       "ui_visible": false,
       "review_stage": "step31-40",
       "review_notice": "99회 31~40번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전H step31-40 검수",
+      "public_short_label": "실전H step31-40 검수"
     },
     {
       "exam_id": "listening-99-step41-50",
@@ -901,7 +1011,9 @@
       "ui_visible": false,
       "review_stage": "step41-50",
       "review_notice": "99회 41~50번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "99회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전H step41-50 검수",
+      "public_short_label": "실전H step41-50 검수"
     },
     {
       "exam_id": "listening-100",
@@ -912,7 +1024,9 @@
       "test_file": "./data/exams/listening-100.json",
       "answer_key_file": "./data/answer-keys/answer-key-100.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전I",
+      "public_short_label": "실전I"
     },
     {
       "exam_id": "level-test-100",
@@ -923,7 +1037,9 @@
       "test_file": "./data/exams/level-test-100.json",
       "answer_key_file": "./data/answer-keys/answer-key-100-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전I 레벨테스트",
+      "public_short_label": "실전I 레벨테스트"
     },
     {
       "exam_id": "listening-100-step01-10",
@@ -938,7 +1054,9 @@
       "ui_visible": false,
       "review_stage": "step01-10",
       "review_notice": "100회 1~3번 이미지와 1~10번 오디오 검수용",
-      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전I step01-10 검수",
+      "public_short_label": "실전I step01-10 검수"
     },
     {
       "exam_id": "listening-100-step11-20",
@@ -953,7 +1071,9 @@
       "ui_visible": false,
       "review_stage": "step11-20",
       "review_notice": "100회 11~20번 오디오 및 선택지 검수용",
-      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전I step11-20 검수",
+      "public_short_label": "실전I step11-20 검수"
     },
     {
       "exam_id": "listening-100-step21-30",
@@ -968,7 +1088,9 @@
       "ui_visible": false,
       "review_stage": "step21-30",
       "review_notice": "100회 21~30번 세트 문항 오디오 및 선택지 검수용",
-      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전I step21-30 검수",
+      "public_short_label": "실전I step21-30 검수"
     },
     {
       "exam_id": "listening-100-step31-40",
@@ -982,7 +1104,9 @@
       "student_visible": false,
       "ui_visible": false,
       "review_step": "31-40",
-      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전I 31-40 검수",
+      "public_short_label": "실전I 31-40 검수"
     },
     {
       "exam_id": "listening-100-step41-50",
@@ -996,7 +1120,9 @@
       "student_visible": false,
       "ui_visible": false,
       "review_step": "41-50",
-      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김"
+      "hidden_reason": "100회 전체 50문항 통합본 생성 완료 후 중간 검수용 항목 숨김",
+      "public_label": "실전I 41-50 검수",
+      "public_short_label": "실전I 41-50 검수"
     },
     {
       "exam_id": "listening-103",
@@ -1007,7 +1133,9 @@
       "test_file": "./data/exams/listening-103.json",
       "answer_key_file": "./data/answer-keys/answer-key-103.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전K",
+      "public_short_label": "실전K"
     },
     {
       "exam_id": "listening-102",
@@ -1018,7 +1146,9 @@
       "test_file": "./data/exams/listening-102.json",
       "answer_key_file": "./data/answer-keys/answer-key-102.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "listening-102-step01-10",
@@ -1031,7 +1161,9 @@
       "enabled": true,
       "student_visible": false,
       "ui_visible": false,
-      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu",
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "listening-102-step11-20",
@@ -1044,7 +1176,9 @@
       "enabled": true,
       "student_visible": false,
       "ui_visible": false,
-      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu",
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "listening-102-step21-30",
@@ -1057,7 +1191,9 @@
       "enabled": true,
       "student_visible": false,
       "ui_visible": false,
-      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu",
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "listening-102-step31-40",
@@ -1070,7 +1206,9 @@
       "enabled": true,
       "student_visible": false,
       "ui_visible": false,
-      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu",
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "listening-102-step41-50",
@@ -1083,7 +1221,9 @@
       "enabled": true,
       "student_visible": false,
       "ui_visible": false,
-      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu"
+      "hidden_reason": "intermediate_validation_exam_hidden_from_student_menu",
+      "public_label": "실전J",
+      "public_short_label": "실전J"
     },
     {
       "exam_id": "level-test-102",
@@ -1094,7 +1234,9 @@
       "test_file": "./data/exams/level-test-102.json",
       "answer_key_file": "./data/answer-keys/answer-key-102-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전J 레벨테스트",
+      "public_short_label": "실전J 레벨테스트"
     },
     {
       "exam_id": "level-test-103",
@@ -1105,7 +1247,9 @@
       "test_file": "./data/exams/level-test-103.json",
       "answer_key_file": "./data/answer-keys/answer-key-103-level-test.json",
       "enabled": true,
-      "student_visible": true
+      "student_visible": true,
+      "public_label": "실전K 레벨테스트",
+      "public_short_label": "실전K 레벨테스트"
     }
   ],
   "last_updated_note": "89회 41~50번 검수 항목 추가",
