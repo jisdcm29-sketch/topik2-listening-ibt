@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TOPIK II 듣기 진단 보고서</title>
+  <title>Юү багшийн TOPIK 2 сонсох 진단 보고서</title>
   <style>
     :root {
       --blue: #1a73e8;
@@ -586,7 +586,7 @@
 </head>
 <body>
   <header>
-    <h1>TOPIK II 듣기 진단 보고서</h1>
+    <h1>Юү багшийн TOPIK 2 сонсох 진단 보고서</h1>
     <p>Listening Diagnosis · 예상 수준 · 약점 분석 · 학습 처방</p>
   </header>
 
@@ -623,6 +623,48 @@
         "topik2_result",
         "lastResult"
       ];
+
+      const PUBLIC_ROUND_LABELS = {
+        "89": "실전A",
+        "90": "실전B",
+        "91": "실전C",
+        "93": "실전D",
+        "94": "실전E",
+        "96": "실전F",
+        "97": "실전G",
+        "99": "실전H",
+        "100": "실전I",
+        "102": "실전J",
+        "103": "실전K"
+      };
+
+      function publicRoundLabel(value) {
+        const raw = String(value || "").trim();
+        const match = raw.match(/\d+/);
+        const key = match ? match[0] : raw;
+        return PUBLIC_ROUND_LABELS[key] || (key ? `${key}회` : "");
+      }
+
+      function publicRoundText(value) {
+        const tokens = String(value || "")
+          .split(/[,\s·]+/g)
+          .map((token) => token.trim())
+          .filter(Boolean);
+        if (!tokens.length) return "";
+        return Array.from(new Set(tokens.map(publicRoundLabel).filter(Boolean))).join("·");
+      }
+
+      function publicDisplayText(value) {
+        return String(value ?? "")
+          .replace(/제(\d+)회/g, (_all, round) => publicRoundLabel(round))
+          .replace(/(\d+)회/g, (_all, round) => publicRoundLabel(round));
+      }
+
+      function publicSourceQuestionLabel(item) {
+        const roundLabel = publicRoundLabel(item?.source_round || item?.generated_exam_round || item?.round || "");
+        const no = item?.original_question_number || item?.question_number || "";
+        return `${roundLabel || "선택 시험"} ${no}번 문항`.trim();
+      }
 
       const AREA_LABELS = {
         visual_graph_choice: "그림·그래프 고르기",
@@ -932,7 +974,7 @@
           return `
             <div class="wrong-card">
               <strong>${escapeHtml(item.question_number)}번 ${escapeHtml(AREA_LABELS[itemArea(item)] || "")}</strong><br>
-              출처: ${escapeHtml(item.source_round || "")}회 원문항 ${escapeHtml(item.original_question_number || item.question_number)}번<br>
+              출처: ${escapeHtml(publicSourceQuestionLabel(item))}<br>
               <span class="answer-line">내 답 ${escapeHtml(optionText(item.options, item.student_answer))}</span><br>
               <span class="correct-line">정답 ${escapeHtml(optionText(item.options, item.correct_answer))}</span>
             </div>
@@ -1180,8 +1222,10 @@
           .filter((g) => g.pct >= 70 && g.items.length > 0);
         const started = formatDate(result.started_at);
         const submitted = formatDate(result.submitted_at);
-        const testName = result.test_name || result.generated_exam_label || "TOPIK II 듣기";
-        const round = result.generated_exam_round || result.source_round || "103";
+        const testName = publicDisplayText(result.test_name || result.generated_exam_label || "TOPIK II 듣기");
+        const round = publicRoundText(result.generated_exam_round || result.source_round || "") || publicDisplayText(result.generated_exam_round || result.source_round || "선택 시험");
+        const testScope = publicDisplayText(result.test_scope || result.generated_exam_mode || "-");
+        const generatedLabel = publicDisplayText(result.generated_exam_label || testName);
 
         const wrongReviewBtn = document.getElementById("wrongReviewBtn");
         if (wrongReviewBtn) {
@@ -1230,8 +1274,8 @@
               <tr><th>시험명</th><td>${escapeHtml(testName)}</td></tr>
               <tr><th>응시자</th><td>${escapeHtml(result.student_name || "-")}</td></tr>
               <tr><th>전화번호</th><td>${escapeHtml(result.student_phone || "-")}</td></tr>
-              <tr><th>시험 범위</th><td>${escapeHtml(result.test_scope || result.generated_exam_mode || "-")}</td></tr>
-              <tr><th>출제 방식</th><td>${escapeHtml(result.generated_exam_label || testName)}</td></tr>
+              <tr><th>시험 범위</th><td>${escapeHtml(testScope)}</td></tr>
+              <tr><th>출제 방식</th><td>${escapeHtml(generatedLabel)}</td></tr>
               <tr><th>출제 회차</th><td>${escapeHtml(round)}</td></tr>
               <tr><th>응시 시간</th><td>${escapeHtml(started)} ~ ${escapeHtml(submitted)}</td></tr>
               <tr><th>문항 수</th><td>${escapeHtml(stats.totalQuestions)}문항</td></tr>
@@ -1403,7 +1447,7 @@
       });
 
       document.getElementById("practiceAgainBtn").addEventListener("click", () => {
-        const url = "../listening-test/index.html?v=question_practice_step03_from_diagnosis";
+        const url = "../listening-test/index.html?v=public_label_step06_from_diagnosis";
         window.open(url, "_blank");
       });
 
