@@ -652,14 +652,29 @@
     return QUESTION_PRACTICE_TYPES.find((type) => type.key === typeKey) || null;
   }
 
+  function getQuestionPracticeEntrySortValue(entry) {
+    const raw = String(entry?.source_round || entry?.short_label || entry?.label || entry?.exam_id || "").trim();
+    const numeric = Number((raw.match(/\d+/) || [""])[0]);
+    return Number.isFinite(numeric) ? numeric : Number.MAX_SAFE_INTEGER;
+  }
+
+  function sortQuestionPracticeEntries(entries) {
+    return (entries || []).slice().sort((a, b) => {
+      const na = getQuestionPracticeEntrySortValue(a);
+      const nb = getQuestionPracticeEntrySortValue(b);
+      if (na !== nb) return na - nb;
+      return String(a?.exam_id || a?.label || "").localeCompare(String(b?.exam_id || b?.label || ""), "ko");
+    });
+  }
+
   function getQuestionPracticeSelectedEntries() {
-    const exams = getQuestionPracticeAvailableExams();
+    const exams = sortQuestionPracticeEntries(getQuestionPracticeAvailableExams());
     const selected = new Set(state.questionPractice.sourceExamIds || []);
     const entries = exams.filter((entry) => selected.has(entry.exam_id));
-    if (entries.length > 0) return entries;
+    if (entries.length > 0) return sortQuestionPracticeEntries(entries);
 
     if (state.selectedExamEntry && state.selectedExamEntry.exam_type === "full") {
-      return [state.selectedExamEntry];
+      return sortQuestionPracticeEntries([state.selectedExamEntry]);
     }
     return [];
   }
@@ -1538,9 +1553,14 @@
 
   function renderQuestionPaper(question) {
     const qn = Number(question.question_number);
-    const original = question.original_question_number && Number(question.original_question_number) !== qn
-      ? `<span class="source-q">원문항 ${escapeHtml(question.original_question_number)}번</span>`
+    const practiceSourceLabel = question.question_practice_source_label
+      ? `${String(question.question_practice_source_label).trim()}${String(question.question_practice_source_label).trim().endsWith("문항") ? "" : " 문항"}`
       : "";
+    const original = practiceSourceLabel
+      ? `<span class="source-q">${escapeHtml(practiceSourceLabel)}</span>`
+      : (question.original_question_number && Number(question.original_question_number) !== qn
+        ? `<span class="source-q">원문항 ${escapeHtml(question.original_question_number)}번</span>`
+        : "");
 
     const hasImages = Array.isArray(question.image_options) && question.image_options.length > 0;
     const optionsHtml = hasImages
