@@ -1148,7 +1148,10 @@
       : (state.generationMode === "random"
         ? Boolean(state.bank)
         : Boolean(state.selectedExamEntry));
-    $("startBtn").disabled = !hasExam;
+    const startBtn = $("startBtn");
+    if (startBtn) {
+      startBtn.disabled = !(state.isAuthenticated && hasExam);
+    }
   }
 
   function renderRoundList() {
@@ -1296,10 +1299,12 @@
     if (!pass) {
       $("authStatus").textContent = "인증 비밀번호를 입력하세요.";
       state.isAuthenticated = false;
+      updateStartButton();
       return;
     }
     state.isAuthenticated = true;
     $("authStatus").textContent = "인증되었습니다.";
+    updateStartButton();
   }
 
   function findItemByQuestionNumber(flatItems, questionNumber) {
@@ -2119,6 +2124,15 @@
 
   async function startExam() {
     try {
+      if (!state.isAuthenticated) {
+        const authStatus = $("authStatus");
+        if (authStatus) authStatus.textContent = "인증 후 시험을 시작할 수 있습니다.";
+        const authPassword = $("authPassword");
+        if (authPassword) authPassword.focus();
+        updateStartButton();
+        return;
+      }
+
       state.startedAt = new Date().toISOString();
       state.answers = {};
       state.currentScreenIndex = 0;
