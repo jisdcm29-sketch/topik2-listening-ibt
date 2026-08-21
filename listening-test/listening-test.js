@@ -53,10 +53,19 @@
     solveTimerId: null,
     autoAdvanceTimerId: null,
     screenTiming: null,
+    activeCountdown: null,
     flowRunId: 0,
     submitted: false,
     wrongReviewSourceResult: null,
     isQuestionPracticeMode: false,
+    questionPracticePause: {
+      paused: false,
+      pausedAt: 0,
+      phase: "",
+      remainingSeconds: null,
+      wasAudioPlaying: false,
+      audioUrl: ""
+    },
     questionPracticePanelExpanded: false,
     questionPractice: {
       enabled: false,
@@ -1412,11 +1421,14 @@
     $("waitBox").classList.toggle("active", phase === "wait");
     $("listenBox").classList.toggle("active", phase === "listen");
     $("solveBox").classList.toggle("active", phase === "solve");
+    if (state.screenTiming) state.screenTiming.phase = phase;
+    updateQuestionPracticePauseControl();
   }
 
-  function clearFlowTimers() {
+  function clearFlowTimers(options = {}) {
     window.clearInterval(state.solveTimerId);
     state.solveTimerId = null;
+    if (!options.preserveCountdown) state.activeCountdown = null;
     clearAutoAdvanceTimer();
   }
 
@@ -1427,6 +1439,7 @@
     const duration = Math.max(0, Number(seconds) || 0);
     const endAt = Date.now() + duration * 1000;
 
+    state.activeCountdown = { phase, endAt, onDone, runId };
     setPhaseActive(phase);
 
     const update = () => {
@@ -1436,6 +1449,10 @@
       }
 
       const remaining = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+
+      if (state.activeCountdown && state.activeCountdown.runId === runId) {
+        state.activeCountdown.endAt = endAt;
+      }
 
       if (phase === "wait") $("waitTime").textContent = formatClock(remaining);
       if (phase === "solve") $("solveTime").textContent = formatClock(remaining);
@@ -1448,6 +1465,128 @@
 
     update();
     state.solveTimerId = window.setInterval(update, 250);
+  }
+
+  function isQuestionPracticeExam() {
+    const exam = state.currentExam || {};
+    return Boolean(
+      state.isQuestionPracticeMode ||
+      exam.exam_type === "question-practice" ||
+      exam.generated_exam_mode === "question-practice"
+    );
+  }
+
+  function canUseQuestionPracticePause() {
+    return Boolean(isQuestionPracticeExam() && state.currentExam && !state.submitted);
+  }
+
+  function resetQuestionPracticePauseState(adjustExamClock = false) {
+    if (state.questionPracticePause && state.questionPracticePause.paused && adjustExamClock) {
+      const pausedMs = Date.now() - Number(state.questionPracticePause.pausedAt || Date.now());
+      if (Number.isFinite(pausedMs) && pausedMs > 0) state.examStartMs += pausedMs;
+    }
+
+    state.questionPracticePause = {
+      paused: false,
+      pausedAt: 0,
+      phase: "",
+      remainingSeconds: null,
+      wasAudioPlaying: false,
+      audioUrl: ""
+    };
+    updateQuestionPracticePauseControl();
+  }
+
+  function updateQuestionPracticePauseControl() {
+    const status = $("audioStatusLabel");
+    if (!status) return;
+
+    const enabled = canUseQuestionPracticePause();
+    status.classList.toggle("question-practice-pause-enabled", enabled);
+    status.style.cursor = enabled ? "pointer" : "";
+    status.setAttribute("role", enabled ? "button" : "status");
+    status.setAttribute("tabindex", enabled ? "0" : "-1");
+    status.title = enabled
+      ? "문항 선택 연습에서는 이 버튼으로 오디오와 타이머를 일시정지/재개할 수 있습니다."
+      : "";
+
+    if (state.questionPracticePause && state.questionPracticePause.paused) {
+      status.textContent = "다시 재생";
+      status.classList.remove("playing");
+    }
+  }
+
+  function pauseQuestionPracticeFlow() {
+    if (!canUseQuestionPracticePause() || state.questionPracticePause.paused) return;
+
+    const audio = audioController.getAudio();
+    const phase = state.screenTiming?.phase ||
+      ($("listenBox").classList.contains("active") ? "listen" :
+        ($("solveBox").classList.contains("active") ? "solve" : "wait"));
+    const activeCountdown = state.activeCountdown;
+    const remainingSeconds = activeCountdown && activeCountdown.runId === state.flowRunId
+      ? Math.max(0, Math.ceil((activeCountdown.endAt - Date.now()) / 1000))
+      : null;
+
+    state.questionPracticePause = {
+      paused: true,
+      pausedAt: Date.now(),
+      phase,
+      remainingSeconds,
+      wasAudioPlaying: !audio.paused && !audio.ended,
+      audioUrl: audioController.getCurrentUrl()
+    };
+
+    if (remainingSeconds !== null) {
+      clearFlowTimers({ preserveCountdown: true });
+    } else {
+      clearAutoAdvanceTimer();
+    }
+
+    audioController.pause();
+    window.clearInterval(state.remainTimerId);
+    state.remainTimerId = null;
+    updateQuestionPracticePauseControl();
+  }
+
+  function resumeQuestionPracticeFlow() {
+    if (!state.questionPracticePause.paused) return;
+
+    const pauseInfo = { ...state.questionPracticePause };
+    const pausedMs = Date.now() - Number(pauseInfo.pausedAt || Date.now());
+    if (Number.isFinite(pausedMs) && pausedMs > 0) state.examStartMs += pausedMs;
+
+    state.questionPracticePause.paused = false;
+    state.questionPracticePause.pausedAt = 0;
+    startRemainTimer();
+
+    if (pauseInfo.phase === "wait" || pauseInfo.phase === "solve") {
+      const countdown = state.activeCountdown;
+      if (countdown && countdown.runId === state.flowRunId && typeof countdown.onDone === "function") {
+        runCountdown(countdown.phase || pauseInfo.phase, pauseInfo.remainingSeconds ?? 0, countdown.onDone);
+      }
+    } else if (pauseInfo.phase === "listen" && pauseInfo.audioUrl) {
+      setPhaseActive("listen");
+      audioController.play(pauseInfo.audioUrl).catch((error) => {
+        const status = $("audioStatusLabel");
+        if (status) status.textContent = "자동 재생 대기";
+        console.warn("오디오 재개 대기:", error);
+      });
+    }
+
+    updateAudioUi();
+  }
+
+  function toggleQuestionPracticePause() {
+    if (!canUseQuestionPracticePause()) return;
+    if (state.questionPracticePause.paused) resumeQuestionPracticeFlow();
+    else pauseQuestionPracticeFlow();
+  }
+
+  function handleQuestionPracticePauseButton(event) {
+    if (!canUseQuestionPracticePause()) return;
+    event.preventDefault();
+    toggleQuestionPracticePause();
   }
 
   function startSolvePhaseAfterAudio() {
@@ -1627,6 +1766,11 @@
   }
 
   function renderCurrentScreen() {
+    if (state.questionPracticePause && state.questionPracticePause.paused) {
+      resetQuestionPracticePauseState(true);
+      if (!state.remainTimerId && state.currentExam && !state.submitted) startRemainTimer();
+    }
+
     const screen = state.screens[state.currentScreenIndex];
     if (!screen) return;
 
@@ -2476,8 +2620,12 @@
     const playing = !audio.paused && !audio.ended;
     const status = $("audioStatusLabel");
     if (status) {
-      if (playing) {
-        status.textContent = "재생 중";
+      const pauseEnabled = canUseQuestionPracticePause();
+      if (state.questionPracticePause && state.questionPracticePause.paused) {
+        status.textContent = "다시 재생";
+        status.classList.remove("playing");
+      } else if (playing) {
+        status.textContent = pauseEnabled ? "일시정지" : "재생 중";
         status.classList.add("playing");
       } else if (audio.ended) {
         status.textContent = "듣기 완료";
@@ -2486,12 +2634,13 @@
         status.textContent = "대기";
         status.classList.remove("playing");
       } else {
-        status.textContent = "자동 재생";
+        status.textContent = pauseEnabled ? "재생 준비" : "자동 재생";
         status.classList.remove("playing");
       }
     }
 
     if (playing) setPhaseActive("listen");
+    updateQuestionPracticePauseControl();
   }
 
   function bindAudioEvents() {
@@ -2509,6 +2658,16 @@
     if (volume) {
       volume.addEventListener("input", (event) => {
         audioController.setVolume(event.target.value);
+      });
+    }
+
+    const status = $("audioStatusLabel");
+    if (status) {
+      status.addEventListener("click", handleQuestionPracticePauseButton);
+      status.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          handleQuestionPracticePauseButton(event);
+        }
       });
     }
   }
